@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Creating Elements with D3</title>
+    <link rel="stylesheet" href="../css/mastering-d3.css">
+    <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+<style>
+    /* Create a style to distinguish the data-item div elements. */
+    .data-item {
+        border: solid 1px black;
+        margin: 4px;
+        padding: 4px;
+        background-color: #eeeeec;
+    }
+</style>
+
+<div class="content">
+
+    <h1>Creating DOM elements with D3</h1>
+
+    <h2>Using method chaining</h2>
+
+    <div class="chart-example" id="chart-1"></div>
+
+    <script>
+        // Create a simple array with three elements.
+        var data = ['a', 'b', 'c'];
+
+        // Select the container div element, create a selection for the inner
+        // divs. Bind the data and append the items on enter. Append a paragraph
+        // to each div and set the text attribute.
+        d3.select('#chart-1').selectAll('div.data-item')
+            .data(data)
+            .enter()
+            .append('div')
+            .attr('class', 'data-item')
+            .append('p')
+            .text(function(d) { return d; });
+    </script>
+
+    <h2>Using selection.call</h2>
+
+    <div class="chart-example" id="chart-2"></div>
+
+    <script>
+        // We can use selection.call to encapsulate the div content creation logic.
+        d3.select('#chart-2').selectAll('div.data-item')
+            .data(data)
+            .enter()
+            .append('div')
+            .call(function(selection) {
+                selection.each(function(data) {
+                    d3.select(this)
+                        .attr('class', 'data-item')
+                        .append('p')
+                        .text(data);
+                });
+            });
+    </script>
+
+    <h2>Defining the call argument function</h2>
+
+    <div class="chart-example" id="chart-3"></div>
+
+    <script>
+        // Initialization function
+        function initDiv(selection) {
+            selection.each(function(data) {
+                d3.select(this)
+                    .attr('class', 'data-item')
+                    .append('p')
+                    .text(data);
+            });
+        }
+
+        d3.select('#chart-3').selectAll('div.data-item')
+            .data(data)
+            .enter()
+            .append('div')
+            .call(initDiv);
+    </script>
+
+
+    <h2>Creating a SVG element</h2>
+
+    <div class="chart-example" id="chart-4"></div>
+
+    <script>
+
+        var width = 400,
+            height = 40;
+
+        // Initialization function
+        function initChart(selection) {
+            selection.each(function(data) {
+
+                var div = d3.select(this).attr('class', 'data-item'),
+                    svg = div.append('svg')
+                        .attr('width', width)
+                        .attr('height', height);
+
+                svg.append('rect')
+                    .attr('width', width)
+                    .attr('height', height)
+                    .attr('fill', 'grey');
+            });
+        }
+
+        d3.select('#chart-4').selectAll('div.data-item')
+            .data(data)
+            .enter()
+            .append('div')
+            .call(initChart);
+    </script>
+
+</div>
+
+</body>
+</html>
