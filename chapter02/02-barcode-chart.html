@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>The Barcode Chart</title>
+        <link rel="stylesheet" href="../css/mastering-d3.css">
+        <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
+
+        <style>
+            /* Create a style to distinguish the data-item div elements. */
+            .data-item {
+            border: solid 1px black;
+            margin: 4px;
+            padding: 4px;
+            background-color: #eeeeec;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="content">
+
+            <h1>The Barcode Chart</h1>
+
+            <h2>The Closure</h2>
+
+            <div class="chart-example" id="chart-01"></div>
+
+            <script>
+                var Barcode = function() {
+
+                    // Chart Variables in a private scope.
+                    var width = 400,
+                        height = 20;
+
+                    function chart(selection) {
+                        selection.each(function(data) {
+                            var div = d3.select(this),
+                                svg = div.selectAll('svg').data([data]);
+
+                            svg.enter()
+                                .append('svg')
+                                .attr('width', width)
+                                .attr('height', height)
+                                .append('rect')
+                                    .attr('width', width)
+                                    .attr('height', height)
+                                    .attr('fill', 'white');
+                        });
+                    }
+
+                    return chart;
+                };
+
+                var data = ['a', 'b', 'c'];
+
+                var barcode = Barcode();
+
+                d3.select('#chart-01').selectAll('div.data-item')
+                    .data(data)
+                    .enter()
+                    .append('div')
+                    .attr('class', 'data-item')
+                    .call(barcode);
+
+            </script>
+
+            <h2>The Accessors</h2>
+
+            <div class="chart-example" id="chart-02"></div>
+
+            <script>
+                var Barcode = function() {
+
+                    var width = 400,
+                        height = 20,
+                        margin = {top: 5, right: 5, bottom: 5, left: 5};
+
+                    function chart(selection) {
+                        selection.each(function(data) {
+
+                            var div = d3.select(this),
+                                svg = div.selectAll('svg').data([data]);
+
+                            svg.enter()
+                                .append('svg')
+                                .attr('width', width)
+                                .attr('height', height)
+                                .append('rect')
+                                    .attr('width', width)
+                                    .attr('height', height)
+                                    .attr('fill', 'white');
+                        });
+                    }
+
+                    chart.width = function(value) {
+                        if (!arguments.length) { return width; }
+                        width = value;
+                        return chart;
+                    };
+
+                    chart.height = function(value) {
+                        if (!arguments.length) { return height; }
+                        height = value;
+                        return chart;
+                    };
+
+                    chart.margin = function(value) {
+                        if (!arguments.length) { return margin; }
+                        margin = value;
+                        return chart;
+                    };
+
+                    return chart;
+                };
+            </script>
+
+            <script>
+                var data = ['a', 'b', 'c'];
+
+                var barcode = Barcode()
+                    .width(500)
+                    .height(30);
+
+                d3.select('#chart-02').selectAll('div.data-item')
+                    .data(data)
+                    .enter()
+                    .append('div')
+                    .attr('class', 'data-item')
+                    .call(barcode);
+            </script>
+
+            <h2>The SVG Initialization Method</h2>
+
+            <div class="chart-example" id="chart-03"></div>
+
+            <script>
+                var Barcode = function() {
+
+                    var width = 400,
+                        height = 24,
+                        margin = {top: 2, right: 2, bottom: 2, left: 2};
+
+                    function chart(selection) {
+                        selection.each(function(data) {
+
+                            var div = d3.select(this),
+                                svg = div.selectAll('svg')
+                                    .data([data]);
+
+                            svg.enter().append('svg')
+                                .call(chart.svgInit);
+                        });
+                    }
+
+                    chart.svgInit = function(svg) {
+
+                        svg
+                            .attr('width', width)
+                            .attr('height', height);
+
+                        var g = svg.append('g')
+                            .attr('class', 'chart-content')
+                            .attr('transform', 'translate(' + [margin.top, margin.left] + ')');
+
+                        g.append('rect')
+                            .attr('width', width - margin.left - margin.right)
+                            .attr('height', height - margin.top - margin.bottom)
+                            .attr('fill', 'white');
+                    };
+
+                    chart.width = function(value) {
+                        if (!arguments.length) { return width; }
+                        width = value;
+                        return chart;
+                    };
+
+                    chart.height = function(value) {
+                        if (!arguments.length) { return height; }
+                        height = value;
+                        return chart;
+                    };
+
+                    chart.margin = function(value) {
+                        if (!arguments.length) { return margin; }
+                        margin = value;
+                        return chart;
+                    };
+
+                    return chart;
+                };
+            </script>
+
+            <script>
+                var data = ['a', 'b', 'c'];
+
+                var barcode = Barcode();
+
+                d3.select('#chart-03').selectAll('div.data-item')
+                    .data(data)
+                    .enter()
+                    .append('div')
+                    .attr('class', 'data-item')
+                    .call(barcode);
+            </script>
+
+            <h2>Adding the bars</h2>
+
+            <div class="chart-example" id="chart-04"></div>
+
+            <script>
+                var Barcode = function() {
+
+                    var width = 400,
+                        height = 24,
+                        margin = {top: 2, right: 2, bottom: 2, left: 2};
+
+                    function chart(selection) {
+                        selection.each(function(data) {
+
+                            var div = d3.select(this),
+                                svg = div.selectAll('svg')
+                                    .data([data]);
+
+                            svg.enter().append('svg')
+                                .call(chart.svgInit);
+
+                            // Compute the horizontal scale
+                            var xScale = d3.time.scale()
+                                .domain(d3.extent(data, function(d) { return d.date; }))
+                                .range([0, width - margin.left - margin.right]);
+
+                            // Select the chart group
+                            var g = svg.select('g.chart-content');
+
+                            // Bind the data
+                            var bars = g.selectAll('line')
+                                .data(data, function(d) { return d.date; });
+
+                            // Create the bars on enter
+                            bars.enter()
+                                .append('line')
+                                .attr('x1', function(d) { return xScale(d.date); })
+                                .attr('x2', function(d) { return xScale(d.date); })
+                                .attr('y1', 0)
+                                .attr('y2', height - margin.top - margin.bottom)
+                                .attr('stroke', '#000')
+                                .attr('stroke-opacity', 0.5);
+                        });
+                    }
+
+                    chart.svgInit = function(svg) {
+
+                        svg
+                            .attr('width', width)
+                            .attr('height', height);
+
+                        var g = svg.append('g')
+                            .attr('class', 'chart-content')
+                            .attr('transform', 'translate(' + [margin.top, margin.left] + ')');
+
+                        g.append('rect')
+                            .attr('width', width - margin.left - margin.right)
+                            .attr('height', height - margin.top - margin.bottom)
+                            .attr('fill', 'white');
+                    };
+
+                    chart.width = function(value) {
+                        if (!arguments.length) { return width; }
+                        width = value;
+                        return chart;
+                    };
+
+                    chart.height = function(value) {
+                        if (!arguments.length) { return height; }
+                        height = value;
+                        return chart;
+                    };
+
+                    chart.margin = function(value) {
+                        if (!arguments.length) { return margin; }
+                        margin = value;
+                        return chart;
+                    };
+
+                    return chart;
+                };
+            </script>
+
+            <script>
+                function addData(data, numItems) {
+                    var lambda = 1 / (5 * 60 * 1000),
+                        n = data.length,
+                        t = (n > 0) ? data[n - 1].date : new Date(),
+                        T = 0;
+
+                    for (var k = 0; k < numItems; k += 1) {
+                        T = Math.floor(-Math.log(Math.random()) / lambda);
+                        t = new Date(t.getTime() + T);
+                        data.push({date: t});
+                    }
+
+                    return data;
+                }
+
+                var data = [addData([], 150)];
+
+                var barcode = Barcode()
+                    .width(650);
+
+                d3.select('#chart-04').selectAll('div.data-item')
+                    .data(data)
+                    .enter()
+                    .append('div')
+                    .attr('class', 'data-item')
+                    .call(barcode);
+            </script>
+
+
+            <h2>Setting the Date Accessor</h2>
+
+            <div class="chart-example" id="chart-05"></div>
+
+            <script>
+                var Barcode = function() {
+
+                    var width = 400,
+                        height = 24,
+                        margin = {top: 2, right: 2, bottom: 2, left: 2};
+
+                    var value = function(d) { return d.date; };
+
+                    function chart(selection) {
+                        selection.each(function(data) {
+
+                            var div = d3.select(this),
+                                svg = div.selectAll('svg')
+                                    .data([data]);
+
+                            svg.enter().append('svg')
+                                .call(chart.svgInit);
+
+                            // Compute the horizontal scale
+                            var xScale = d3.time.scale()
+                                .domain(d3.extent(data, value))
+                                .range([0, width - margin.left - margin.right]);
+
+                            // Select the chart group
+                            var g = svg.select('g.chart-content');
+
+                            // Bind the data
+                            var bars = g.selectAll('line')
+                                .data(data, value);
+
+                            // Create the bars on enter
+                            bars.enter()
+                                .append('line')
+                                .attr('x1', function(d) { return xScale(value(d)); })
+                                .attr('x2', function(d) { return xScale(value(d)); })
+                                .attr('y1', 0)
+                                .attr('y2', height - margin.top - margin.bottom)
+                                .attr('stroke', '#000')
+                                .attr('stroke-opacity', 0.5);
+                        });
+                    }
+
+                    chart.svgInit = function(svg) {
+
+                        svg
+                            .attr('width', width)
+                            .attr('height', height);
+
+                        var g = svg.append('g')
+                            .attr('class', 'chart-content')
+                            .attr('transform', 'translate(' + [margin.top, margin.left] + ')');
+
+                        g.append('rect')
+                            .attr('width', width - margin.left - margin.right)
+                            .attr('height', height - margin.top - margin.bottom)
+                            .attr('fill', 'white');
+                    };
+
+                    chart.width = function(value) {
+                        if (!arguments.length) { return width; }
+                        width = value;
+                        return chart;
+                    };
+
+                    chart.height = function(value) {
+                        if (!arguments.length) { return height; }
+                        height = value;
+                        return chart;
+                    };
+
+                    chart.margin = function(value) {
+                        if (!arguments.length) { return margin; }
+                        margin = value;
+                        return chart;
+                    };
+
+                    chart.value = function(accessorFunction) {
+                        if (!arguments.length) { return value; }
+                        value = accessorFunction;
+                        return chart;
+                    };
+
+                    return chart;
+                };
+            </script>
+
+            <script>
+
+                var barcode = Barcode()
+                    .width(650)
+                    .value(function(d) { return d.date; });
+
+                d3.select('#chart-05').selectAll('div.data-item')
+                    .data(data)
+                    .enter()
+                    .append('div')
+                    .attr('class', 'data-item')
+                    .call(barcode);
+            </script>
+
+            <h2>Fixing the Time Interval</h2>
+
+            <div class="chart-example" id="chart-06"></div>
+
+            <script>
+                var Barcode = function() {
+
+                    var width = 400,
+                        height = 24,
+                        margin = {top: 2, right: 2, bottom: 2, left: 2};
+
+                    var value = function(d) { return d.date; };
+
+                    var timeInterval = d3.time.day;
+
+                    function chart(selection) {
+                        selection.each(function(data) {
+
+                            var div = d3.select(this),
+                                svg = div.selectAll('svg')
+                                    .data([data]);
+
+                            svg.enter().append('svg')
+                                .call(chart.svgInit);
+
+                            var lastDate = d3.max(data, value),
+                                firstDate = timeInterval.offset(lastDate, -1);
+
+                            // Compute the horizontal scale
+                            var xScale = d3.time.scale()
+                                .domain([firstDate, lastDate])
+                                .range([0, width - margin.left - margin.right]);
+
+                            // Select the chart group
+                            var g = svg.select('g.chart-content');
+
+                            // Bind the data
+                            var bars = g.selectAll('line')
+                                .data(data, value);
+
+                            // Create the bars on enter
+                            bars.enter()
+                                .append('line')
+                                .attr('x1', function(d) { return xScale(value(d)); })
+                                .attr('x2', function(d) { return xScale(value(d)); })
+                                .attr('y1', 0)
+                                .attr('y2', height - margin.top - margin.bottom)
+                                .attr('stroke', '#000')
+                                .attr('stroke-opacity', 0.5);
+                        });
+                    }
+
+                    chart.svgInit = function(svg) {
+
+                        svg
+                            .attr('width', width)
+                            .attr('height', height);
+
+                        var g = svg.append('g')
+                            .attr('class', 'chart-content')
+                            .attr('transform', 'translate(' + [margin.top, margin.left] + ')');
+
+                        g.append('rect')
+                            .attr('width', width - margin.left - margin.right)
+                            .attr('height', height - margin.top - margin.bottom)
+                            .attr('fill', 'white');
+                    };
+
+                    chart.width = function(value) {
+                        if (!arguments.length) { return width; }
+                        width = value;
+                        return chart;
+                    };
+
+                    chart.height = function(value) {
+                        if (!arguments.length) { return height; }
+                        height = value;
+                        return chart;
+                    };
+
+                    chart.margin = function(value) {
+                        if (!arguments.length) { return margin; }
+                        margin = value;
+                        return chart;
+                    };
+
+                    chart.value = function(accessorFunction) {
+                        if (!arguments.length) { return value; }
+                        value = accessorFunction;
+                        return chart;
+                    };
+
+                    chart.timeInterval = function(value) {
+                        if (!arguments.length) { return timeInterval; }
+                        timeInterval = value;
+                        return chart;
+                    };
+
+                    return chart;
+                };
+            </script>
+
+            <script>
+
+                var barcode = Barcode()
+                    .width(650)
+                    .timeInterval(d3.time.day);
+
+                d3.select('#chart-06').selectAll('div.data-item')
+                    .data(data)
+                    .enter()
+                    .append('div')
+                    .attr('class', 'data-item')
+                    .call(barcode);
+            </script>
+
+    </div>
+  </body>
+
+</html>
