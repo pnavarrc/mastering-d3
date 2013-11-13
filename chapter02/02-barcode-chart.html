@@ -81,13 +81,13 @@
             <div class="chart-example" id="chart-01"></div>
 
             <script>
-                // Dataset
+                // The Dataset.
                 var data = ['a', 'b', 'c'];
 
                 // Invoke the Barcode function to get the charting function.
                 var barcode01 = Barcode();
 
-                // Create the selection, bind the data and call the chart
+                // Create the selection, bind the data and call the chart.
                 d3.select('#chart-01').selectAll('div.data-item')
                     .data(data)
                     .enter()
@@ -104,7 +104,7 @@
             <script>
                 var Barcode = function() {
 
-                    // Chart Variables
+                    // Chart Variables.
                     var width = 600,
                         height = 30,
                         margin = {top: 5, right: 5, bottom: 5, left: 5};
@@ -118,8 +118,7 @@
 
                             // Create the svg element on enter, and append a
                             // background rectangle to it.
-                            svg.enter()
-                                .append('svg')
+                            svg.enter().append('svg')
                                 .attr('width', width)
                                 .attr('height', height)
                                 .append('rect')
@@ -192,14 +191,12 @@
 
                     function chart(selection) {
                         selection.each(function(data) {
-
                             // Bind the dataset to the svg selection.
                             var div = d3.select(this),
                                 svg = div.selectAll('svg').data([data]);
 
                             // Call the chart.svgInit method on enter.
-                            svg.enter().append('svg')
-                                .call(chart.svgInit);
+                            svg.enter().append('svg').call(chart.svgInit);
                         });
                     }
 
@@ -299,7 +296,7 @@
                             var bars = g.selectAll('line')
                                 .data(data, function(d) { return d.date; });
 
-                            // Create the bars on enter and set its attributes.
+                            // Append the bars on enter and set its attributes.
                             bars.enter().append('line')
                                 .attr('x1', function(d) { return xScale(d.date); })
                                 .attr('x2', function(d) { return xScale(d.date); })
@@ -388,7 +385,7 @@
 
             <script>
                 //  Generate a random dataset with dates.
-                var data = addData([], 150, 5 * 60);
+                var data = addData([], 150, 300);
 
                 // Get the barcode chart
                 var barcode04 = Barcode();
@@ -491,7 +488,7 @@
                         return chart;
                     };
 
-                    // Date Accessor
+                    // Date Accessor Method
                     chart.value = function(accessorFunction) {
                         if (!arguments.length) { return value; }
                         value = accessorFunction;
@@ -858,7 +855,7 @@
                                 .attr('stroke', '#000')
                                 .attr('stroke-opacity', 0.5);
 
-                            // Update the scale with the new dataset
+                            // Update the scale with the new dataset.
                             lastDate = d3.max(data, value);
                             firstDate = timeInterval.offset(lastDate, -1);
                             xScale.domain([firstDate, lastDate]);
