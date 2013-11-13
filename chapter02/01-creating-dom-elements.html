@@ -3,6 +3,7 @@
 
     <head>
         <title>Creating Elements with D3</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/mastering-d3.css">
         <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
 
@@ -19,12 +20,21 @@
     </head>
 
     <body>
-        <div class="content">
+        <div class="container">
 
             <h1>Creating DOM elements with D3</h1>
 
-            <h2>Using method chaining</h2>
+            <h4>Table of Contents</h4>
 
+            <ul class="list-unstyled">
+                <li><a href="#method-chaining">Method Chaining</a></li>
+                <li><a href="#selection-call">Using selection.call</a></li>
+                <li><a href="#call-function">Defining the call argument function</a></li>
+                <li><a href="#svg">Creating a SVG element</a></li>
+            </ul>
+
+
+            <h2><a href="#method-chaining">#</a> Method Chaining</h2>
             <div class="chart-example" id="chart-01"></div>
 
             <script>
@@ -43,8 +53,7 @@
                     .text(function(d) { return d; });
             </script>
 
-            <h2>Using selection.call</h2>
-
+            <h2><a href="#selection-call">#</a> Using selection.call</h2>
             <div class="chart-example" id="chart-02"></div>
 
             <script>
@@ -63,7 +72,7 @@
                     });
             </script>
 
-            <h2>Defining the call argument function</h2>
+            <h2><a href="#call-function">#</a> Defining the call argument function</h2>
 
             <div class="chart-example" id="chart-03"></div>
 
@@ -85,8 +94,7 @@
                     .call(initDiv);
             </script>
 
-            <h2>Creating a SVG element</h2>
-
+            <h2><a href="#svg">#</a> Creating a SVG element</h2>
             <div class="chart-example" id="chart-04"></div>
 
             <script>
