@@ -29,10 +29,12 @@
             <ul class="list-unstyled">
                 <li><a href="#method-chaining">Method Chaining</a></li>
                 <li><a href="#selection-call">Using selection.call</a></li>
-                <li><a href="#call-function">Defining the call argument function</a></li>
-                <li><a href="#svg">Creating a SVG element</a></li>
+                <li><a href="#call-function">Defining the call Argument Function</a></li>
+                <li><a href="#svg">Creating a SVG Element</a></li>
             </ul>
 
+
+            <!-- Section: Method Chaining -->
 
             <h2><a href="#method-chaining">#</a> Method Chaining</h2>
             <div class="chart-example" id="chart-01"></div>
@@ -72,8 +74,9 @@
                     });
             </script>
 
-            <h2><a href="#call-function">#</a> Defining the call argument function</h2>
+            <!-- Section: Defining the Call Argument Function -->
 
+            <h2><a href="#call-function">#</a> Defining the call Argument Function</h2>
             <div class="chart-example" id="chart-03"></div>
 
             <script>
@@ -87,6 +90,7 @@
                     });
                 }
 
+                // Call the initDiv function on each div.data-item element.
                 d3.select('#chart-03').selectAll('div.data-item')
                     .data(data)
                     .enter()
@@ -94,11 +98,14 @@
                     .call(initDiv);
             </script>
 
-            <h2><a href="#svg">#</a> Creating a SVG element</h2>
+
+            <!-- Section: Creating a SVG Element -->
+
+            <h2><a href="#svg">#</a> Creating a SVG Element</h2>
             <div class="chart-example" id="chart-04"></div>
 
             <script>
-
+                // SVG Dimensions
                 var width = 400,
                     height = 40;
 
@@ -106,10 +113,12 @@
                 function chart(selection) {
                     selection.each(function(data) {
 
+                        // Bind the data to the svg selection.
                         var div = d3.select(this).attr('class', 'data-item'),
                             svg = div.selectAll('svg').data([data]),
                             svgEnter = svg.enter();
 
+                        // Create the svg element and the background rectangle.
                         svgEnter.append('svg')
                             .attr('width', width)
                             .attr('height', height)
@@ -120,6 +129,7 @@
                     });
                 }
 
+                // Use the chart function to append a SVG element in each div.
                 d3.select('#chart-04').selectAll('div.data-item')
                     .data(data)
                     .enter()
