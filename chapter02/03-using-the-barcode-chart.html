@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>Using the Barcode Chart</title>
+        <title>2.3 Using the Barcode Chart</title>
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/mastering-d3.css">
         <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
@@ -29,7 +29,7 @@
                     t = (n > 0) ? data[n - 1].date : new Date();
 
                 // Append items with increasing times in the data array.
-                for (var k = 0; k < numItems - 1; k += 1) {
+                for (var k = 0; k < numItems; k += 1) {
                     t = new Date(t.getTime() + randomInterval(avgSeconds));
                     data.push({date: t});
                 }
@@ -40,7 +40,8 @@
 
 
         <div class="container">
-            <h1>Using the Barcode Chart</h1>
+
+            <h2>2.3 Using the Barcode Chart</h2>
 
             <div class="chart-example" id="chart"></div>
             <script src="../js/barcode.js"></script>

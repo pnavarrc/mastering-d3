@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>Creating Elements with D3</title>
+        <title>2.1 Creating DOM Elements with D3</title>
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/mastering-d3.css">
         <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
@@ -22,21 +22,19 @@
     <body>
         <div class="container">
 
-            <h1>Creating DOM elements with D3</h1>
+            <h2>2.1 Creating DOM Elements with D3</h2>
 
-            <h4>Table of Contents</h4>
+            <h3>Contents</h3>
 
             <ul class="list-unstyled">
                 <li><a href="#method-chaining">Method Chaining</a></li>
-                <li><a href="#selection-call">Using selection.call</a></li>
-                <li><a href="#call-function">Defining the call Argument Function</a></li>
+                <li><a href="#selection-call">Using Selection.Call</a></li>
+                <li><a href="#call-function">Defining the Call Argument Function</a></li>
                 <li><a href="#svg">Creating a SVG Element</a></li>
             </ul>
 
 
-            <!-- Section: Method Chaining -->
-
-            <h2><a href="#method-chaining">#</a> Method Chaining</h2>
+            <h3><a href="#method-chaining" name="method-chaining">#</a> Method Chaining</h3>
             <div class="chart-example" id="chart-01"></div>
 
             <script>
@@ -50,12 +48,13 @@
                     .data(data)
                     .enter()
                     .append('div')
-                    .attr('class', 'data-item')
-                    .append('p')
-                    .text(function(d) { return d; });
+                        .attr('class', 'data-item')
+                        .append('p')
+                            .text(function(d) { return d; });
             </script>
 
-            <h2><a href="#selection-call">#</a> Using selection.call</h2>
+
+            <h3><a href="#selection-call" name="selection-call">#</a> Using Selection.Call</h3>
             <div class="chart-example" id="chart-02"></div>
 
             <script>
@@ -74,9 +73,8 @@
                     });
             </script>
 
-            <!-- Section: Defining the Call Argument Function -->
 
-            <h2><a href="#call-function">#</a> Defining the call Argument Function</h2>
+            <h3><a href="#call-function" name="call-function">#</a> Defining the Call Argument Function</h3>
             <div class="chart-example" id="chart-03"></div>
 
             <script>
@@ -99,9 +97,7 @@
             </script>
 
 
-            <!-- Section: Creating a SVG Element -->
-
-            <h2><a href="#svg">#</a> Creating a SVG Element</h2>
+            <h3><a href="#svg" name="svg">#</a> Creating a SVG Element</h3>
             <div class="chart-example" id="chart-04"></div>
 
             <script>

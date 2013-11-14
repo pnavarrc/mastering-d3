@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>The Barcode Chart</title>
+        <title>2.2 The Barcode Chart</title>
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/mastering-d3.css">
         <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
@@ -21,9 +21,9 @@
     <body>
         <div class="container">
 
-            <h1>The Barcode Chart</h1>
+            <h2>2.2 The Barcode Chart</h2>
 
-            <h4>Table of Contents</h4>
+            <h3>Contents</h3>
 
             <ul class="list-unstyled">
                 <li><a href="#closure">Creating the Private Scope</a></li>
@@ -37,9 +37,8 @@
                 <li><a href="#bars-remove">Removing the Bars</a></li>
             </ul>
 
-            <!-- Section: Creating a Private Scope -->
 
-            <h2><a href="#closure" name="closure">#</a> Creating the Private Scope</h2>
+            <h3><a href="#closure" name="closure">#</a> Creating the Private Scope</h3>
 
             <script>
                 // Barcode Chart
@@ -97,9 +96,7 @@
             </script>
 
 
-            <!-- Section: Adding Accessor Methods -->
-
-            <h2><a href="#accessors" name="accessors">#</a> Adding Accessor Methods</h2>
+            <h3><a href="#accessors" name="accessors">#</a> Adding Accessor Methods</h3>
 
             <script>
                 var Barcode = function() {
@@ -177,9 +174,7 @@
             </script>
 
 
-            <!-- Section: SVG Initialization Method -->
-
-            <h2><a href="#svg-init" name="svg-init">#</a> SVG Initialization</h2>
+            <h3><a href="#svg-init" name="svg-init">#</a> SVG Initialization</h3>
 
             <script>
                 var Barcode = function() {
@@ -262,9 +257,7 @@
             </script>
 
 
-            <!-- Section: Adding the Bars -->
-
-            <h2><a href="#adding-bars" name="adding-bars">#</a> Adding the Bars</h2>
+            <h3><a href="#adding-bars" name="adding-bars">#</a> Adding the Bars</h3>
 
             <script>
                 var Barcode = function() {
@@ -372,7 +365,7 @@
                         t = (n > 0) ? data[n - 1].date : new Date();
 
                     // Append items with increasing times in the data array.
-                    for (var k = 0; k < numItems - 1; k += 1) {
+                    for (var k = 0; k < numItems; k += 1) {
                         t = new Date(t.getTime() + randomInterval(avgSeconds));
                         data.push({date: t});
                     }
@@ -400,9 +393,7 @@
             </script>
 
 
-            <!-- Section: Adding the Date Accessor -->
-
-            <h2><a href="#date-accessor" name="date-accessor">#</a> Adding the Date Accessor</h2>
+            <h3><a href="#date-accessor" name="date-accessor">#</a> Setting the Date Accessor</h3>
 
             <script>
                 var Barcode = function() {
@@ -516,9 +507,7 @@
             </script>
 
 
-            <!-- Section: Fixing the Time Interval -->
-
-            <h2><a href="#time-interval" name="time-interval">#</a> Fixing the Time Interval</h2>
+            <h3><a href="#time-interval" name="time-interval">#</a> Fixing the Time Interval</h3>
 
             <script>
                 var Barcode = function() {
@@ -646,9 +635,8 @@
                     .call(barcode06);
             </script>
 
-            <!-- Section: Updating the Chart -->
 
-            <h2><a href="#bars-update" name="bars-update">#</a> Updating the Chart</h2>
+            <h3><a href="#bars-update" name="bars-update">#</a> Updating the Chart</h3>
 
             <script>
                 var Barcode = function() {
@@ -766,7 +754,7 @@
                 };
             </script>
 
-            <button id="btn-update-07" class="btn btn-default">Add data</button>
+            <button id="btn-update-07" class="btn btn-default btn-sm">Add data</button>
             <div class="chart-example" id="chart-07"></div>
 
             <script>
@@ -796,9 +784,7 @@
             </script>
 
 
-            <!-- Section: Fixing the Transition -->
-
-            <h2><a href="#transition" name="transition">#</a> Fixing the Transition</h2>
+            <h3><a href="#transition" name="transition">#</a> Fixing the Transition</h3>
 
             <script>
                 var Barcode = function() {
@@ -928,7 +914,7 @@
                 };
             </script>
 
-            <button id="btn-update-08"  class="btn btn-default">Add data</button>
+            <button id="btn-update-08"  class="btn btn-default btn-sm">Add data</button>
             <div class="chart-example" id="chart-08"></div>
 
             <script>
@@ -959,9 +945,7 @@
             </script>
 
 
-            <!-- Section: Removing the Bars -->
-
-            <h2><a href="#bars-remove" name="bars-remove">#</a> Removing the Bars</h2>
+            <h3><a href="#bars-remove" name="bars-remove">#</a> Removing the Bars</h3>
 
             <script>
                 var Barcode = function() {
@@ -1097,8 +1081,8 @@
                 };
             </script>
 
-            <button id="btn-update-09" class="btn btn-default">Add data</button>
-            <button id="btn-remove-09" class="btn btn-default">Remove data</button>
+            <button id="btn-update-09" class="btn btn-default btn-sm">Add data</button>
+            <button id="btn-remove-09" class="btn btn-default btn-sm">Remove data</button>
             <div class="chart-example" id="chart-09"></div>
 
             <script>
