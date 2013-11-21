@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>3.2 Visualizing with Divs</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/mastering-d3.css">
+        <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h2>3.2 Visualizing with Divs</h2>
+
+            <h3><a href="#json">#</a> Loading the JSON Data</h3>
+
+            <script>
+                // Load and parses the JSON file asynchronously.
+                d3.json('../data/svg.json', function(error, data) {
+
+                    // Handle errors getting the data.
+                    if (error) {
+                        console.error('Error getting or parsing the JSON data.');
+                        return error;
+                    }
+
+                    // Visualization code here.
+                    console.log('Data loaded.');
+
+                });
+            </script>
+
+
+            <h3><a href="#grouping">#</a> Grouping the Data</h3>
+
+            <script>
+                // Load and parses the JSON file asynchronously.
+                d3.json('../data/svg.json', function(error, data) {
+
+                    // Handle errors getting the data.
+                    if (error) {
+                        console.error('Error getting or parsing the JSON data.');
+                        return error;
+                    }
+
+                    // Group the data by name
+                    var groupedByBrowser = d3.nest()
+                        .key(function(d) { return d.name })
+                        .entries(data.values);
+
+                    console.log(groupedByBrowser);
+                });
+            </script>
+
+
+            <h3><a href="#rows">#</a> Creating the Rows</h3>
+            <div class="chart-example" id="chart-01"></div>
+
+            <script>
+                // Load and parses the JSON file asynchronously.
+                d3.json('../data/svg.json', function(error, data) {
+
+                    // Handle errors getting the data.
+                    if (error) { return error; }
+
+                    // Group the data by name
+                    var groupedByBrowser = d3.nest()
+                        .key(function(d) { return d.name })
+                        .entries(data.values);
+
+                    // Create a color scale with the default range.
+                    var colorScale = d3.scale.category10()
+                        .domain(groupedByBrowser.map(function(d) { return d.key; }));
+
+                    // Bind the grouped data to a selection with the divs.
+                    var browserDiv = d3.select('#chart-01').selectAll('div')
+                        .data(groupedByBrowser)
+                        .enter()
+                        .append('div');
+
+                    // Append a paragraph with the browser name.
+                    browserDiv.append('p')
+                        .style('color', function(d) { return colorScale(d.key); })
+                        .text(function(d) { return d.key; });
+
+                });
+            </script>
+
+
+            <h3><a href="#rows">#</a> Layout</h3>
+            <div class="chart-example" id="chart-02" style="float: left;"></div>
+
+            <style>
+                .browser-name {
+                    float: left;
+                    width: 200px;
+                    font-size: 12px;
+                    text-align: right;
+                }
+
+                .browser-data {
+                    float: left;
+                    width: 400px;
+                }
+
+                .version-item {
+                    float: right;
+                    margin: 1px;
+                    padding: 1px;
+                    height: 30px;
+                    font-size: 8px;
+                    color: white;
+                }
+
+            </style>
+
+            <script>
+                // Load and parses the JSON file asynchronously.
+                d3.json('../data/svg.json', function(error, data) {
+
+                    // Handle errors getting the data.
+                    if (error) { return error; }
+
+                    // Group the data by name
+                    var groupedByBrowser = d3.nest()
+                        .key(function(d) { return d.name })
+                        .sortValues(function(a, b) { return a.version > b.version ? -1 : 1; })
+                        .entries(data.values);
+
+                    // Create a color scale with the default range.
+                    var colorScale = d3.scale.category10()
+                        .domain(groupedByBrowser.map(function(d) { return d.key; }));
+
+                    // Bind the grouped data to a selection with the divs.
+                    var browserDiv = d3.select('#chart-02').selectAll('div')
+                        .data(groupedByBrowser)
+                        .enter()
+                        .append('div');
+
+                    var widthScale = d3.scale.linear()
+                        .domain([0.05, 100])
+                        .range([10, 1200]);
+
+                    // Append a paragraph with the browser name.
+                    browserDiv.append('div')
+                        .attr('class', 'browser-name')
+                        .text(function(d) { return d.key; });
+
+                    var dataDiv = browserDiv.append('div')
+                        .attr('class', 'browser-data');
+
+                    var versionDiv = dataDiv.selectAll('div.version-item')
+                        .data(function(d) { return d.values; })
+                        .enter()
+                        .append('div')
+                        .attr('class', 'version-item')
+                        .style('width', function(d) { return widthScale(d.usage) + 'px'; })
+                        .style('background-color', function(d) { return colorScale(d.name); });
+
+                    versionDiv.append('p')
+                        .text(function(d) {
+                            return d.version;
+                        });
+
+                    versionDiv.append('p')
+                        .text(function(d) { return d.usage.toFixed(1) + '%'; })
+
+
+
+                });
+            </script>
+
+        </div>
+
+        <div style="heigth: 100px;"></div>
+
+    </body>
+</html>

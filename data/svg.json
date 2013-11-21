@@ -1,0 +1,261 @@
+{
+  "name": "SVG Support",
+  "values": [
+    {
+      "name": "Internet Explorer",
+      "version": 8,
+      "platform": "desktop",
+      "usage": 8.31,
+      "support": "false",
+      "current": "false"
+    },
+    {
+      "name": "Internet Explorer",
+      "version": 9,
+      "platform": "desktop",
+      "usage": 5.21,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Internet Explorer",
+      "version": 10,
+      "platform": "desktop",
+      "usage": 10.79,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Internet Explorer",
+      "version": 11,
+      "platform": "desktop",
+      "usage": 0.11,
+      "support": "true",
+      "current": "true"
+    },
+    {
+      "name": "Firefox",
+      "version": 23,
+      "platform": "desktop",
+      "usage": 0.91,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Firefox",
+      "version": 24,
+      "platform": "desktop",
+      "usage": 11.03,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Firefox",
+      "version": 25,
+      "platform": "desktop",
+      "usage": 0.53,
+      "support": "true",
+      "current": "true"
+    },
+    {
+      "name": "Firefox",
+      "version": 26,
+      "platform": "desktop",
+      "usage": 0.02,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Firefox",
+      "version": 27,
+      "platform": "desktop",
+      "usage": 0.02,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Chrome",
+      "version": 29,
+      "platform": "desktop",
+      "usage": 5.08,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Chrome",
+      "version": 30,
+      "platform": "desktop",
+      "usage": 24.61,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Chrome",
+      "version": 31,
+      "platform": "desktop",
+      "usage": 0.16,
+      "support": "true",
+      "current": "true"
+    },
+    {
+      "name": "Chrome",
+      "version": 32,
+      "platform": "desktop",
+      "usage": 0.06,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Safari",
+      "version": 5.1,
+      "platform": "desktop",
+      "usage": 1.28,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Safari",
+      "version": 6,
+      "platform": "desktop",
+      "usage": 2.05,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Safari",
+      "version": 7,
+      "platform": "desktop",
+      "usage": 0.16,
+      "support": "true",
+      "current": "true"
+    },
+    {
+      "name": "Opera",
+      "version": 17,
+      "platform": "desktop",
+      "usage": 0.16,
+      "support": "true",
+      "current": "true"
+    },
+    {
+      "name": "iOS Safari",
+      "version": 4.0,
+      "platform": "mobile",
+      "usage": 0.01,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "iOS Safari",
+      "version": 4.2,
+      "platform": "mobile",
+      "usage": 0.03,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "iOS Safari",
+      "version": 5.0,
+      "platform": "mobile",
+      "usage": 0.28,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "iOS Safari",
+      "version": 6.0,
+      "platform": "mobile",
+      "usage": 1.16,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "iOS Safari",
+      "version": 7.0,
+      "platform": "mobile",
+      "usage": 2.52,
+      "support": "true",
+      "current": "true"
+    },
+    {
+      "name": "Opera Mini",
+      "version": 7.0,
+      "platform": "mobile",
+      "usage": 4.58,
+      "support": "true",
+      "current": "true"
+    },
+    {
+      "name": "Android Browser",
+      "version": 2.1,
+      "platform": "mobile",
+      "usage": 0.03,
+      "support": "false",
+      "current": "false"
+    },
+    {
+      "name": "Android Browser",
+      "version": 2.2,
+      "platform": "mobile",
+      "usage": 0.09,
+      "support": "false",
+      "current": "false"
+    },
+    {
+      "name": "Android Browser",
+      "version": 2.3,
+      "platform": "mobile",
+      "usage": 1.32,
+      "support": "false",
+      "current": "false"
+    },
+    {
+      "name": "Android Browser",
+      "version": 3.0,
+      "platform": "mobile",
+      "usage": 0.01,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Android Browser",
+      "version": 4.0,
+      "platform": "mobile",
+      "usage": 0.99,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Android Browser",
+      "version": 4.1,
+      "platform": "mobile",
+      "usage": 1.87,
+      "support": "true",
+      "current": "false"
+    },
+    {
+      "name": "Android Browser",
+      "version": 4.3,
+      "platform": "mobile",
+      "usage": 0.74,
+      "support": "true",
+      "current": "true"
+    },
+    {
+      "name": "Blackberry Browser",
+      "version": 7,
+      "platform": "mobile",
+      "usage": 0.14,
+      "support": "true",
+      "current": "true"
+    },
+    {
+      "name": "Internet Explorer Mobile",
+      "version": 10,
+      "platform": "mobile",
+      "usage": 0.21,
+      "support": "true",
+      "current": "true"
+    }
+  ]
+}

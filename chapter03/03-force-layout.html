@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>3.3 Force Layout</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/mastering-d3.css">
+        <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
+    </head>
+
+    <style>
+        .item {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            border: solid 1px black;
+        }
+
+        #chart {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: #eeeeec;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <body>
+        <div class="container">
+
+            <h2>3.3 Force Layout</h2>
+
+            <h3><a href="#legend">#</a> Adding a Legend</h3>
+
+            <script>
+                d3.json('../data/svg.json', function(error, root) {
+
+                    if (error) { return error; }
+
+                    var data = root.children;
+
+                    var browsers = d3.nest()
+                        .key(function(d) { return d.name; })
+                        .entries(data);
+
+                    console.log(browsers);
+
+                });
+            </script>
+
+
+            <h3><a href="#bubbles">#</a> Square Bubbles</h3>
+            <style>
+                .square-bubble {
+                    margin: 4px;
+                    padding: 4px;
+                    text-align: center;
+                }
+
+                #chart-01 {
+                    width: 600px;
+                }
+            </style>
+
+            <div class="chart-example" id="chart-01"></div>
+            <div style="clear: left;"></div>
+
+            <script>
+                d3.json('../data/svg.json', function(error, root) {
+
+                    // Handle errors getting or parsing the JSON file.
+                    if (error) { return error; }
+
+                    var data = root.children;
+
+                    data.sort(function(a, b) { return a.usage < b.usage ? -1 : 1; });
+
+                    // Chart Variables
+                    var radiusExtent = [0, 100];
+
+                    // Compute a scale for the radius. The area of the circle
+                    // must be proportional to the quantitative variable, in
+                    // this case, browser usage.
+                    var radiusScale = d3.scale.sqrt()
+                        .domain([0, d3.max(data, function(d) { return d.usage; })])
+                        .range(radiusExtent);
+
+                    var fontScale = d3.scale.quantize()
+                        .domain(radiusExtent)
+                        .range([10, 18]);
+
+                    // Create one div per item, binding the browser usage data.
+                    var divItem = d3.select('#chart-01').selectAll('div')
+                        .data(data)
+                        .enter()
+                        .append('div')
+                        .attr('class', 'square-bubble')
+                        .style('width', function(d) { return radiusScale(d.usage) + 'px'; })
+                        .style('height', function(d) { return radiusScale(d.usage) + 'px'; })
+                        .style('background-color', '#a40000');
+
+                    divItem.append('p')
+                        .style('color', 'white')
+                        .style('font-size', function(d) { return fontScale(radiusScale(d.usage)) + 'px';})
+                        .text(function(d) { return (d.usage > 2) ? (d.usage.toFixed(1) + '%') : ''; });
+
+                });
+            </script>
+
+
+            <div class="chart-example" id="chart" style="height: 600px; width: 600px;"></div>
+
+            <script>
+                d3.json('../data/svg.json', function(error, root) {
+
+                    // Handle errors getting or parsing the JSON file.
+                    if (error) { return error; }
+
+                    // Sort by usage, increasing
+                    root.children.sort(function(a, b) {
+                        return a.usage > b.usage ? -1 : 1;
+                    });
+
+                    // Visualization Settings
+                    var diameter = 600,
+                        padding = 5,
+                        radiusExtent = [10, 100];
+
+                    var nodes = root.children;
+
+                    var rScale = d3.scale.sqrt()
+                        .domain(d3.extent(nodes, function(d) { return d.usage; }))
+                        .range(radiusExtent);
+
+                    var force = d3.layout.force()
+                        .nodes(nodes)
+                        .links([])
+                        .charge(function(d) { return -10 * rScale(d.usage); })
+                        .gravity(0.08)
+                        .size([diameter, diameter]);
+
+                    force.nodes().forEach(function(d) {
+                        d.r = rScale(d.usage);
+                    });
+
+                    var items = d3.select('#chart').selectAll('div.item')
+                        .data(nodes.filter(function(d) { return !d.children; }))
+                        .enter()
+                        .append('div')
+                            .attr('class', 'item')
+                            .style('width',  function(d) { return 2 * d.r + 'px'; })
+                            .style('height', function(d) { return 2 * d.r + 'px'; })
+                            .style('top',    function(d) { return (d.y - d.r) + 'px'; })
+                            .style('left',   function(d) { return (d.x - d.r) + 'px'; })
+                            .style('border-radius', function(d) { return d.r + 'px'; })
+                            .style('background-color', function(d) {
+                                return d.support === "true" ? '#00a400' : '#a40000';
+                            });
+
+                    items.append('p')
+                        .style('text-align', 'center')
+                        .style('font-size', function(d) {
+                            return 6 + Math.floor(d.r / 10) + 'px';
+                        })
+                        .style('color', 'black')
+                        .text(function(d) { return d.name + ' '  + d.version + ' ' + d.usage + '%'; });
+
+                    force.on("tick", function(e) {
+
+                        // Push nodes toward their designated focus.
+                        var k = .1 * e.alpha;
+                        nodes.forEach(function(o, i) {
+                            o.y += (diameter / 2 - o.y) * k;
+                            o.x += (diameter / 2 - o.x) * k;
+                        });
+
+                        d3.select('#chart').selectAll("div.item")
+                            .style("left", function(d) { return (d.x - rScale(d.usage))+ 'px'; })
+                            .style("top", function(d) { return (d.y - rScale(d.usage)) + 'px'; });
+                    });
+
+                    force.start();
+
+
+
+                });
+            </script>
+
+        </div>
+    </body>
+</html>
