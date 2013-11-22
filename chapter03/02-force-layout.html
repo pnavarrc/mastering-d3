@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>3.2 Visualizing SVG Support</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/mastering-d3.css">
+        <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
+        <script src="../js/lib/modernizr-latest.js" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h2>3.2 Visualizing SVG Support</h2>
+
+            <h3><a href="#data">#</a> Loading and Sorting the Data</h3>
+
+            <script>
+                // Load the data asynchronously
+                d3.json('../data/svg.json', function(error, data) {
+
+                    // Handle errors getting or parsing the JSON data.
+                    if (error) {
+                        console.error('Error accessing or parsing the JSON file.');
+                        return error;
+                    }
+
+                    // Get the items and sort them by usage
+                    var items = data.values;
+                    items.sort(function(a, b) { return a.usage < b.usage ? -1 : 1; });
+                });
+            </script>
+
+
+            <h3><a href="#color">#</a> Colorbrewer</h3>
+
+            <style>
+                #colorbrewer {
+                    float: left;
+                    width: 600px;
+                }
+
+                .color-item {
+                    float: left;
+                    width: 55px;
+                    height: 10px;
+                    margin: 2px;
+                }
+            </style>
+
+            <!-- Container for the color sampler -->
+            <div class="chart-example" id="colorbrewer"></div>
+            <div style="clear: left;"></div>
+
+            <script>
+                // Create the color scale.
+                var cScale = d3.scale.category10()
+                    .domain(d3.range(10));
+
+                // Append a div for each color
+                d3.select('#colorbrewer').selectAll('div.color-item')
+                    .data(d3.range(10))
+                    .enter()
+                    .append('div')
+                    .attr('class', 'color-item')
+                    .style('background-color', function(d) {
+                        return cScale(d);
+                    });
+            </script>
+
+
+            <h3><a href="#color-scale">#</a> Color Scale</h3>
+
+            <!-- Container for the colored browser names -->
+            <div class="chart-example" id="browser-color"></div>
+
+            <script>
+                // Load the data asynchronously
+                d3.json('../data/svg.json', function(error, data) {
+
+                    // Handle errors getting or parsing the JSON data.
+                    if (error) { return error; }
+
+                    // Get the items and sort them by usage
+                    var items = data.values;
+                    items.sort(function(a, b) { return a.usage < b.usage ? -1 : 1; });
+
+                    // Get the browser name for each item
+                    var browsers = items.map(function(d) { return d.name; });
+
+                    // Create a set of browser names
+                    var browserNames = d3.set(browsers).values();
+
+                    // Create the color scale with the default range
+                    var colorScale = d3.scale.category10()
+                        .domain(browserNames);
+
+                    // append a span element with each browser name and coloring
+                    // the span with the corresponding color.
+                    d3.select('#browser-color').selectAll('span')
+                        .data(browserNames)
+                        .enter()
+                        .append('span')
+                        .style('color', function(d) { return colorScale(d); })
+                        .text(function(d) { return d + ' '; });
+                });
+            </script>
+
+
+        </div>
+    </body>
+</html>
