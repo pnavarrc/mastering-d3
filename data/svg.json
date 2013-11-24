@@ -187,25 +187,9 @@
     },
     {
       "name": "Android Browser",
-      "version": 2.1,
-      "platform": "mobile",
-      "usage": 0.03,
-      "support": "false",
-      "current": "false"
-    },
-    {
-      "name": "Android Browser",
-      "version": 2.2,
-      "platform": "mobile",
-      "usage": 0.09,
-      "support": "false",
-      "current": "false"
-    },
-    {
-      "name": "Android Browser",
       "version": 2.3,
       "platform": "mobile",
-      "usage": 1.32,
+      "usage": 1.44,
       "support": "false",
       "current": "false"
     },
