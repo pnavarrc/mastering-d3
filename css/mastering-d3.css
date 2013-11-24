@@ -5,11 +5,16 @@
     padding-left: 25px;
 }
 
+.footer {
+    height: 100px;
+}
+
 /* Examples */
 
 .chart-example {
     margin: 20px;
-    border: solid 1px #eeeeec;
+    padding: 10px;
+    border: solid 1px #babdb6;
 }
 
 
