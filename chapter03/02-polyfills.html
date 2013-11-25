@@ -19,8 +19,10 @@
 
             <ul class="list-unstyled toc-list">
                 <li><a href="#svg-detection">Detecting SVG Support</a></li>
+                <li><a href="#canvas">Canvas Example</a></li>
                 <li><a href="#readings">Further Reading</a></li>
             </ul>
+
 
             <!-- Section: Detecting SVG Support -->
             <section>
@@ -41,12 +43,52 @@
                 </script>
             </section>
 
+
+            <!-- Section: Canvas Example -->
+            <section>
+                <h2><a href="#canvas" name="canvas">#</a> Canvas Example</h2>
+
+                <!-- Container for the Canvas Example -->
+                <div class="chart-example" id='canvas-demo'></div>
+
+                <script>
+                    // Graphic properties
+                    var width = 600,
+                        height = 60,
+                        margin = 15,
+                        barWidth = (width - 2 * margin) / 10,
+                        barHeight = height - 2 * margin;
+
+                    // Append a canvas element, set its size and get the node.
+                    var canvas = d3.select('#canvas-demo').append('canvas')
+                        .attr('width',  width + 'px')
+                        .attr('height', height + 'px')
+                        .node();
+
+                    // Create a color scale.
+                    var cScale = d3.scale.linear()
+                        .domain([0, 9])
+                        .range(['#5c3566', '#edd400']);
+
+                    // Get the rendering context.
+                    var context = canvas.getContext('2d');
+
+                    // Set the fill color and render ten rectangles.
+                    for (var k = 0; k < 10; k += 1) {
+                        // Set the fill color.
+                        context.fillStyle = cScale(k).toString();
+                        context.fillRect(margin + k * barWidth, margin, barWidth, barHeight);
+                    }
+                </script>
+            </section>
+
             <section>
                 <h2><a href="#readings" name="readings">#</a> Further Reading</h2>
 
                 <ul>
                     <li><a href="http://diveintohtml5.info/">Dive into HTML5</a></li>
                     <li><a href="http://modernizr.com/docs/">Modernizr</a></li>
+                    <li><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">HTML5 Cross Browser Polyfills</a></li>
                 </ul>
             </section>
 
