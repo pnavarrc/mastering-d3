@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>3.3 Canvas and D3</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/mastering-d3.css">
+        <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>3.3 Canvas and D3</h1>
+
+            <!-- Table of Contents -->
+            <h2>Contents</h2>
+
+            <ul class="list-unstyled toc-list">
+                <li><a href="#canvas">Canvas Example</a></li>
+            </ul>
+
+
+            <!-- Section: Canvas Example -->
+            <section>
+                <h2><a href="#canvas" name="canvas">#</a> Canvas Example</h2>
+
+                <!-- Container for the Canvas Example -->
+                <div class="chart-example">
+                    <canvas id="canvas-demo" width="600px" height="60px"></canvas>
+                </div>
+
+                <script>
+                    // Graphic properties
+                    var margin = 15,
+                        barWidth = 57,
+                        barHeight = 30;
+
+                    // Append a canvas element, set its size and get the node.
+                    var canvas = document.getElementById('canvas-demo');
+
+                    // Get the rendering context.
+                    var context = canvas.getContext('2d');
+
+                    // Array with colors, to have one rectangle of each color.
+                    var color = ['#5c3566', '#6c475b', '#7c584f', '#8c6a44', '#9c7c39',
+                                 '#ad8d2d', '#bd9f22', '#cdb117', '#ddc20b', '#edd400'];
+
+                    // Set the fill color and render ten rectangles.
+                    for (var k = 0; k < 10; k += 1) {
+                        // Set the fill color.
+                        context.fillStyle = color[k];
+                        context.fillRect(margin + k * barWidth, margin, barWidth, barHeight);
+                    }
+                </script>
+            </section>
+
+
+            <!-- Section: Force Layout and Canvas -->
+            <section>
+                <h2><a href="#force" name="force">#</a> Force Layout</h2>
+
+                <!-- Container for Canvas -->
+                <div class="chart-example" id="canvas-force"></div>
+
+                <script>
+
+                    // Create the Network Dataset
+                    var data = {
+                        nodes: [
+                            {radius: 10, name: 'A'},
+                            {radius: 20, name: 'B'},
+                            {radius: 10, name: 'C'},
+                            {radius: 10, name: 'D'},
+                            {radius: 20, name: 'E'},
+                            {radius: 10, name: 'F'},
+                            {radius: 20, name: 'G'},
+                            {radius: 10, name: 'H'},
+                            {radius: 10, name: 'I'}
+                        ],
+                        links: [
+                            {source: 0, target: 1, dist: 30},
+                            {source: 1, target: 2, dist: 50},
+                            {source: 1, target: 2, dist: 50},
+                            {source: 1, target: 3, dist: 30},
+                            {source: 3, target: 5, dist: 50},
+                            {source: 6, target: 7, dist: 30},
+                            {source: 7, target: 8, dist: 50}
+                        ]
+                    };
+
+                    // Figure width and height
+                    var width = 600,
+                        height = 400;
+
+                    // Create and configure the force layout
+                    var force = d3.layout.force()
+                        .size([width, height])
+                        .nodes(data.nodes)
+                        .charge(function(d) { return -1.0 * d.radius * d.radius; })
+                        .linkDistance(function(d) { return d.dist; })
+                        .links(data.links)
+                        .start();
+
+                    // Create a canvas element and set its size.
+                    var canvas = d3.select('div#canvas-force').append('canvas')
+                        .attr('width', width + 'px')
+                        .attr('height', height + 'px')
+                        .node();
+
+                    // Get the canvas context.
+                    var context = canvas.getContext('2d');
+
+                    var cScale = d3.scale.category10()
+                        .domain([0, 9]);
+
+                    force.on('tick', function() {
+                        // Clear the complete figure.
+                        context.clearRect(0, 0, width, height);
+
+                        // Draw the links
+                        data.links.forEach(function(d) {
+                            // Draw a line from source to target
+                            context.beginPath();
+                            context.moveTo(d.source.x, d.source.y);
+                            context.lineTo(d.target.x, d.target.y);
+                            context.stroke();
+                        });
+
+                        // Draw the nodes
+                        data.nodes.forEach(function(d, i) {
+                            // Draws a complete arc for each node.
+                            context.beginPath();
+                            context.fillStyle = cScale(i).toString();
+                            context.arc(d.x, d.y, d.radius, 0, 2 * Math.PI, true);
+                            context.fill();
+                        });
+                    });
+                </script>
+            </section>
+
+        </div>
+    </body>
+</html>
