@@ -18,12 +18,36 @@
             <h2>Contents</h2>
 
             <ul class="list-unstyled toc-list">
-                <li><a href="#detecting-svg">Detecting SVG Support</a></li>
+                <li><a href="#svg-detection">Detecting SVG Support</a></li>
+                <li><a href="#readings">Further Reading</a></li>
             </ul>
 
             <!-- Section: Detecting SVG Support -->
             <section>
-                <h2><a href="#detectin-svg" name="detectin-svg">#</a> Detecting SVG Support</h2>
+                <h2><a href="#svg-detection" name="svg-detection">#</a> Detecting SVG Support</h2>
+
+                <div id="svg-support"></div>
+
+                <script>
+                    if (Modernizr.svg) {
+                        d3.select('#svg-support')
+                            .attr('class', 'alert alert-success')
+                            .text('Your browser has SVG support.');
+                    } else {
+                        d3.select('#svg-support')
+                            .attr('class', 'alert alert-danger')
+                            .text('SVG support unavailable.');
+                    }
+                </script>
+            </section>
+
+            <section>
+                <h2><a href="#readings" name="readings">#</a> Further Reading</h2>
+
+                <ul>
+                    <li><a href="http://diveintohtml5.info/">Dive into HTML5</a></li>
+                    <li><a href="http://modernizr.com/docs/">Modernizr</a></li>
+                </ul>
             </section>
 
         </div>
