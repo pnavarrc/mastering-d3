@@ -18,6 +18,8 @@
 
             <ul class="list-unstyled toc-list">
                 <li><a href="#canvas">Canvas Example</a></li>
+                <li><a href="#shapes">Creating Basic Shapes</a></li>
+                <li><a href="#force">Force Layout with Canvas</a></li>
             </ul>
 
 
@@ -54,16 +56,40 @@
                 </script>
             </section>
 
+            <!-- Section: Canvas Example -->
+            <section>
+                <h2><a href="#shapes" name="shapes">#</a> Creating Basic Shapes</h2>
+
+                <!-- Container for the Canvas Example -->
+                <div class="chart-example">
+                    <canvas id="canvas-shape" width="650px" height="60px"></canvas>
+                </div>
+
+                <script>
+                    // Append a canvas element, set its size and get the node.
+                    var canvas = document.getElementById('canvas-shape');
+
+                    // Get the rendering context.
+                    var context = canvas.getContext('2d');
+
+                    // Create a red semicircle.
+                    context.beginPath();
+                    context.fillStyle = '#ff0000';
+                    context.moveTo(325, 30);
+                    context.arc(325, 30, 20, Math.PI / 2, 3 * Math.PI / 2);
+                    context.fill();
+                </script>
+            </section>
+
 
             <!-- Section: Force Layout and Canvas -->
             <section>
-                <h2><a href="#force" name="force">#</a> Force Layout</h2>
+                <h2><a href="#force" name="force">#</a> Force Layout with Canvas</h2>
 
                 <!-- Container for Canvas -->
                 <div class="chart-example" id="canvas-force"></div>
 
                 <script>
-
                     // Number of Nodes
                     var nNodes = 250;
 
@@ -134,12 +160,14 @@
                         data.nodes.forEach(function(d, i) {
                             // Draws a complete arc for each node.
                             context.beginPath();
-                            context.arc(d.x, d.y, d.radius, 0, 2 * Math.PI, true);
+                            context.arc(d.x, d.y, d.radius, 0, 2 * Math.PI);
                             context.fill();
                         });
                     });
                 </script>
             </section>
+
+            <div style="height: 100px;"></div>
 
         </div>
     </body>

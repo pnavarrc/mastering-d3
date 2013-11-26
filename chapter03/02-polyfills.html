@@ -7,6 +7,11 @@
         <link rel="stylesheet" href="../css/mastering-d3.css">
         <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
         <script src="../js/lib/modernizr-latest.js" charset="utf-8"></script>
+
+        <!-- Canvg Libraries -->
+        <script src="../js/lib/canvg/rgbcolor.js"></script>
+        <script src="../js/lib/canvg/StackBlur.js"></script>
+        <script src="../js/lib/canvg/canvg.js"></script>
     </head>
 
     <body>
@@ -19,8 +24,7 @@
 
             <ul class="list-unstyled toc-list">
                 <li><a href="#svg-detection">Detecting SVG Support</a></li>
-                <li><a href="#canvas">Canvas Example</a></li>
-                <li><a href="#readings">Further Reading</a></li>
+                <li><a href="#using-canvg">Using Canvg</a></li>
             </ul>
 
 
@@ -44,17 +48,68 @@
             </section>
 
 
-
-
+            <!-- Section: Detecting SVG Support -->
             <section>
-                <h2><a href="#readings" name="readings">#</a> Further Reading</h2>
+                <h2><a href="#using-canvg" name="using-canvg">#</a> Using Canvg</h2>
 
-                <ul>
-                    <li><a href="http://diveintohtml5.info/">Dive into HTML5</a></li>
-                    <li><a href="http://modernizr.com/docs/">Modernizr</a></li>
-                    <li><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">HTML5 Cross Browser Polyfills</a></li>
-                </ul>
+                <div id="canvg-demo"></div>
+
+                <script>
+                    // Set the width and height of the figure.
+                    var width = 600,
+                        height = 300;
+
+                    // Select the container div and append the SVG element.
+                    var containerDiv = d3.select('#canvg-demo'),
+                        svg = containerDiv.append('svg')
+                            .attr('width', width)
+                            .attr('height', height);
+
+                    // Generate data for the position and size of the rectangles.
+                    var data = [];
+                    for (var k = 0; k < 60; k += 1) {
+                        for (var j = 0; j < 30; j += 1) {
+                            data.push({
+                                x: 5 + 10 * k,
+                                y: 5 + 10 * j,
+                                z: (k - 50) +  (20 - j)
+                            });
+                        }
+                    }
+
+                    // Create a radius scale using the z attribute.
+                    var rScale = d3.scale.sqrt()
+                        .domain(d3.extent(data, function(d) { return d.z; }))
+                        .range([3, 5]);
+
+                    // Create a linear color scale using the z attribute.
+                    var cScale = d3.scale.linear()
+                        .domain(d3.extent(data, function(d) { return d.z; }))
+                        .range(['#204a87', '#cc0000']);
+
+                    // Select the circle elements, bind the dataset and append
+                    // the circles on enter.
+                    svg.selectAll('circle')
+                        .data(data)
+                        .enter()
+                        .append('circle')
+                        .attr('cx', function(d) { return d.x; })
+                        .attr('cy', function(d) { return d.y; })
+                        .attr('r', function(d) { return rScale(d.z); })
+                        .attr('fill', function(d) { return cScale(d.z); })
+                        .attr('fill-opacity', 0.9)
+                        .on('click', function(d) {
+                            d3.select(this).attr('fill', '#0000aa');
+                        });
+
+                    // Replace all the SVG elements by canvas drawings.
+                    canvg();
+                </script>
             </section>
+
+
+
+            <div style="height: 100px;"></div>
 
         </div>
     </body>
