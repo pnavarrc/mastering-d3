@@ -1,0 +1,215 @@
+{
+  "name": "Browser Market",
+  "values": [
+    {
+      "name": "Internet Explorer",
+      "version": 8,
+      "platform": "desktop",
+      "usage": 8.31,
+      "current": "false"
+    },
+    {
+      "name": "Internet Explorer",
+      "version": 9,
+      "platform": "desktop",
+      "usage": 5.21,
+      "current": "false"
+    },
+    {
+      "name": "Internet Explorer",
+      "version": 10,
+      "platform": "desktop",
+      "usage": 10.79,
+      "current": "false"
+    },
+    {
+      "name": "Internet Explorer",
+      "version": 11,
+      "platform": "desktop",
+      "usage": 0.11,
+      "current": "true"
+    },
+    {
+      "name": "Firefox",
+      "version": 23,
+      "platform": "desktop",
+      "usage": 0.91,
+      "current": "false"
+    },
+    {
+      "name": "Firefox",
+      "version": 24,
+      "platform": "desktop",
+      "usage": 11.03,
+      "current": "false"
+    },
+    {
+      "name": "Firefox",
+      "version": 25,
+      "platform": "desktop",
+      "usage": 0.53,
+      "current": "true"
+    },
+    {
+      "name": "Firefox",
+      "version": 26,
+      "platform": "desktop",
+      "usage": 0.02,
+      "current": "false"
+    },
+    {
+      "name": "Firefox",
+      "version": 27,
+      "platform": "desktop",
+      "usage": 0.02,
+      "current": "false"
+    },
+    {
+      "name": "Chrome",
+      "version": 29,
+      "platform": "desktop",
+      "usage": 5.08,
+      "current": "false"
+    },
+    {
+      "name": "Chrome",
+      "version": 30,
+      "platform": "desktop",
+      "usage": 24.61,
+      "current": "false"
+    },
+    {
+      "name": "Chrome",
+      "version": 31,
+      "platform": "desktop",
+      "usage": 0.16,
+      "current": "true"
+    },
+    {
+      "name": "Chrome",
+      "version": 32,
+      "platform": "desktop",
+      "usage": 0.06,
+      "current": "false"
+    },
+    {
+      "name": "Safari",
+      "version": 5.1,
+      "platform": "desktop",
+      "usage": 1.28,
+      "current": "false"
+    },
+    {
+      "name": "Safari",
+      "version": 6,
+      "platform": "desktop",
+      "usage": 2.05,
+      "current": "false"
+    },
+    {
+      "name": "Safari",
+      "version": 7,
+      "platform": "desktop",
+      "usage": 0.16,
+      "current": "true"
+    },
+    {
+      "name": "Opera",
+      "version": 17,
+      "platform": "desktop",
+      "usage": 0.16,
+      "current": "true"
+    },
+    {
+      "name": "iOS Safari",
+      "version": 4.0,
+      "platform": "mobile",
+      "usage": 0.01,
+      "current": "false"
+    },
+    {
+      "name": "iOS Safari",
+      "version": 4.2,
+      "platform": "mobile",
+      "usage": 0.03,
+      "current": "false"
+    },
+    {
+      "name": "iOS Safari",
+      "version": 5.0,
+      "platform": "mobile",
+      "usage": 0.28,
+      "current": "false"
+    },
+    {
+      "name": "iOS Safari",
+      "version": 6.0,
+      "platform": "mobile",
+      "usage": 1.16,
+      "current": "false"
+    },
+    {
+      "name": "iOS Safari",
+      "version": 7.0,
+      "platform": "mobile",
+      "usage": 2.52,
+      "current": "true"
+    },
+    {
+      "name": "Opera Mini",
+      "version": 7.0,
+      "platform": "mobile",
+      "usage": 4.58,
+      "current": "true"
+    },
+    {
+      "name": "Android Browser",
+      "version": 2.3,
+      "platform": "mobile",
+      "usage": 1.44,
+      "current": "false"
+    },
+    {
+      "name": "Android Browser",
+      "version": 3.0,
+      "platform": "mobile",
+      "usage": 0.01,
+      "current": "false"
+    },
+    {
+      "name": "Android Browser",
+      "version": 4.0,
+      "platform": "mobile",
+      "usage": 0.99,
+      "current": "false"
+    },
+    {
+      "name": "Android Browser",
+      "version": 4.1,
+      "platform": "mobile",
+      "usage": 1.87,
+      "current": "false"
+    },
+    {
+      "name": "Android Browser",
+      "version": 4.3,
+      "platform": "mobile",
+      "usage": 0.74,
+      "current": "true"
+    },
+    {
+      "name": "Blackberry Browser",
+      "version": 7,
+      "platform": "mobile",
+      "usage": 0.14,
+      "current": "true"
+    },
+    {
+      "name": "Internet Explorer Mobile",
+      "version": 10,
+      "platform": "mobile",
+      "usage": 0.21,
+      "current": "true"
+    }
+  ]
+}
