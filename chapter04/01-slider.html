@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>4.1 Slider</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/mastering-d3.css">
+        <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>4.1 Slider</h1>
+
+            <!-- Table of Contents -->
+            <h2>Contents</h2>
+
+            <ul class="list-unstyled toc-list">
+                <li><a href="#drag">Drag Behavior</a></li>
+            </ul>
+
+            <!-- Section: Drag behavior -->
+            <section>
+                <h2><a href="#drag" name="drag">#</a> Drag Behavior</h2>
+            </section>
+
+            <div class="chart-example" id="chart01"></div>
+
+            <script>
+                // Width and height of the figure.
+                var width = 600,
+                    height = 250;
+
+                // Create a svg container.
+                var svg = d3.select('#chart01').append('svg')
+                    .attr('width', width)
+                    .attr('height', height);
+
+                // Create and configure a drag behavior.
+                var drag = d3.behavior.drag()
+                    .on('drag', dragListener);
+
+                // Append a dragable circle. The cursor will change its shape
+                // on mouse over, so the user knows that the circle can be dragged.
+                var circle = svg.append('circle')
+                    .attr('cx', width / 2)
+                    .attr('cy', height / 2)
+                    .attr('r', 30)
+                    .attr('fill', 'teal')
+                    .on('mouseover', function() {
+                        d3.select(this).style('cursor', 'move');
+                    })
+                    .on('mouseout', function() {
+                        d3.select(this).style('cursor', 'default');
+                    })
+                    .call(drag);
+
+                // Moves the circle following the pointer
+                function dragListener(d) {
+                    // Get the current position of the circle
+                    var cx = +d3.select(this).attr('cx'),
+                        cy = +d3.select(this).attr('cy');
+
+                    // Set the new position of the circle
+                    d3.select(this)
+                        .attr('cx', cx + d3.event.dx)
+                        .attr('cy', cy + d3.event.dy);
+                }
+            </script>
+
+        </div>
+    </body>
+</html>
