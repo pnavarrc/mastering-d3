@@ -18,56 +18,280 @@
 
             <ul class="list-unstyled toc-list">
                 <li><a href="#drag">Drag Behavior</a></li>
+                <li><a href="#slider">Creating a Slider</a></li>
+                <li><a href="#using">Using the Slider</a></li>
             </ul>
 
-            <!-- Section: Drag behavior -->
+
             <section>
-                <h2><a href="#drag" name="drag">#</a> Drag Behavior</h2>
+                <h2><a href="#drag" name="drag">#</a> Example of Drag Behavior</h2>
+
+                <div class="chart-example" id="chart01"></div>
+
+                <script>
+                    // Width and height of the figure.
+                    var width = 600,
+                        height = 250;
+
+                    // Create a svg container.
+                    var svg = d3.select('#chart01').append('svg')
+                        .attr('width', width)
+                        .attr('height', height);
+
+                    // Create and configure a drag behavior.
+                    var drag = d3.behavior.drag()
+                        .on('drag', dragListener);
+
+                    // Append a dragable circle. The cursor will change its shape
+                    // on mouse over, so the user knows that the circle can be dragged.
+                    var circle = svg.append('circle')
+                        .attr('cx', width / 2)
+                        .attr('cy', height / 2)
+                        .attr('r', 30)
+                        .attr('fill', '#555')
+                        .on('mouseover', function() {
+                            // Change the cursor to 'move'
+                            d3.select(this).style('cursor', 'move');
+                        })
+                        .on('mouseout', function() {
+                            // Change back the cursor to 'default'
+                            d3.select(this).style('cursor', 'default');
+                        })
+                        .call(drag);
+
+                    // Moves the circle following the pointer
+                    function dragListener(d) {
+                        // Get the current position of the circle
+                        var cx = +d3.select(this).attr('cx'),
+                            cy = +d3.select(this).attr('cy');
+
+                        // Set the new position of the circle
+                        d3.select(this)
+                            .attr('cx', cx + d3.event.dx)
+                            .attr('cy', cy + d3.event.dy);
+                    }
+                </script>
             </section>
 
-            <div class="chart-example" id="chart01"></div>
 
-            <script>
-                // Width and height of the figure.
-                var width = 600,
-                    height = 250;
+            <section>
+                <h2><a href="#slider" name="slider">#</a> Creating a Slider</h2>
 
-                // Create a svg container.
-                var svg = d3.select('#chart01').append('svg')
-                    .attr('width', width)
-                    .attr('height', height);
+                <!-- Container of the chart -->
+                <div class="chart-example" id="chart02"></div>
 
-                // Create and configure a drag behavior.
-                var drag = d3.behavior.drag()
-                    .on('drag', dragListener);
+                <script>
 
-                // Append a dragable circle. The cursor will change its shape
-                // on mouse over, so the user knows that the circle can be dragged.
-                var circle = svg.append('circle')
-                    .attr('cx', width / 2)
-                    .attr('cy', height / 2)
-                    .attr('r', 30)
-                    .attr('fill', 'teal')
-                    .on('mouseover', function() {
-                        d3.select(this).style('cursor', 'move');
-                    })
-                    .on('mouseout', function() {
-                        d3.select(this).style('cursor', 'default');
-                    })
-                    .call(drag);
+                    // Slider Control
+                    // --------------
 
-                // Moves the circle following the pointer
-                function dragListener(d) {
-                    // Get the current position of the circle
-                    var cx = +d3.select(this).attr('cx'),
-                        cy = +d3.select(this).attr('cy');
+                    function sliderControl() {
 
-                    // Set the new position of the circle
-                    d3.select(this)
-                        .attr('cx', cx + d3.event.dx)
-                        .attr('cy', cy + d3.event.dy);
-                }
-            </script>
+                        // Slider width and height.
+                        var width = 600,
+                            height = 60;
+
+                        // Default domain of values.
+                        var domain = [0, 100];
+
+                        // Default scale.
+                        var pScale = d3.scale.linear()
+                            .domain(domain)
+                            .range([0, width]);
+
+                        // Default slider callback
+                        var onSlide = function(selection) { };
+
+                        // Charting function
+                        function chart(selection) {
+                            selection.each(function(data) {
+
+                                // Select the container group.
+                                var group = d3.select(this);
+
+                                // Add a line covering the complete width.
+                                group.selectAll('line')
+                                    .data([data])
+                                    .enter()
+                                    .append('line')
+                                    .call(chart.initLine)
+
+                                // Append a circle as handler.
+                                var handler = group.selectAll('circle')
+                                    .data([data])
+                                    .enter()
+                                    .append('circle')
+                                    .call(chart.initHandle);
+
+                                // Set the domain
+                                pScale.domain(domain);
+
+                                var drag = d3.behavior.drag()
+                                    .on('drag', moveHandler);
+
+                                // Correct the position of the handler to use the data.
+                                handler
+                                    .attr('cx', function(d) { return pScale(d); })
+                                    .call(drag);
+
+                                function moveHandler(d) {
+                                    // Compute the future position of the handler
+                                    var cx = +d3.select(this).attr('cx') + d3.event.dx;
+
+                                    // Update the position if its within its valid range.
+                                    if ((0 < cx) && (cx < width)) {
+                                        // Compute the new value and rebind the data
+                                        d3.select(this)
+                                            .data([pScale.invert(cx)])
+                                            .attr('cx', cx)
+                                            .call(onSlide);
+                                    }
+                                }
+
+                            });
+                        }
+
+                        chart.initLine = function(selection) {
+                            selection
+                                .attr('x1', 0)
+                                .attr('y1', height / 2)
+                                .attr('x2', width)
+                                .attr('y2', height / 2)
+                                .attr('stroke', '#555')
+                                .attr('stroke-width', 6)
+                                .attr('stroke-linecap', 'round');
+                        };
+
+                        //
+                        chart.initHandle = function(selection) {
+                            selection
+                                .attr('cx', function(d) { return width / 2; })
+                                .attr('cy', function(d) { return height / 2; })
+                                .attr('r', 10)
+                                .attr('fill', '#aaa')
+                                .attr('stroke', '#222')
+                                .attr('stroke-width', 2)
+                                .on('mouseover', function() {
+                                    d3.select(this).style('cursor', 'ew-resize');
+                                })
+                                .on('mouseout', function() {
+                                    d3.select(this).style('cursor', 'default');
+                                });
+                        }
+
+                        // Accessor Methods
+
+                        // Width
+                        chart.width = function(value) {
+                            if (!arguments.length) { return width; }
+                            width = value;
+                            return chart;
+                        };
+
+                        // Height
+                        chart.height = function(value) {
+                            if (!arguments.length) { return height; }
+                            height = value;
+                            return chart;
+                        };
+
+                        // Domain
+                        chart.domain = function(value) {
+                            if (!arguments.length) { return domain; }
+                            domain = value;
+                            return chart;
+                        };
+
+                        // Slide callback function
+                        chart.onSlide = function(onSlideFunction) {
+                            if (!arguments.length) { return onSlide; }
+                            onSlide = onSlideFunction;
+                            return chart;
+                        };
+
+                        return chart;
+                    }
+
+                    var width = 640,
+                        height = 60,
+                        margin = 20;
+
+                    var svg = d3.select('#chart02').append('svg')
+                        .attr('width', width)
+                        .attr('height', height);
+
+                    // Create and configure the slider control.
+                    var slider = sliderControl()
+                        .domain([0, 100])
+                        .onSlide(function(selection) {
+                            selection.each(function(d) {
+                                console.log('T = ' + d);
+                            });
+                        });
+
+                    var gslider = svg.selectAll('g')
+                        .data([70])
+                        .enter()
+                        .append('g')
+                        .attr('transform', 'translate(' + [margin, 0] + ')')
+                        .call(slider);
+
+                </script>
+
+            </section>
+
+
+            <section>
+                <h2><a href="#using" name="using">#</a> Using the Slider</h2>
+
+                <div class="chart-example" id="chart03"></div>
+
+                <script>
+                    // Chart Settings
+                    var width = 640,
+                        height = 60,
+                        margin = 20;
+
+                    // Initial value
+                    var value = 35;
+
+                    // Create the svg element
+                    var svg = d3.select('#chart03').append('svg')
+                        .attr('width', width)
+                        .attr('height', height);
+
+                    // Create a color scale with the same range that the slider
+                    var cScale = d3.scale.linear()
+                        .domain([0, 100])
+                        .range(['#edd400', '#a40000']);
+
+                    // Add a background to the svg element.
+                    var background = svg.append('rect')
+                        .attr('width', width)
+                        .attr('height', height)
+                        .attr('fill', cScale(value));
+
+                    // Create and configure the slider control.
+                    var slider = sliderControl()
+                        .domain([0, 100])
+                        .onSlide(function(selection) {
+                            selection.each(function(d) {
+                                background.attr('fill', cScale(d));
+                            });
+                        });
+
+                    // Create a group to hold the slider and add the slider to it.
+                    var gslider = svg.selectAll('g')
+                        .data([value])
+                        .enter()
+                        .append('g')
+                        .attr('transform', 'translate(' + [margin, 0] + ')')
+                        .call(slider);
+                </script>
+
+            </section>
+
+
 
         </div>
     </body>
