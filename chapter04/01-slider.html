@@ -171,13 +171,6 @@
                             return chart;
                         };
 
-                        // Height
-                        chart.height = function(value) {
-                            if (!arguments.length) { return height; }
-                            height = value;
-                            return chart;
-                        };
-
                         // Domain
                         chart.domain = function(value) {
                             if (!arguments.length) { return domain; }
@@ -196,34 +189,34 @@
                     }
 
                     // Figure properties.
-                    var width = 640,
+                    var width = 600,
                         height = 60,
                         margin = 20;
+
+                    // Create the svg element and set its dimensions.
+                    var svg = d3.select('#chart02').append('svg')
+                        .attr('width', width + 2 * margin)
+                        .attr('height', height + 2 * margin);
 
                     // Valid range and initial value.
                     var value = 70,
                         domain = [0, 100];
 
-                    // Create the svg element and set its dimensions.
-                    var svg = d3.select('#chart02').append('svg')
-                        .attr('width', width)
-                        .attr('height', height);
-
                     // Create and configure the slider control.
                     var slider = sliderControl()
-                        .width(width - 2 * margin)
+                        .width(width)
                         .domain(domain);
 
                     // Set a simple callback for the slide event.
                     slider.onSlide(function(selection) {
                         selection.each(function(d) {
-                            console.log('T = ' + d);
+                            console.log('value = ' + d);
                         });
                     });
 
                     // Create a container for the slider and translate it
                     // to align it vertically.
-                    var gslider = svg.selectAll('g')
+                    var gSlider = svg.selectAll('g')
                         .data([value])
                         .enter()
                         .append('g')
@@ -240,9 +233,9 @@
 
                 <script>
                     // Chart Settings
-                    var width = 640,
-                        height = 60,
-                        margin = 20;
+                    var width = 600,
+                        height = 40,
+                        margin = 15;
 
                     // Initial value
                     var domain = [0, 100],
@@ -250,8 +243,8 @@
 
                     // Create the svg element
                     var svg = d3.select('#chart03').append('svg')
-                        .attr('width', width)
-                        .attr('height', height);
+                        .attr('width', width + 2 * margin)
+                        .attr('height', height + 3 * margin);
 
                     // Create a color scale with the same range that the slider
                     var cScale = d3.scale.linear()
@@ -259,7 +252,9 @@
                         .range(['#edd400', '#a40000']);
 
                     // Add a background to the svg element.
-                    var background = svg.append('rect')
+                    var rectangle = svg.append('rect')
+                        .attr('x', margin)
+                        .attr('y', 2 * margin)
                         .attr('width', width)
                         .attr('height', height)
                         .attr('fill', cScale(value));
@@ -267,18 +262,19 @@
                     // Create and configure the slider control.
                     var slider = sliderControl()
                         .domain(domain)
+                        .width(width)
                         .onSlide(function(selection) {
                             selection.each(function(d) {
-                                background.attr('fill', cScale(d));
+                                rectangle.attr('fill', cScale(d));
                             });
                         });
 
                     // Create a group to hold the slider and add the slider to it.
-                    var gslider = svg.selectAll('g')
+                    var gSlider = svg.selectAll('g')
                         .data([value])
                         .enter()
                         .append('g')
-                        .attr('transform', 'translate(' + [margin, height / 2] + ')')
+                        .attr('transform', 'translate(' + [margin, margin] + ')')
                         .call(slider);
                 </script>
 
