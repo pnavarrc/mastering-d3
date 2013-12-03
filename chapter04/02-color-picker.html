@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>4.2 Creating a Color Picker</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/mastering-d3.css">
+        <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
+        <script src="../js/slider.js" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>4.2 Creating a Color Picker</h1>
+
+            <!-- Table of Contents -->
+            <h2>Contents</h2>
+
+            <ul class="list-unstyled toc-list">
+                <li><a href="picker">Color Picker</a></li>
+                <li><a href="picker">Adding the Color Picker div</a></li>
+            </ul>
+
+
+            <section>
+                <h2><a href="#picker" name="picker">#</a> Color Picker</h2>
+
+                <!-- Color Picker Container -->
+                <div class="chart-example" id="chart01"></div>
+
+                <script>
+                    function labColorPicker1() {
+
+                        // Color Picker Attributes
+                        var width = 30,
+                            height = 10;
+
+                        // Default color coordinates
+                        var color = d3.lab(100, 0, 0);
+
+                        function chart(selection) {
+                            selection.each(function() {
+
+                                // Create the container group and the rectangle selection.
+                                var group = d3.select(this),
+                                    rect = group.selectAll('rect');
+
+                                // Bind the rectangle to the color item and set its
+                                // initial attributes.
+                                rect.data([chart.color()])
+                                    .enter()
+                                    .append('rect')
+                                    .attr('width', width)
+                                    .attr('height', height)
+                                    .attr('fill', function(d) { return d; })
+                                    .attr('stroke', '#222')
+                                    .attr('stroke-width', 1);
+                            });
+                        }
+
+                        // Accessor Methods
+
+                        // Color
+                        chart.color = function(value) {
+                            if (!arguments.length) { return color; }
+                            color = d3.lab(value);
+                            return chart;
+                        };
+
+                        return chart;
+                    }
+                </script>
+
+                <script>
+                    var width = 600,
+                        height = 60;
+
+                    var svg = d3.select('#chart01').append('svg')
+                        .attr('width', width)
+                        .attr('height', height);
+
+                    // Create the color picker
+                    var picker = labColorPicker1()
+                        .color('#a40000');
+
+                    // Create a group for the color picker and translate it.
+                    var grp = svg.append('g')
+                        .attr('transform', 'translate(30, 30)')
+                        .call(picker);
+
+                </script>
+            </section>
+
+            <section>
+                <h2><a href="#window" name="window">#</a> Adding the Color Picker div</h2>
+
+                <div class="chart-example" id="chart02"></div>
+
+                <script>
+                    function labColorPicker() {
+
+                        // Color Picker Attributes
+                        var width = 30,
+                            height = 10;
+
+                        // Default color coordinates
+                        var color = d3.lab(100, 0, 0);
+
+                        function chart(selection) {
+                            selection.each(function() {
+
+                                // Create the container group and the rectangle selection.
+                                var group = d3.select(this),
+                                    rect = group.selectAll('rect');
+
+                                // Bind the rectangle to the color item and set its
+                                // initial attributes.
+                                rect.data([chart.color()])
+                                    .enter()
+                                    .append('rect')
+                                    .attr('width', width)
+                                    .attr('height', height)
+                                    .attr('fill', function(d) { return d; })
+                                    .attr('stroke', '#222')
+                                    .attr('stroke-width', 1)
+                                    .on('click', chart.onClick);
+                            });
+                        }
+
+                        chart.onClick = function(d) {
+                            // Select the color picker div and bind the data.
+                            var div = d3.select('body')
+                                .selectAll('div.color-picker')
+                                .data([d]);
+
+                            // Get the coordinates of the rect relative to the document.
+                            var clientRect = d3.select(this).node()
+                                .getBoundingClientRect();
+
+                            if (div.empty()) {
+                                // Create the container div, if it doesn't exist.
+                                div.enter().append('div')
+                                    .attr('class', 'color-picker')
+                                    .style('position', 'absolute')
+                                    .style('left',  (clientRect.left + width + 10) + 'px')
+                                    .style('top', clientRect.top + 'px')
+                                    .style('width', '100px')
+                                    .style('height', '100px')
+                                    .style('background-color', '#eee')
+                                    .style('border', 'solid 1px #555');
+                            } else {
+                                // Remove the color picker div, if it exists.
+                                d3.select('body').selectAll('div.color-picker').remove();
+                            }
+                        };
+
+                        // Accessor Methods
+
+                        // Color
+                        chart.color = function(value) {
+                            if (!arguments.length) { return color; }
+                            color = d3.lab(value);
+                            return chart;
+                        };
+
+                        return chart;
+                    }
+                </script>
+
+                <script>
+                    var width = 600,
+                        height = 60;
+
+                    var svg = d3.select('#chart02').append('svg')
+                        .attr('width', width)
+                        .attr('height', height);
+
+                    // Create the color picker
+                    var picker = labColorPicker()
+                        .color('#a40000');
+
+                    // Create a group for the color picker and translate it.
+                    var grp = svg.append('g')
+                        .attr('transform', 'translate(30, 30)')
+                        .call(picker);
+
+                </script>
+            </section>
+
+        </div>
+
+        <div style="height: 150px;"></div>
+    </body>
+</html>

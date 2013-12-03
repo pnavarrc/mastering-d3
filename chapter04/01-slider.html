@@ -24,7 +24,7 @@
 
 
             <section>
-                <h2><a href="#drag" name="drag">#</a> Example of Drag Behavior</h2>
+                <h2><a href="#drag" name="drag">#</a> Drag Behavior</h2>
 
                 <div class="chart-example" id="chart01"></div>
 
@@ -113,7 +113,7 @@
                                     .call(chart.initHandle);
 
                                 // Set the position scale.
-                                var pScale = d3.scale.linear()
+                                var posScale = d3.scale.linear()
                                     .domain(domain)
                                     .range([0, width]);
 
@@ -123,7 +123,7 @@
 
                                 // Set the position of the circle and adds the drag behavior.
                                 handler
-                                    .attr('cx', function(d) { return pScale(d); })
+                                    .attr('cx', function(d) { return posScale(d); })
                                     .call(drag);
 
                                 function moveHandler(d) {
@@ -134,7 +134,7 @@
                                     if ((0 < cx) && (cx < width)) {
                                         // Compute the new value and rebind the data
                                         d3.select(this)
-                                            .data([pScale.invert(cx)])
+                                            .data([posScale.invert(cx)])
                                             .attr('cx', cx)
                                             .call(onSlide);
                                     }
