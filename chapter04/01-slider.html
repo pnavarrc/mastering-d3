@@ -145,10 +145,10 @@
                         // Set the initial attributes of the line.
                         chart.initLine = function(selection) {
                             selection
-                                .attr('x1', 0)
-                                .attr('x2', width)
+                                .attr('x1', 2)
+                                .attr('x2', width - 2)
                                 .attr('stroke', '#555')
-                                .attr('stroke-width', 6)
+                                .attr('stroke-width', 4)
                                 .attr('stroke-linecap', 'round');
                         };
 
@@ -156,7 +156,7 @@
                         chart.initHandle = function(selection) {
                             selection
                                 .attr('cx', function(d) { return width / 2; })
-                                .attr('r', 8)
+                                .attr('r', 6)
                                 .attr('fill', '#aaa')
                                 .attr('stroke', '#222')
                                 .attr('stroke-width', 2);
@@ -235,7 +235,7 @@
                     // Chart Settings
                     var width = 600,
                         height = 40,
-                        margin = 15;
+                        margin = 10;
 
                     // Initial value
                     var domain = [0, 100],
