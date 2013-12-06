@@ -2,17 +2,16 @@
 <html>
 
     <head>
-        <title>3.2 Visualizing SVG Support</title>
+        <title>3.1 Bubble Chart (without SVG)</title>
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/mastering-d3.css">
         <script src="../js/lib/d3.v3.min.js" charset="utf-8"></script>
-        <script src="../js/lib/modernizr-latest.js" charset="utf-8"></script>
     </head>
 
     <body>
         <div class="container">
 
-            <h1>3.2 Visualizing SVG Support</h1>
+            <h1>3.1 Bubble Chart without SVG</h1>
 
             <!-- Table of Contents -->
             <h2>Contents</h2>
@@ -24,6 +23,9 @@
                 <li><a href="#color">Adding Color</a></li>
                 <li><a href="#size">Setting the Size</a></li>
                 <li><a href="#charge">Setting the Charge</a></li>
+                <li><a href="#chart">Creating a Reusable Chart</a></li>
+                <li><a href="#legend">Adding a Legend</a></li>
+                <li><a href="#legend-items">Adding the Legend Items</a></li>
             </ul>
 
 
@@ -39,7 +41,7 @@
 
                 <script>
                     // Load the data asynchronously.
-                    d3.json('../data/svg.json', function(error, data) {
+                    d3.json('../data/browsers.json', function(error, data) {
 
                         // Handle errors getting or parsing the JSON data.
                         if (error) {
@@ -49,7 +51,7 @@
 
                         // Get the items and sort them by usage
                         var items = data.values;
-                        items.sort(function(a, b) { return a.usage > b.usage ? -1 : 1; });
+                        items.sort(function(a, b) { return b.usage - a.usage; });
 
                         // Display a data item in the pre#datum.
                         d3.select('#datum').text(JSON.stringify(items[0], null, '    '));
@@ -69,7 +71,7 @@
 
                 <script>
                     // Load the data asynchronously
-                    d3.json('../data/svg.json', function(error, data) {
+                    d3.json('../data/browsers.json', function(error, data) {
 
                         // Handle errors getting or parsing the JSON data.
                         if (error) { return error; }
@@ -78,7 +80,7 @@
                         var items = data.values;
 
                         // Sort the data items by usage, greater usage first.
-                        items.sort(function(a, b) { return a.usage > b.usage ? -1 : 1; });
+                        items.sort(function(a, b) { return b.usage - a.usage; });
 
                         // Size of the visualization container.
                         var width = 700,
@@ -109,7 +111,7 @@
 
                 <script>
                     // Load the data asynchronously
-                    d3.json('../data/svg.json', function(error, data) {
+                    d3.json('../data/browsers.json', function(error, data) {
 
                         // Handle errors getting or parsing the JSON data.
                         if (error) { return error; }
@@ -122,7 +124,7 @@
                             height = 200;
 
                         // Sort the data items by usage, greater usage first.
-                        items.sort(function(a, b) { return a.usage > b.usage ? -1 : 1; });
+                        items.sort(function(a, b) { return b.usage - a.usage; });
 
                         // Configure the force layout.
                         var force = d3.layout.force()
@@ -172,7 +174,7 @@
 
                 <script>
                     // Load the data asynchronously
-                    d3.json('../data/svg.json', function(error, data) {
+                    d3.json('../data/browsers.json', function(error, data) {
 
                         // Handle errors getting or parsing the JSON data.
                         if (error) { return error; }
@@ -185,7 +187,7 @@
                             height = 200;
 
                         // Sort the data items by usage, greater usage first.
-                        items.sort(function(a, b) { return a.usage > b.usage ? -1 : 1; });
+                        items.sort(function(a, b) { return b.usage - a.usage; });
 
                         // Compute unique browser names
                         var browserList = items.map(function(d) { return d.name; }),
@@ -247,7 +249,7 @@
 
                 <script>
                     // Load the data asynchronously
-                    d3.json('../data/svg.json', function(error, data) {
+                    d3.json('../data/browsers.json', function(error, data) {
 
                         // Handle errors getting or parsing the JSON data.
                         if (error) { return error; }
@@ -263,7 +265,7 @@
                         var radiusExtent = [10, 50];
 
                         // Sort the data items by usage, greater usage first.
-                        items.sort(function(a, b) { return a.usage > b.usage ? -1 : 1; });
+                        items.sort(function(a, b) { return b.usage - a.usage; });
 
                         // Compute unique browser names
                         var browserList = items.map(function(d) { return d.name; }),
@@ -333,7 +335,7 @@
 
                 <script>
                     // Load the data asynchronously
-                    d3.json('../data/svg.json', function(error, data) {
+                    d3.json('../data/browsers.json', function(error, data) {
 
                         // Handle errors getting or parsing the JSON data.
                         if (error) { return error; }
@@ -349,7 +351,7 @@
                         var radiusExtent = [10, 50];
 
                         // Sort the data items by usage, greater usage first.
-                        items.sort(function(a, b) { return a.usage > b.usage ? -1 : 1; });
+                        items.sort(function(a, b) { return b.usage - a.usage; });
 
                         // Compute unique browser names
                         var browserList = items.map(function(d) { return d.name; }),
@@ -441,7 +443,7 @@
                                 var containerDiv = d3.select(this);
 
                                 // Sort the data items by usage, greater usage first.
-                                data.sort(function(a, b) { return usage(a) > usage(b) ? -1 : 1; });
+                                data.sort(function(a, b) { return usage(b) - usage(a); });
 
                                 // Compute unique browser names
                                 var nameList = data.map(name),
@@ -485,10 +487,7 @@
                                     .style('border', 'solid 1px #222')
                                     .style('width', function(d) { return (2 * d.r) + 'px'; })
                                     .style('height', function(d) { return (2 * d.r) + 'px'; })
-                                    .style('background-color', function(d) { return cScale(name(d)); })
-                                    .style('border', function(d) {
-                                        return d.support === 'true' ? 'solid 2px #222' : 'dotted 3px #000';
-                                    });
+                                    .style('background-color', function(d) { return cScale(name(d)); });
 
                                 // Register a listener function for the force tick event, and
                                 // update the position of each div on tick.
@@ -549,7 +548,7 @@
 
 
                     // Load the data asynchronously
-                    d3.json('../data/svg.json', function(error, data) {
+                    d3.json('../data/browsers.json', function(error, data) {
 
                         // Handle errors getting or parsing the JSON data.
                         if (error) { return error; }
@@ -594,7 +593,6 @@
                                     .data([data])
                                     .enter().append('b')
                                     .text('Legend');
-
                             });
                         }
 
@@ -614,7 +612,7 @@
 
                 <script>
                     // Load the data asynchronously
-                    d3.json('../data/svg.json', function(error, data) {
+                    d3.json('../data/browsers.json', function(error, data) {
 
                         // Handle errors getting or parsing the JSON data.
                         if (error) { return error; }
@@ -752,7 +750,7 @@
 
                 <script>
                     // Load the data asynchronously
-                    d3.json('../data/svg.json', function(error, data) {
+                    d3.json('../data/browsers.json', function(error, data) {
 
                         // Handle errors getting or parsing the JSON data.
                         if (error) { return error; }
@@ -785,7 +783,7 @@
                         });
 
                         var browserItems = browsers.values().sort(function(a, b) {
-                            return a.usage > b.usage ? -1 : 1;
+                            return b.usage - a.usage;
                         });
 
                         // Create an instance of the legend chart.
