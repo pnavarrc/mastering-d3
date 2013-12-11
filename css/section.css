@@ -1,0 +1,18 @@
+.content {
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+
+h1 {
+    padding-left: 8px;
+    border-left: solid 6px;
+    border-left-color: #3465a4;
+}
+
+h2 {
+    padding-left: 8px;
+    border-left: solid 4px;
+    border-left-color: #4e9a08;
+}

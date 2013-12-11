@@ -14,7 +14,8 @@
     "bower_components"
   ],
   "dependencies": {
-    "d3": "~3.3.11"
+    "d3": "~3.3.11",
+    "pure": "~0.3.0"
   },
   "devDependencies": {
     "d3": "~3.3.11",

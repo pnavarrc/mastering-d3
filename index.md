@@ -1,6 +1,6 @@
 ---
 layout: base
-title: {{ site.project.name }}
+title: Mastering D3.js
 ---
 
 # Mastering D3.js
@@ -15,6 +15,7 @@ This is the companion code for the upcoming book *Mastering D3.js* by _Pablo Nav
     - [2.3 Using the Barcode Chart]({{ site.baseurl }}/chapter02/03-using-the-barcode-chart)
     - [2.4 Creating a Layout Algorithm]({{ site.baseurl }}/chapter02/04-creating-a-layout)
 
+- [5. Creating User Interface Elements]({{ site.baseurl }}/chapter05)
 
 
 <ul class="list-unstyled">
