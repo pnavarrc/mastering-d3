@@ -10,5 +10,8 @@ bootstrap:
 	cp bower_components/bootstrap/dist/js/bootstrap.min.js js/lib/bootstrap.min.js
 
 d3:
-	cp bower_components/d3/d3.js js/lib/d3.js
+	cp bower_components/d3/d3.min.js js/lib/d3.min.js
+
+server:
+	jekyll server --watch --baseurl=
 

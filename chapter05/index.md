@@ -1,13 +1,11 @@
 ---
-layout: chapter
+layout: section
 title: "5. Creating User Interface Elements"
 ---
 
-## {{ page.title }}
+# {{ page.title }}
 
-The user will learn how to use chart components as controls, using DOM elements to select items, brushing to select ranges and zoom and panning as controls of 2D ranges.
-
-### Contents
+## Contents
 
 - [Highlight and Tooltips]({{ site.baseurl }}/chapter05/01-tooltip)
 - Tooltips and Highlight Elements based on data

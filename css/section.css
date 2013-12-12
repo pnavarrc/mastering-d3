@@ -1,8 +1,8 @@
+
+/* Section */
+
 .content {
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 20px;
-    padding-bottom: 100px;
+    padding: 20px 60px 100px 60px;
 }
 
 h1 {
