@@ -5,17 +5,16 @@ title: 5.1 Highlighting and Tooltips
 
 # {{ page.title }}
 
+
 ## Fruit Chart
 
-<!-- Container Div -->
-<div class="example" id="chart01"></div>
 
 <!-- Fruits Chart -->
 <script>
     function fruitChart1() {
 
         // Chart Attributes
-        var width = 600,
+        var width = 700,
             height = 120;
 
         // Radius Extent
@@ -97,12 +96,14 @@ title: 5.1 Highlighting and Tooltips
     }
 </script>
 
+<!-- Container Div -->
+<div id="chart01"></div>
 
 <script>
     // Load and parse the json data
     d3.json('{{ site.baseurl }}/data/fruits.json', function(error, root) {
 
-        // Handle errors getting or parsing the json data.
+        // Displays an error message
         if (error) {
             console.error('Error getting or parsing the data.');
         }
@@ -110,6 +111,7 @@ title: 5.1 Highlighting and Tooltips
         // Create and configure the chart
         var fruits = fruitChart1();
 
+        // Select the container element and invoke the fruit chart
         d3.select('div#chart01')
             .data([root.data])
             .call(fruits);
@@ -119,12 +121,13 @@ title: 5.1 Highlighting and Tooltips
 
 ## Adding Highlighting
 
+
 <!-- Fruits Chart -->
 <script>
     function fruitChart2() {
 
         // Chart Attributes
-        var width = 600,
+        var width = 700,
             height = 120;
 
         // Radius Extent
@@ -200,18 +203,10 @@ title: 5.1 Highlighting and Tooltips
                             .attr('fill', d.color)
                             .attr('stroke-width', 0);
                     });
-
             });
         }
 
         // Accessor Methods
-
-        // Value Accessor
-        chart.value = function(valueAccessor) {
-            if (!arguments.length) { return value; }
-            value = valueAccessor;
-            return chart;
-        };
 
         // Width
         chart.width = function(val) {
@@ -232,24 +227,21 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 <!-- Container Div -->
-<div class="example" id="chart02"></div>
+<div id="chart02"></div>
 
 <script>
     // Load and parse the json data
     d3.json('{{ site.baseurl }}/data/fruits.json', function(error, root) {
 
-        // Handle errors getting or parsing the json data.
+        // Displays the error message
         if (error) {
             console.error('Error getting or parsing the data.');
         }
 
-        // Width and height of the figure
-        var width = 600,
-            height = 120;
+        // Create and configure the fruit chart
+        var fruits = fruitChart2();
 
-        var fruits = fruitChart2()
-            .value(function(d) { return d.calories; });
-
+        // Select the container element and invoke the chart function
         d3.select('div#chart02')
             .data([root.data])
             .call(fruits);
@@ -258,6 +250,7 @@ title: 5.1 Highlighting and Tooltips
 
 
 ## Tooltip API
+
 
 <script>
     function tooltipChart1() {
@@ -274,21 +267,11 @@ title: 5.1 Highlighting and Tooltips
             });
         }
 
-        chart.init = function() {
-            console.log('init');
-        };
-
-        chart.create = function(d) {
-            console.log('create ');
-        };
-
-        chart.move = function() {
-            console.log('move');
-        };
-
-        chart.remove = function() {
-            console.log('remove');
-        };
+        // This functions will create, move and remove the tooltip
+        chart.init = function() { console.log('init'); };
+        chart.create = function(d) { console.log('create '); };
+        chart.move = function(d) { console.log('move'); };
+        chart.remove = function(d) { console.log('remove'); };
 
         return chart;
     }
@@ -298,20 +281,17 @@ title: 5.1 Highlighting and Tooltips
 <div id="chart03"></div>
 
 <script>
-
     // Tooltip Data item
-    var data = [
-        {
-            title: 'Title',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-        }
-    ];
+    var data = [{
+        title: 'Title',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    }];
 
     // Create and configure the tooltip
     var tooltip = tooltipChart1();
 
     // Size of the rectangle
-    var width = 600,
+    var width = 700,
         height = 80;
 
     // Select the container div and append an svg element
@@ -342,6 +322,7 @@ title: 5.1 Highlighting and Tooltips
 
 
 ## Tooltip Content
+
 
 <script>
     function tooltipChart() {
@@ -389,29 +370,25 @@ title: 5.1 Highlighting and Tooltips
             });
         };
 
+        // Create the tooltip chart
         chart.create = function(data) {
 
             // Create the tooltip container div
-            var tooltipContainer = d3.select('body').selectAll('div.tooltip-container')
-                .data([data])
-                .enter()
-                .append('div')
-                .attr('class', 'tooltip-container');
-
-            // Initialize the tooltip
-            tooltipContainer.call(chart.init);
+            var tooltipContainer = d3.select('body').append('div')
+                .datum(data)
+                .attr('class', 'tooltip-container')
+                .call(chart.init);
 
             // Move the tooltip to its initial position
             tooltipContainer
                 .style('left', (d3.event.pageX + offset.x) + 'px')
                 .style('top', (d3.event.pageY + offset.y) + 'px');
-
         };
 
         // Move the tooltip to follow the pointer
         chart.move = function() {
             // Select the tooltip and move it following the pointer
-            d3.select('body').selectAll('div.tooltip-container')
+            d3.select('body').select('div.tooltip-container')
                 .style('left', (d3.event.pageX + offset.x) + 'px')
                 .style('top', (d3.event.pageY + offset.y) + 'px');
         };
@@ -419,7 +396,7 @@ title: 5.1 Highlighting and Tooltips
         // Remove the tooltip
         chart.remove = function() {
             // Remove the tooltip div.
-            d3.selectAll('div.tooltip-container').remove();
+            d3.select('div.tooltip-container').remove();
         };
 
         // Accessor for the Title Function
@@ -464,9 +441,6 @@ title: 5.1 Highlighting and Tooltips
         }
 
     </style>
-<script>
-
-</script>
 </div>
 
 <div id="chart04"></div>
@@ -474,18 +448,16 @@ title: 5.1 Highlighting and Tooltips
 <script>
 
     // Tooltip Data item
-    var data = [
-        {
-            title: 'Title',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-        }
-    ];
+    var data = [{
+        title: 'Title',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    }];
 
     // Create and configure the tooltip
     var tooltip = tooltipChart();
 
     // Size of the rectangle
-    var width = 600,
+    var width = 700,
         height = 80;
 
     // Select the container div and append an svg element
@@ -517,6 +489,7 @@ title: 5.1 Highlighting and Tooltips
 
 ## Using the Tooltip
 
+
 <div id="chart05"></div>
 
 <!-- Fruits Chart -->
@@ -524,7 +497,7 @@ title: 5.1 Highlighting and Tooltips
     function fruitChart() {
 
         // Chart Attributes
-        var width = 600,
+        var width = 700,
             height = 120;
 
         // Radius Extent
@@ -639,10 +612,7 @@ title: 5.1 Highlighting and Tooltips
             console.error('Error getting or parsing the data.');
         }
 
-        // Width and height of the figure
-        var width = 600,
-            height = 120;
-
+        // Create and configure the fruit chart
         var fruits = fruitChart();
 
         d3.select('div#chart05')

@@ -16,7 +16,8 @@ This is the companion code for the upcoming book *Mastering D3.js* by _Pablo Nav
     - [2.4 Creating a Layout Algorithm]({{ site.baseurl }}/chapter02/04-creating-a-layout)
 
 - [5. Creating User Interface Elements]({{ site.baseurl }}/chapter05)
-
+    - [5.1 Tooltips and Highlighting]({{ site.baseurl }}/chapter05/01-highlight)
+    - [5.2 Brushing]({{ site.baseurl }}/chapter05/02-brushing)
 
 <ul class="list-unstyled">
 

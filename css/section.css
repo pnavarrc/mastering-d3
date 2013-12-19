@@ -16,3 +16,9 @@ h2 {
     border-left: solid 4px;
     border-left-color: #4e9a08;
 }
+
+/* Chart Container */
+.chart-example {
+    width: 700px;
+    border: solid 1px #ddd;
+}
