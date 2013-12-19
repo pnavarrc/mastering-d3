@@ -1,0 +1,33 @@
+{
+    "name": "Fruits",
+    "data": [
+        {
+            "name": "Apple",
+            "description": "The apple is the pomaceous fruit of the apple tree, species Malus domestica in the rose family. It is one of the most widely cultivated tree fruits, and the most widely known of the many members of genus Malus that are used by humans.",
+            "amount_grams": 100,
+            "calories": 52,
+            "color": "#FF5149"
+        },
+        {
+            "name": "Orange",
+            "description": "The orange is the fruit of the citrus species Citrus × ​sinensis in the family Rutaceae. The fruit of the Citrus sinensis is called sweet orange to distinguish it from that of the Citrus aurantium, the bitter orange.",
+            "amount_grams": 100,
+            "calories": 47,
+            "color": "#E89546"
+        },
+        {
+            "name": "Pear",
+            "description": "The pear is any of several tree and shrub species of genus Pyrus, in the family Rosaceae. It is also the name of the pomaceous fruit of these trees.",
+            "amount_grams": 100,
+            "calories": 57,
+            "color": "#A1E846"
+        },
+        {
+            "name": "Banana",
+            "description": "A banana is an edible fruit produced by several kinds of large herbaceous flowering plants in the genus Musa.",
+            "amount_grams": 100,
+            "calories": 89,
+            "color": "#FFE159"
+        }
+    ]
+}

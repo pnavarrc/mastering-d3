@@ -1,0 +1,7 @@
+# Git Ignored Files
+
+# Jekyll
+_site/*
+
+# Bower
+bower_components/*

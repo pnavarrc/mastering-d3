@@ -1,0 +1,11 @@
+# Jekyll Configuration
+safe: true
+source: .
+destination: _site
+lsi: false
+markdown: rdiscount
+pygments: true
+permalink: pretty
+
+project:
+    name: Mastering D3.js
