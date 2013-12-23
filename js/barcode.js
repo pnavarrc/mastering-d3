@@ -1,6 +1,6 @@
 /* global d3 */
 
-var Barcode = function() {
+var barcodeChart = function() {
     'use strict';
 
     // Chart variables

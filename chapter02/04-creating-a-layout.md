@@ -1,49 +1,47 @@
 ---
-layout: base
+layout: section
 title: "2.4 Creating a Layout Algorithm"
 ---
 
-## {{ page.title }}
+<div>
+    <style>
+        pre {
+            background-color: #eee;
+        }
+    </style>
+</div>
 
 
-### Contents
-
-- [Creating the Layout Structure](#structure)
-- [Counting the Data Items](#counting-items)
-- [Adding the Start and End Angles](#adding-angles)
-- [Configuring the Angle Extent](#angle-extent)
-- [Using the Layout: Radial Chart](#h3-radial-chart)
-- [Using the Layout: Bar Chart (Bonus)](#h3-bar-chart)
-
+# {{ page.title }}
 
 <!-- Data Generation Functions -->
 <script>
-        // Data Generation Functions
-        // -------------------------
+    // Data Generation Functions
+    // -------------------------
 
-        // Compute a random interval using an Exponential Distribution
-        function randomInterval(avgSeconds) {
-            return Math.floor(-Math.log(Math.random()) * 1000 * avgSeconds);
-        };
+    // Compute a random interval using an Exponential Distribution
+    function randomInterval(avgSeconds) {
+        return Math.floor(-Math.log(Math.random()) * 1000 * avgSeconds);
+    };
 
-        // Create or extend an array of increasing dates.
-        function addData(data, numItems, avgSeconds) {
-            // Compute the most recent time in the data array, or create one.
-            var n = data.length,
-                t = (n > 0) ? data[n - 1].date : new Date();
+    // Create or extend an array of increasing dates.
+    function addData(data, numItems, avgSeconds) {
+        // Compute the most recent time in the data array, or create one.
+        var n = data.length,
+            t = (n > 0) ? data[n - 1].date : new Date();
 
-            // Append items with increasing times in the data array.
-            for (var k = 0; k < numItems; k += 1) {
-                t = new Date(t.getTime() + randomInterval(avgSeconds));
-                data.push({date: t});
-            }
-
-            return data;
+        // Append items with increasing times in the data array.
+        for (var k = 0; k < numItems; k += 1) {
+            t = new Date(t.getTime() + randomInterval(avgSeconds));
+            data.push({date: t});
         }
+
+        return data;
+    }
 </script>
 
 
-### <a href="#structure" name="structure">#</a> Creating the Layout Structure
+## Creating the Layout Structure
 
 <!-- Sample Output -->
     [
@@ -93,7 +91,7 @@ title: "2.4 Creating a Layout Algorithm"
 
 
 <!-- Section: Counting the Items -->
-### <a href="#counting-items" name="counting-items">#</a> Counting the Data Items
+## Counting the Data Items
 
     [
         {hour:  0, startAngle: 0, endAngle: 0, count: 10},
@@ -104,7 +102,7 @@ title: "2.4 Creating a Layout Algorithm"
 
 
 <script>
-    var RadialLayout = function() {
+    var radialLayout1 = function() {
 
         // Layout function.
         function layout(data) {
@@ -146,14 +144,14 @@ title: "2.4 Creating a Layout Algorithm"
 
 <script>
     // Create an instance of the layout function.
-    var radialLayout = RadialLayout();
+    var layout = radialLayout1();
 
     // Compute the ouput data.
-    var output02 = radialLayout(data);
+    var output02 = layout(data);
 </script>
 
 
-### <a href="#adding-angles" name="adding-angles">#</a> Adding the Start and End Angles
+## Adding the Start and End Angles
 
     [
         {hour:  0, startAngle: 0,      endAngle: 0.2618, count:  7},
@@ -163,7 +161,7 @@ title: "2.4 Creating a Layout Algorithm"
     ]
 
 <script>
-    var RadialLayout = function() {
+    var radialLayout2 = function() {
 
         // Default Date Accessor
         var value = function(d) { return d.date; }
@@ -221,15 +219,15 @@ title: "2.4 Creating a Layout Algorithm"
 
 <script>
     // Create and configure an instance of the layout function.
-    var radialLayout = RadialLayout()
+    var layout = radialLayout2()
         .value(function(d) { return d.date; });
 
     // Compute the ouput data.
-    var output03 = radialLayout(data);
+    var output03 = layout(data);
 </script>
 
 
-### <a href="#angle-extent" name="angle-extent">#</a> Configuring the Angle Extent
+## Configuring the Angle Extent
 
 <!-- Sample Output -->
     [
@@ -240,7 +238,7 @@ title: "2.4 Creating a Layout Algorithm"
     ]
 
 <script>
-    var RadialLayout = function() {
+    var radialLayout3 = function() {
 
         var startAngle = 0,
             endAngle = 2 * Math.PI;
@@ -277,7 +275,6 @@ title: "2.4 Creating a Layout Algorithm"
                 gmap.set(_hour, _value);
             });
 
-
             // Copy the values of the map and sort the output data array.
             groups = gmap.values();
             groups.sort(function(a, b) { return a.hour > b.hour ? 1 : -1; });
@@ -307,7 +304,7 @@ title: "2.4 Creating a Layout Algorithm"
 </script>
 
 
-### <a href="#h3-radial-chart" name="h3-radial-chart">#</a> Using the Layout: Radial Chart
+## Using the Layout: Radial Chart
 
 <!-- Sample Output -->
     [
@@ -321,10 +318,10 @@ title: "2.4 Creating a Layout Algorithm"
 
 <script>
     // Create and configure the layout function.
-    var radialLayout = RadialLayout();
+    var layout = radialLayout3();
 
     // Compute the ouput data.
-    var output04 = radialLayout(data);
+    var output04 = layout(data);
 
     // Radial Chart
     // ------------
@@ -366,7 +363,7 @@ title: "2.4 Creating a Layout Algorithm"
 </script>
 
 
-### <a href="#h3-bar-chart" name="h3-bar-chart">#</a> Using the Layout: Bar Chart (Bonus)
+## Using the Layout: Bar Chart (Bonus)
 
 <!-- Sample Output -->
     [

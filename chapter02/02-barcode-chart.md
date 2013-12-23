@@ -1,26 +1,31 @@
 ---
-layout: base
+layout: section
 title: "2.2 Barcode Chart"
 ---
 
+<div>
+    <style>
+        .chart-example {
+            margin: 20px;
+            padding: 10px;
+            border: solid 1px #babdb6;
+        }
 
-## 2.2 The Barcode Chart
+        /* Chapter 2 */
+        .data-item {
+            border: solid 1px black;
+            margin: 4px;
+            padding: 4px;
+            background-color: #eeeeec;
+        }
+    </style>
+</div>
 
 
-### Contents
-
-- [Creating the Private Scope](#closure)
-- [Adding Accessors Methods](#accessors)
-- [SVG Initialization](#svg-init)
-- [Adding the Bars](#adding-bars)
-- [Setting the Date Accessor](#date-accessor)
-- [Fixing the Time Interval](#time-interval)
-- [Updating the Chart](#bars-update)
-- [Fixing the Transition](#transition)
-- [Removing the Bars](#bars-remove)
+# 2.2 The Barcode Chart
 
 
-### <a href="#closure" name="closure">#</a> Creating the Private Scope
+## Creating the Private Scope
 
 <script>
     // Barcode Chart
@@ -28,7 +33,7 @@ title: "2.2 Barcode Chart"
 
     // We use a closure to create a private scope for the charting
     // function.
-    var Barcode = function() {
+    var barcodeChart1 = function() {
 
         // Definition of the chart variables.
         var width = 600,
@@ -66,7 +71,7 @@ title: "2.2 Barcode Chart"
     var data = ['a', 'b', 'c'];
 
     // Invoke the Barcode function to get the charting function.
-    var barcode01 = Barcode();
+    var barcode01 = barcodeChart1();
 
     // Create the selection, bind the data and call the chart.
     d3.select('#chart-01').selectAll('div.data-item')
@@ -78,10 +83,11 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-### <a href="#accessors" name="accessors">#</a> Adding Accessor Methods
+## Adding Accessor Methods
+
 
 <script>
-    var Barcode = function() {
+    var barcodeChart2 = function() {
 
         // Chart Variables.
         var width = 600,
@@ -141,7 +147,7 @@ title: "2.2 Barcode Chart"
 
 <script>
     // Configure the chart variables using the accessors methods.
-    var barcode02 = Barcode()
+    var barcode02 = barcodeChart2()
         .width(500)
         .height(30)
         .margin({top: 5, right: 5, bottom: 5, left: 5});
@@ -156,10 +162,11 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-### <a href="#svg-init" name="svg-init">#</a> SVG Initialization
+## SVG Initialization
+
 
 <script>
-    var Barcode = function() {
+    var barcodeChart3 = function() {
 
         // Chart variables
         var width = 600,
@@ -227,7 +234,7 @@ title: "2.2 Barcode Chart"
 
 <script>
     // Invoke the Barcode function to get the charting function.
-    var barcode03 = Barcode();
+    var barcode03 = barcodeChart3();
 
     // Create the selection, bind the data and call the chart
     d3.select('#chart-03').selectAll('div.data-item')
@@ -239,10 +246,11 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-### <a href="#adding-bars" name="adding-bars">#</a> Adding the Bars
+## Adding the Bars
+
 
 <script>
-    var Barcode = function() {
+    var barcodeChart4 = function() {
 
         // Chart variables
         var width = 600,
@@ -363,7 +371,7 @@ title: "2.2 Barcode Chart"
     var data = addData([], 150, 300);
 
     // Get the barcode chart
-    var barcode04 = Barcode();
+    var barcode04 = barcodeChart4();
 
     // Create the selection, bind the data and call the chart.
     d3.select('#chart-04').selectAll('div.data-item')
@@ -375,10 +383,11 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-### <a href="#date-accessor" name="date-accessor">#</a> Setting the Date Accessor
+## Setting the Date Accessor
+
 
 <script>
-    var Barcode = function() {
+    var barcodeChart5 = function() {
 
         // Chart variables
         var width = 600,
@@ -476,7 +485,7 @@ title: "2.2 Barcode Chart"
 
 <script>
     // Get the charting function and set the date accessor function.
-    var barcode05 = Barcode()
+    var barcode05 = barcodeChart5()
         .value(function(d) { return d.date; });
 
     // Create the selection, bind the data and call the chart.
@@ -489,10 +498,11 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-### <a href="#time-interval" name="time-interval">#</a> Fixing the Time Interval
+## Fixing the Time Interval
+
 
 <script>
-    var Barcode = function() {
+    var barcodeChart6 = function() {
 
         // Chart variables
         var width = 600,
@@ -605,7 +615,7 @@ title: "2.2 Barcode Chart"
 
 <script>
     // Get the charting function and set the time interval.
-    var barcode06 = Barcode()
+    var barcode06 = barcodeChart6()
         .timeInterval(d3.time.day);
 
     // Create the selection, bind the data and call the chart.
@@ -618,10 +628,11 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-### <a href="#bars-update" name="bars-update">#</a> Updating the Chart
+## Updating the Chart
+
 
 <script>
-    var Barcode = function() {
+    var barcodeChart7 = function() {
 
         // Chart variables
         var width = 600,
@@ -742,7 +753,7 @@ title: "2.2 Barcode Chart"
 <script>
     // Copy the data array and create an instance of the chart function.
     var data07 = addData([], 150, 3 * 60),
-        barcode07 = Barcode();
+        barcode07 = barcodeChart7();
 
     // Create the selection, bind the data and call the chart.
     d3.select('#chart-07').selectAll('div.data-item')
@@ -766,10 +777,11 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-### <a href="#transition" name="transition">#</a> Fixing the Transition
+## Fixing the Transition
+
 
 <script>
-    var Barcode = function() {
+    var barcodeChart8 = function() {
 
         // Chart variables
         var width = 600,
@@ -902,7 +914,7 @@ title: "2.2 Barcode Chart"
 <script>
     // Create a random data array and  an instance of the chart function.
     var data08 = addData([], 150, 3 * 60),
-        barcode08 = Barcode();
+        barcode08 = barcodeChart8();
 
     // Create the selection, bind the data and call the chart.
     d3.select('#chart-08').selectAll('div.data-item')
@@ -927,10 +939,10 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-### <a href="#bars-remove" name="bars-remove">#</a> Removing the Bars
+## Removing the Bars
 
 <script>
-    var Barcode = function() {
+    var barcodeChart9 = function() {
 
         // Chart Variables.
         var width = 600,
@@ -1070,7 +1082,7 @@ title: "2.2 Barcode Chart"
 <script>
     // Create a random data array and  an instance of the chart function.
     var data09 = addData([], 150, 3 * 60),
-        barcode09 = Barcode();
+        barcode09 = barcodeChart9();
 
     // Create the selection, bind the data and call the chart.
     d3.select('#chart-09').selectAll('div.data-item')
