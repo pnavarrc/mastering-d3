@@ -19,6 +19,9 @@ This is the companion code for the upcoming book *Mastering D3.js* by _Pablo Nav
     - [5.1 Tooltips and Highlighting]({{ site.baseurl }}/chapter05/01-highlight)
     - [5.2 Brushing]({{ site.baseurl }}/chapter05/02-brushing)
 
+- [6. Interaction Between Charts]({{ site.baseurl }}/chapter06)
+    - [6.1 Backbone Essentials]({{ site.baseurl }}/chapter06/01-backbone)
+
 <ul class="list-unstyled">
 
     <li>
