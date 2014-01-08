@@ -1,0 +1,32 @@
+
+.stock-title {
+    font-family: 'Times'
+}
+
+.stock-chart {
+    background-color: gray;
+}
+
+.axis path, line{
+    fill: none;
+    stroke: #222;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-size: 11px;
+}
+
+.stock-area {
+    fill: #ddd;
+    stroke: #aaa;
+    stroke-width: 1;
+}
+
+.brush rect {
+    fill: #204a87;
+    stroke: #bbb;
+    stroke-width: 0.5;
+    stroke-opacity: 0.4;
+    fill-opacity: 0.2;
+}
