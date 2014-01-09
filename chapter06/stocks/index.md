@@ -27,7 +27,6 @@ title: Stock Explorer
 <!-- Application Container -->
 
 <div class="pure-g-r" id="stock-app">
-
     <div class="pure-u-1">
         <div id="stock-control"></div>
         <div id="stock-title"></div>
@@ -45,46 +44,5 @@ title: Stock Explorer
 <script src="{{ site.baseurl }}/chapter06/stocks/js/collections/stocks.js"></script>
 <script src="{{ site.baseurl }}/chapter06/stocks/js/views/stocks.js"></script>
 <script src="{{ site.baseurl }}/chapter06/stocks/js/views/app.js"></script>
-
-
-<script>
-    // Create a Stock Collection instance
-    app.Stocks = new app.StockList();
-</script>
-
-<script>
-    app.StockRouter = Backbone.Router.extend({
-
-        routes: {
-            'stock/:stock/from/:from/to/:to': 'setState'
-        },
-
-        initialize: function(attributes) {
-            this.model = attributes.model;
-            this.listenTo(this.model, 'change:from change:to', function(m) {
-                this.setState(m.get('stock'), m.get('from'), m.get('to'));
-            });
-        },
-
-        setState: function(symbol, from, to) {
-
-            from = new Date(from),
-            to = new Date(to);
-
-            this.model.set({stock: symbol, from: from, to: to});
-
-            var urlTpl = _.template('stock/<%= stock %>/from/<%= from %>/to/<%= to %>'),
-                fromString = from.toDateString(),
-                toString = to.toDateString();
-
-            this.navigate(urlTpl({stock: symbol, from: fromString, to: toString}), {trigger: true});
-        }
-
-    });
-
-
-    app.appModel = new app.StockAppModel();
-    app.appView = new app.StockAppView({model: app.appModel, el: 'div#stock-app'});
-    var router = new app.StockRouter({model: app.appModel});
-    Backbone.history.start();
-</script>
+<script src="{{ site.baseurl }}/chapter06/stocks/js/routers/router.js"></script>
+<script src="{{ site.baseurl }}/chapter06/stocks/js/app.js"></script>

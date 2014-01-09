@@ -73,7 +73,7 @@ app.StockContextView = Backbone.View.extend({
 
     // Render the view on model changes
     initialize: function() {
-
+        // Get the width of the container element
         var width = parseInt(d3.select(this.el).style('width'), 10);
 
         // Bind the brush listener function. The listener will update

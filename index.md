@@ -29,4 +29,5 @@ This is the companion code for the upcoming book *Mastering D3.js* by _Pablo Nav
     - [5.2 Brushing]({{ site.baseurl }}/chapter05/02-brushing)
 
 - [6. Interaction Between Charts]({{ site.baseurl }}/chapter06)
-    - [6.1 Backbone Essentials]({{ site.baseurl }}/chapter06/01-backbone)
+    - [6.1 D3 Stock Charts]({{ site.baseurl }}/chapter06/01-charts)
+    - [6.2 Stock Explorer]({{ site.baseurl }}/chapter06/stocks)

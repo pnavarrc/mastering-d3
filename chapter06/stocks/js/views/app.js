@@ -4,6 +4,7 @@ var app = app || {};
 
 app.StockAppView = Backbone.View.extend({
 
+    // The application view will listen for changes in the stock collection
     initialize: function() {
         this.listenTo(app.Stocks, 'reset', this.render);
         app.Stocks.fetch({reset: true});
@@ -31,16 +32,20 @@ app.StockAppView = Backbone.View.extend({
             el: 'div#stock-control'
         });
 
+        // Create and initialize the context view
         var contextView = new app.StockContextView({
             model: this.model,
             el: 'div#stock-context'
         });
 
+        // Create and initialize the detail view
         var detailView = new app.StockDetailView({
             model: this.model,
             el: 'div#stock-detail'
         });
 
+        // Fetch the stock data.
         this.model.fetchData();
+        return this;
     }
 });
