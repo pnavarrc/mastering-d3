@@ -41,11 +41,6 @@ app.StockAppView = Backbone.View.extend({
             el: 'div#stock-detail'
         });
 
-        var metricsView = new app.StockMetricsView({
-            model: this.model,
-            el: 'div#stock-metrics'
-        })
-
         this.model.fetchData();
     }
 });

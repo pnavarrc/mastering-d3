@@ -1,15 +1,18 @@
 ---
-layout: section
+layout: spa
 title: Stock Explorer
 ---
-
-<link rel="stylesheet" href="{{ site.baseurl }}/chapter06/stocks/css/stock.css">
 
 <!-- Include the Backbone Libraries -->
 <script src="{{ site.baseurl }}/js/lib/jquery.js"></script>
 <script src="{{ site.baseurl }}/js/lib/underscore.js"></script>
 <script src="{{ site.baseurl }}/js/lib/backbone.js"></script>
-<script src="{{ site.baseurl }}/chapter06/stockcharts.js"></script>
+<script src="{{ site.baseurl }}/js/lib/d3.min.js"></script>
+<script src="{{ site.baseurl }}/chapter06/stocks/js/lib/stockcharts.js"></script>
+
+<div>
+    <link rel="stylesheet" href="{{ site.baseurl }}/chapter06/stocks/css/stock.css"/>
+</div>
 
 <!-- Templates  -->
 <script type="text/template" id="stock-selector-tpl">
@@ -20,61 +23,18 @@ title: Stock Explorer
     </select>
 </script>
 
-<!-- Metrics Template -->
-<script type="text/template" id="stock-metrics-tpl">
-
-    <p> Period </p>
-
-    <table class="pure-table">
-            <thead>
-            <tr>
-                <th></th><th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>From</td><td><%= from %></td>
-            </tr>
-            <tr>
-                <td>To</td><td><%= to %></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <p>Metrics</p>
-
-    <table class="pure-table pure-table-horizontal">
-        <thead>
-            <tr>
-                <th></th><th>Date</th><th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Min</td><td><%= min.date %></td><td><%= min.price %></td>
-            </tr>
-            <tr>
-                <td>Max</td><td><%= max.date %></td><td><%= max.price %></td>
-            </tr>
-        </tbody>
-    </table>
-
-
-</script>
-
 
 <!-- Application Container -->
-<div id="stock-app">
-    <div class="pure-g-r">
-        <div class="pure-u-4-5">
-            <div id="stock-title"></div>
-            <div id="stock-detail"></div>
-            <div id="stock-context"></div>
-        </div>
-        <div class="pure-u-1-5">
-            <div id="stock-control"></div>
-            <div id="stock-metrics"></div>
-        </div>
+
+<div class="pure-g-r" id="stock-app">
+
+    <div class="pure-u-1">
+        <div id="stock-control"></div>
+        <div id="stock-title"></div>
+    </div>
+    <div class="pure-u-1 charts">
+        <div id="stock-detail"></div>
+        <div id="stock-context"></div>
     </div>
 </div>
 
@@ -96,20 +56,30 @@ title: Stock Explorer
     app.StockRouter = Backbone.Router.extend({
 
         routes: {
-            'stock/:stock': 'stock',
+            'stock/:stock/from/:from/to/:to': 'setState'
         },
 
         initialize: function(attributes) {
             this.model = attributes.model;
-            this.listenTo(this.model, 'change:stock', function(m) {
-                this.stock(m.get('stock'));
+            this.listenTo(this.model, 'change:from change:to', function(m) {
+                this.setState(m.get('stock'), m.get('from'), m.get('to'));
             });
         },
 
-        stock: function(symbol) {
-            this.model.set('stock', symbol);
-            this.navigate('stock/' + symbol, {trigger: true});
+        setState: function(symbol, from, to) {
+
+            from = new Date(from),
+            to = new Date(to);
+
+            this.model.set({stock: symbol, from: from, to: to});
+
+            var urlTpl = _.template('stock/<%= stock %>/from/<%= from %>/to/<%= to %>'),
+                fromString = from.toDateString(),
+                toString = to.toDateString();
+
+            this.navigate(urlTpl({stock: symbol, from: fromString, to: toString}), {trigger: true});
         }
+
     });
 
 

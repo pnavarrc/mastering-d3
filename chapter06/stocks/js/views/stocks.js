@@ -6,7 +6,7 @@ app.StockTitleView = Backbone.View.extend({
 
     chart: stockTitleChart()
         .title(function(d) {
-            return _.template('<%= symbol %> <%= name %>', d);
+            return _.template('<%= name %>', d);
         }),
 
     initialize: function() {
@@ -65,6 +65,7 @@ app.StockContextView = Backbone.View.extend({
     // Initialize the stock area chart
     chart: stockAreaChart()
         .height(60)
+        .width(600)
         .margin({top: 5, right: 5, bottom: 20, left: 30})
         .date(function(d) { return new Date(d.date); })
         .value(function(d) { return +d.price; })
@@ -73,10 +74,14 @@ app.StockContextView = Backbone.View.extend({
     // Render the view on model changes
     initialize: function() {
 
+        var width = parseInt(d3.select(this.el).style('width'), 10);
+
         // Bind the brush listener function. The listener will update
         // the model time interval
         var self = this;
-        this.chart.brushListener(function(extent) {
+        this.chart
+            .width(width)
+            .brushListener(function(extent) {
                 self.model.set({from: extent[0], to: extent[1]});
             });
 
@@ -85,8 +90,10 @@ app.StockContextView = Backbone.View.extend({
     },
 
     render: function() {
+
         // Update the time extent
-        this.chart.timeExtent([this.model.get('from'), this.model.get('to')]);
+        this.chart
+            .timeExtent([this.model.get('from'), this.model.get('to')]);
 
         // Select the container element, bind the data and invoke the chart
         d3.select(this.el)
@@ -110,6 +117,8 @@ app.StockDetailView = Backbone.View.extend({
 
     // Render the view on model changes
     initialize: function() {
+        var width = parseInt(d3.select(this.el).style('width'), 10);
+        this.chart.width(width);
         this.listenTo(this.model, 'change', this.render);
     },
 
@@ -126,53 +135,6 @@ app.StockDetailView = Backbone.View.extend({
             .data([this.model.get('data')])
             .call(this.chart);
 
-        return this;
-    }
-});
-
-app.StockMetricsView = Backbone.View.extend({
-
-    template: _.template($('#stock-metrics-tpl').html()),
-
-    initialize: function() {
-        this.listenTo(this.model, 'change', this.render);
-    },
-
-    render: function() {
-
-        var from = this.model.get('from'),
-            to = this.model.get('to'),
-            data = this.model.get('data'),
-            selectedData,
-            min, max,
-            vars = {
-                from: '',
-                to: '',
-                min: {date: '', price: ''},
-                max: {date: '', price: ''}
-            };
-
-        if (from && to) {
-            vars.from = from.toLocaleDateString();
-            vars.to = to.toLocaleDateString();
-
-            selectedData = data.filter(function(d) {
-                return (from <= d.date) && (d.date <= to);
-            });
-
-            min = _.min(selectedData, function(d) { return d.price; });
-            max = _.max(selectedData, function(d) { return d.price; });
-
-            min.date = new Date(min.date);
-            max.date = new Date(max.date);
-
-            vars.min.date = min.date.toLocaleDateString();
-            vars.max.date = max.date.toLocaleDateString();
-            vars.min.price = min.price;
-            vars.max.price = max.price;
-        }
-
-        this.$el.html(this.template(vars));
         return this;
     }
 });

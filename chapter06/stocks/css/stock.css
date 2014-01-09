@@ -1,6 +1,36 @@
 
+/* Page */
+
+.body {
+    background-color: #ddd;
+}
+
+#stock-app {
+    padding: 0;
+    border: 0;
+    margin: 5px 20px 50px 20px;
+}
+
+/* Title and Control */
+
+#stock-control {
+    padding: 18px;
+    float: left;
+}
+
+#stock-title {
+    float: left;
+}
+
+/* Charts */
+
+.charts {
+
+}
+
 .stock-title {
-    font-family: 'Times'
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .stock-chart {

@@ -3,7 +3,7 @@ layout: section
 title: Stock Charts
 ---
 
-<script src="{{ site.baseurl }}/chapter06/stockcharts.js"></script>
+<script src="{{ site.baseurl }}/chapter06/stocks/js/lib/stockcharts.js"></script>
 
 <div>
     <style>
