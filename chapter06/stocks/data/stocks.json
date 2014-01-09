@@ -1,0 +1,6 @@
+[
+    {"symbol": "AAPL", "name": "Apple Inc.", "url": "aapl.json"},
+    {"symbol": "MSFT", "name": "Microsoft Corp.", "url": "msft.json"},
+    {"symbol": "IBM", "name": "International Business Machines Corp.", "url": "ibm.json"},
+    {"symbol": "AMZN", "name": "Amazon.com, Inc.", "url": "amzn.json"}
+]
