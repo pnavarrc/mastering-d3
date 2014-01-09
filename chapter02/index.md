@@ -1,11 +1,11 @@
 ---
-layout: base
+layout: section
 title: "2. Reusable Charts"
 ---
 
-## {{ page.title }}
+# {{ page.title }}
 
-### Contents
+## Contents
 
 - [2.1 Creating DOM Elements with D3]({{ site.baseurl }}/chapter02/01-creating-dom-elements)
 - [2.2 Creating the Barcode Chart]({{ site.baseurl }}/chapter02/02-barcode-chart)

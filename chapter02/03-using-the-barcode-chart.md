@@ -1,8 +1,25 @@
 ---
-layout: base
+layout: section
 title: "2.3 Using the Barcode Chart"
 ---
 
+<div>
+    <style>
+        .chart-example {
+            margin: 20px;
+            padding: 10px;
+            border: solid 1px #babdb6;
+        }
+
+        /* Chapter 2 */
+        .data-item {
+            border: solid 1px black;
+            margin: 4px;
+            padding: 4px;
+            background-color: #eeeeec;
+        }
+    </style>
+</div>
 
 <script>
     // Data Generation Functions
@@ -33,7 +50,7 @@ title: "2.3 Using the Barcode Chart"
 </script>
 
 
-## {{ page.title }}
+# {{ page.title }}
 
 <div class="chart-example" id="chart"></div>
 <script src="{{ site.baseurl }}/js/barcode.js"></script>
@@ -54,7 +71,7 @@ title: "2.3 Using the Barcode Chart"
     // ---------------------------
 
     // Create and configure an instance of the barcode chart.
-    var barcode = Barcode()
+    var barcode = barcodeChart()
         .width(480)
         .height(25)
         .margin({top: 1, right: 1, bottom: 1, left: 1});

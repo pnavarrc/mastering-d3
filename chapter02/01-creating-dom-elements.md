@@ -1,20 +1,29 @@
 ---
-layout: base
+layout: section
 title: "2.1 Creating DOM Elements with D3"
 ---
 
-## {{ page.title }}
+<div>
+    <style>
+        .chart-example {
+            margin: 20px;
+            padding: 10px;
+            border: solid 1px #babdb6;
+        }
 
+        /* Chapter 2 */
+        .data-item {
+            border: solid 1px black;
+            margin: 4px;
+            padding: 4px;
+            background-color: #eeeeec;
+        }
+    </style>
+</div>
 
-### Contents
+# {{ page.title }}
 
-- [Method Chaining](#chaining)
-- [Using selection.call](#call)
-- [Defining the Call Argument Function](#call-arg)
-- [Creating a SVG Element](#svg)
-
-
-### <a href="#chaining" name="chaining">#</a> Method Chaining
+## Method Chaining
 
 <div class="chart-example" id="chart-01"></div>
 
@@ -35,7 +44,7 @@ title: "2.1 Creating DOM Elements with D3"
 </script>
 
 
-### <a href="#call" name="call">#</a> Using selection.call
+## Using selection.call
 
 <div class="chart-example" id="chart-02"></div>
 
@@ -56,7 +65,7 @@ title: "2.1 Creating DOM Elements with D3"
 </script>
 
 
-### <a href="#call-arg" name="call-arg">#</a> Defining the Call Argument Function
+## Defining the Call Argument Function
 
 <div class="chart-example" id="chart-03"></div>
 
@@ -80,7 +89,7 @@ title: "2.1 Creating DOM Elements with D3"
 </script>
 
 
-### <a href="#svg" name="svg">#</a> Creating a SVG Element
+## Creating a SVG Element
 
 <div class="chart-example" id="chart-04"></div>
 
