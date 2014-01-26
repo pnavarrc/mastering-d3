@@ -1,0 +1,6 @@
+[submodule "chapter07/windmill"]
+	path = chapter07/windmill
+	url = https://github.com/pnavarrc/windmill.git
+[submodule "chapter07/windmill-sample"]
+	path = chapter07/windmill-sample
+	url = https://github.com/pnavarrc/windmill-sample.git
