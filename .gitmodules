@@ -4,3 +4,6 @@
 [submodule "chapter07/windmill-sample"]
 	path = chapter07/windmill-sample
 	url = https://github.com/pnavarrc/windmill-sample.git
+[submodule "chapter08/hdi-explorer"]
+	path = chapter08/hdi-explorer
+	url = https://github.com/pnavarrc/hdi-explorer.git
