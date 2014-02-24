@@ -1,0 +1,27 @@
+{
+  "name": "mastering-d3",
+  "version": "0.1.6",
+  "description": "Companion code for the book Mastering D3.js",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pnavarrc/mastering-d3.git"
+  },
+  "keywords": [
+    "d3",
+    "mastering-d3"
+  ],
+  "author": "Pablo Navarro Castillo <pnavarrc@gmail.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/pnavarrc/mastering-d3/issues"
+  },
+  "devDependencies": {
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt": "~0.4.2",
+    "grunt-contrib-less": "~0.9.0"
+  }
+}

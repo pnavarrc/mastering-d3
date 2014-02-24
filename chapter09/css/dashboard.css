@@ -1,0 +1,36 @@
+.chart-absences .bg-bar {
+  fill: #dbe6ec;
+  stroke-width: 1;
+}
+.chart-scores .score-bg {
+  fill: #fafafc;
+  fill-opacity: 0.5;
+}
+.chart-scores .score-medium {
+  fill: #a4bcc2;
+  fill-opacity: 0.5;
+}
+.chart-scores .score-high {
+  fill: #c2cbce;
+  fill-opacity: 0.5;
+}
+.chart-scores .score-line {
+  fill: none;
+  stroke: #81a8b8;
+  stroke-width: 2;
+}
+.bullet-chart .bullet-level-0 {
+  fill: #dbe6ec;
+}
+.bullet-chart .bullet-level-1 {
+  fill: #c2cbce;
+}
+.bullet-chart .bullet-level-2 {
+  fill: #a4bcc2;
+}
+.bullet-chart .bullet-level-3 {
+  fill: #81a8b8;
+}
+.bullet-chart .bullet-core {
+  fill: #777777;
+}
