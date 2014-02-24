@@ -6,6 +6,7 @@ lsi: false
 markdown: rdiscount
 pygments: true
 permalink: pretty
+exclude:
+    - chapter08
 
-project:
-    name: Mastering D3.js
+name: "Mastering D3.js"

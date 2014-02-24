@@ -1,0 +1,37 @@
+.axis path, line {
+    fill: none;
+    stroke: #222;
+    shape-rendering: crispEdges;
+}
+
+.sales-value {
+    fill: none;
+    stroke: #542437;
+    stroke-width: 2;
+}
+
+.yaxis-value path, line {
+    fill: none;
+    stroke: #542437;
+    stroke-width: 2;
+}
+
+.yaxis-value text {
+    fill: #542437;
+}
+
+.sales-units {
+    fill: none;
+    stroke: #99B2B7;
+    stroke-width: 2;
+}
+
+.yaxis-units path, line {
+    fill: none;
+    stroke: #99B2B7;
+    stroke-width: 2;
+}
+
+.yaxis-units text {
+    fill: #99B2B7;
+}
