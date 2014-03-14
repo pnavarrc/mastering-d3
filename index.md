@@ -33,3 +33,4 @@ This is the companion code for the upcoming book *Mastering D3.js* by _Pablo Nav
     - [6.2 Stock Explorer]({{ site.baseurl }}/chapter06/stocks)
 
 - [9. Creating a Dashboard]({{ site.baseurl }}/chapter09)
+- [10. Creating a Map]({{ site.baseurl }}/chapter10)
