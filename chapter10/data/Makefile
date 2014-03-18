@@ -1,34 +1,23 @@
+# Download and Generate GeoJSON and TopoJSON files
+# ================================================
 
-# Variables
-# ---------
-DATAURL = 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip'
-POPULATED_PLACES_URL = 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_populated_places.zip'
-
+ADMIN0_URL = http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip
 
 # Targets
 # -------
 
-# Download the file from Natural Earth
-ne_10m_admin_0_countries.zip:
-	curl -LO $(DATAURL)
+# Download the Compressed Shapefiles
+ne_50m_admin_0_countries.zip:
+	curl -LO $(ADMIN0_URL)
 
-# Uncompress the shapefiles
-ne_10m_admin_0_countries.shp: ne_10m_admin_0_countries.zip
-	unzip ne_10m_admin_0_countries.zip
+# Uncompress the Shapefiles
+ne_50m_admin_0_countries.shp: ne_50m_admin_0_countries.zip
+	unzip ne_50m_admin_0_countries.zip
+	touch $@
 
-# Generate a GeoJSON file for Greenland
-greenland: ne_10m_admin_0_countries.shp
-	ogr2ogr -f GeoJSON greenland.json -where "ADMIN='Greenland'" ne_10m_admin_0_countries.shp
+# Convert the shapefiles to GeoJSON
+countries.geojson: ne_50m_admin_0_countries.shp
+	ogr2ogr -f GeoJSON $@ ne_50m_admin_0_countries.shp
 
-ne_10m_populated_places.zip:
-	curl -LO $(POPULATED_PLACES_URL)
-
-ne_10m_populated_places.shp: ne_10m_populated_places.zip
-	unzip ne_10m_populated_places.zip
-
-places.json: ne_10m_populated_places.shp
-	ogr2ogr -f GeoJSON places.json -where "ADM0NAME = 'Greenland'" ne_10m_populated_places.shp
-
-greenland.topojson: places.json greenland.json
-	topojson -o greenland.topojson -p NAMEASCII -p POP_MAX -- greenland.json places.json
-
+countries.topojson: countries.geojson
+	topojson -o $@ -p admin -p continent countries.geojson

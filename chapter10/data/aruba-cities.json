@@ -1,0 +1,56 @@
+{
+  "country": "Aruba",
+  "description": "Population of the main cities in Aruba",
+  "cities": [
+
+
+    {
+      "name": "Oranjestad",
+      "population": 28294,
+      "coordinates": [
+        12.519,
+        -70.037
+      ]
+    },
+    {
+      "name": "Paradera",
+      "population": 12024,
+      "coordinates": [
+        12.5375824,
+        -70.0026234
+      ]
+    },
+    {
+      "name": "San Nicolaas",
+      "population": 15283,
+      "coordinates": [
+        12.433333,
+        -69.916667
+      ]
+    },
+    {
+      "name": "Noord",
+      "population": 21495,
+      "coordinates": [
+        12.566667,
+        -70.033333
+      ]
+    },
+    {
+      "name": "Santa Cruz",
+      "population": 12870,
+      "coordinates": [
+        12.5,
+        -69.966667
+      ]
+    },
+    {
+      "name": "Savaneta",
+      "population": 11518,
+      "coordinates": [
+        12.441667,
+        -69.933333
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+.ocean {
+    fill: #bad8e3;
+}
+
+.feature {
+    fill: #b5baa6;
+    stroke: #9da38a;
+}
+
+.neighbor {
+    fill: #555;
+    fill-opacity: 0.3;
+    stroke: #eee;
+    stroke-width: 1;
+}
+
+.frontier {
+    stroke: #333;
+    stroke-width: 2;
+    fill: none;
+}
+
+.graticule {
+    fill: none;
+    stroke: #efefef;
+    stroke-opacity: 0.4;
+}
+
+.globe {
+    fill: #bad8e3;
+}
+.globe-white {
+    fill: #fdfdfd;
+}
+
+.feature-color {
+    stroke: #bfd3e6;
+    stroke-width: 1;
+}
+
+.label {
+    font-size: 22px;
+    fill: #555;
+    fill-opacity: 0.5;
+}
+
+path.place {
+    fill: #717d8d;
+    fill-opacity: 0.4;
+    stroke: #717d8d;
+    stroke-width: 0.5;
+}
+
+text.place {
+    fill: #64747a;
+}
