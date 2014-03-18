@@ -6,4 +6,11 @@ _site/*
 # Bower
 bower_components
 
+# Node
 node_modules
+
+# Temporal files
+tmp
+
+# Shapefiles
+ne_10m*

@@ -45,23 +45,13 @@ module.exports = function(grunt) {
             moment: {
                 src: 'bower_components/moment/moment.js',
                 dest: 'assets/js/lib/moment.js'
+            },
+
+            topojson: {
+                src: 'bower_components/topojson/topojson.js',
+                dest: 'assets/js/lib/topojson.js'
             }
-
-        },
-
-        // less: {
-        //     dashboard: {
-        //         options: {
-        //             paths: ['css'],
-        //             cleancss: true
-        //         },
-        //         files: {
-        //             'css/pty.css': 'less/pty.less',
-        //             'css/index.css': 'less/index.less'
-        //         }
-        //     }
-        // }
-
+        }
 
     });
 
