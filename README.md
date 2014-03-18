@@ -1,8 +1,13 @@
-Mastering D3.js
-===============
+# Mastering D3.js
 
-This is the companion code for the upcoming book "Mastering D3.js" by Pablo Navarro, to be published by Packt Publishing.
 
-To access the code, open the file index.html in this directory. This file contains links to the examples of each chapter. The examples can be accessed individually by opening the corresponding file.
+## Contents
 
-v1.7
+
+
+
+## Grunt Tasks
+
+All the necessary code to run the examples is available at this repository. To extend or modify the examples, additional data or libraries may be needed.
+
+
