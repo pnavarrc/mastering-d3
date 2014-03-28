@@ -1,13 +1,13 @@
 ---
-layout: spa
+layout: basic
 title: Stock Explorer
 ---
 
 <!-- Include the Backbone Libraries -->
-<script src="{{ site.baseurl }}/js/lib/jquery.js"></script>
-<script src="{{ site.baseurl }}/js/lib/underscore.js"></script>
-<script src="{{ site.baseurl }}/js/lib/backbone.js"></script>
-<script src="{{ site.baseurl }}/js/lib/d3.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/lib/jquery.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/lib/underscore.js"></script>
+<script src="{{ site.baseurl }}/assets/js/lib/backbone.js"></script>
+<script src="{{ site.baseurl }}/assets/js/lib/d3.min.js"></script>
 <script src="{{ site.baseurl }}/chapter06/stocks/js/lib/stockcharts.js"></script>
 
 <div>
@@ -26,12 +26,12 @@ title: Stock Explorer
 
 <!-- Application Container -->
 
-<div class="pure-g-r" id="stock-app">
-    <div class="pure-u-1">
+<div id="stock-app">
+    <div>
         <div id="stock-control"></div>
         <div id="stock-title"></div>
     </div>
-    <div class="pure-u-1 charts">
+    <div class="charts">
         <div id="stock-detail"></div>
         <div id="stock-context"></div>
     </div>

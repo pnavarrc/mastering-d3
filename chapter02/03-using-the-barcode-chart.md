@@ -1,5 +1,5 @@
 ---
-layout: section
+layout: default
 title: "2.3 Using the Barcode Chart"
 ---
 
@@ -50,10 +50,10 @@ title: "2.3 Using the Barcode Chart"
 </script>
 
 
-# {{ page.title }}
+<h1 class="section-title">{{ page.title }}</h1>
 
 <div class="chart-example" id="chart"></div>
-<script src="{{ site.baseurl }}/js/barcode.js"></script>
+<script src="{{ site.baseurl }}/chapter02/barcode.js"></script>
 <script>
 
     // Dataset

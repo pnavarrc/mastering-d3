@@ -1,5 +1,5 @@
 ---
-layout: section
+layout: default
 title: "2.4 Creating a Layout Algorithm"
 ---
 
@@ -12,7 +12,7 @@ title: "2.4 Creating a Layout Algorithm"
 </div>
 
 
-# {{ page.title }}
+<h1 class="section-title">{{ page.title }}</h1>
 
 <!-- Data Generation Functions -->
 <script>
@@ -41,7 +41,7 @@ title: "2.4 Creating a Layout Algorithm"
 </script>
 
 
-## Creating the Layout Structure
+<h2 class="section-subtitle">Creating the Layout Structure</h2>
 
 <!-- Sample Output -->
     [
@@ -90,8 +90,7 @@ title: "2.4 Creating a Layout Algorithm"
 </script>
 
 
-<!-- Section: Counting the Items -->
-## Counting the Data Items
+<h2 class="section-subtitle">Counting the Data Items</h2>
 
     [
         {hour:  0, startAngle: 0, endAngle: 0, count: 10},
@@ -151,7 +150,7 @@ title: "2.4 Creating a Layout Algorithm"
 </script>
 
 
-## Adding the Start and End Angles
+<h2 class="section-subtitle">Adding the Start and End Angles</h2>
 
     [
         {hour:  0, startAngle: 0,      endAngle: 0.2618, count:  7},
@@ -227,7 +226,7 @@ title: "2.4 Creating a Layout Algorithm"
 </script>
 
 
-## Configuring the Angle Extent
+<h2 class="section-subtitle">Configuring the Angle Extent</h2>
 
 <!-- Sample Output -->
     [
@@ -304,7 +303,7 @@ title: "2.4 Creating a Layout Algorithm"
 </script>
 
 
-## Using the Layout: Radial Chart
+<h2 class="section-subtitle">Using the Layout: Radial Chart</h2>
 
 <!-- Sample Output -->
     [
@@ -362,8 +361,7 @@ title: "2.4 Creating a Layout Algorithm"
             .attr('stroke-width', 1);
 </script>
 
-
-## Using the Layout: Bar Chart (Bonus)
+<h2 class="section-subtitle">Using the Layout: Bar Chart (Bonus)</h2>
 
 <!-- Sample Output -->
     [

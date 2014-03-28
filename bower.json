@@ -1,6 +1,6 @@
 {
   "name": "mastering-d3",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "homepage": "https://github.com/pnavarrc/mastering-d3",
   "authors": [
     "Pablo Navarro Castillo <pnavarrc@gmail.com>"
@@ -15,7 +15,6 @@
   ],
   "dependencies": {
     "d3": "~3.3.11",
-    "pure": "~0.3.0",
     "backbone": "~1.1.0",
     "underscore": "~1.5.2",
     "bootstrap": "~3.1.1",
@@ -25,6 +24,8 @@
   "devDependencies": {
     "d3": "~3.3.11",
     "bootstrap": "~3.0.2",
-    "topojson": "~1.4.9"
+    "topojson": "~1.4.9",
+    "backbone": "~1.1.2",
+    "jquery": "~2.1.0"
   }
 }

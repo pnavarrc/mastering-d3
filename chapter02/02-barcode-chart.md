@@ -1,5 +1,5 @@
 ---
-layout: section
+layout: default
 title: "2.2 Barcode Chart"
 ---
 
@@ -22,10 +22,9 @@ title: "2.2 Barcode Chart"
 </div>
 
 
-# 2.2 The Barcode Chart
+<h1 class="section-title">{{page.title}}</h1>
 
-
-## Creating the Private Scope
+<h2 class="section-subtitle">Creating the Private Scope</h2>
 
 <script>
     // Barcode Chart
@@ -83,7 +82,7 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-## Adding Accessor Methods
+<h2 class="section-subtitle">Adding Accessor Methods</h2>
 
 
 <script>
@@ -162,7 +161,7 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-## SVG Initialization
+<h2 class="section-subtitle">SVG Initialization</h2>
 
 
 <script>
@@ -246,7 +245,7 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-## Adding the Bars
+<h2 class="section-subtitle">Adding the Bars</h2>
 
 
 <script>
@@ -383,7 +382,7 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-## Setting the Date Accessor
+<h2 class="section-subtitle">Setting the Date Accessor</h2>
 
 
 <script>
@@ -498,7 +497,7 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-## Fixing the Time Interval
+<h2 class="section-subtitle">Fixing the Time Interval</h2>
 
 
 <script>
@@ -628,7 +627,7 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-## Updating the Chart
+<h2 class="section-subtitle">Updating the Chart</h2>
 
 
 <script>
@@ -777,7 +776,7 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-## Fixing the Transition
+<h2 class="section-subtitle">Fixing the Transition</h2>
 
 
 <script>
@@ -939,7 +938,7 @@ title: "2.2 Barcode Chart"
 </script>
 
 
-## Removing the Bars
+<h2 class="section-subtitle">Removing the Bars</h2>
 
 <script>
     var barcodeChart9 = function() {

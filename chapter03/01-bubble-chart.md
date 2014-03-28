@@ -1,11 +1,11 @@
 ---
-layout: section
-title: 5.1 Highlighting and Tooltips
+layout: default
+title: 3.1 Bubble Chart without SVG
 ---
 
-# {{ page.title }}
+<h1 class="section-title">{{page.title}}</h1>
 
-## Loading and Sorting the Data
+<h2 class="section-subtitle">Loading and Sorting the Data</h2>
 
 <!-- Example of a data item -->
 <div class="chart-example">
@@ -15,7 +15,7 @@ title: 5.1 Highlighting and Tooltips
 
 <script>
     // Load the data asynchronously.
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) {
@@ -33,7 +33,7 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Force Layout
+<h2 class="section-subtitle">Force Layout</h2>
 
 <!-- Example of a data item with the computed position -->
 <div class="chart-example">
@@ -42,7 +42,7 @@ title: 5.1 Highlighting and Tooltips
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -73,14 +73,14 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Creating the DIV Elements
+<h2 class="section-subtitle">Creating the DIV Elements</h2>
 
 
 <div class="chart-example" id="chart1a"></div>
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -133,14 +133,14 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Adding Color
+<h2 class="section-subtitle">Adding Color</h2>
 
 
 <div class="chart-example" id="chart1b"></div>
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -205,14 +205,14 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Setting the Size
+<h2 class="section-subtitle">Setting the Size</h2>
 
 
 <div class="chart-example" id="chart1c"></div>
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -288,14 +288,14 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Setting the Charge
+<h2 class="section-subtitle">Setting the Charge</h2>
 
 
 <div class="chart-example" id="chart1d"></div>
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -372,8 +372,7 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Creating a Reusable Chart
-
+<h2 class="section-subtitle">Creating a Reusable Chart</h2>
 
 <div class="chart-example" id="chart1e"></div>
 
@@ -519,8 +518,7 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Adding a Legend
-
+<h2 class="section-subtitle">Adding a Legend</h2>
 
 <div class="chart-example">
     <div class="chart-example" id="chart1f"></div>
@@ -566,7 +564,7 @@ title: 5.1 Highlighting and Tooltips
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -600,7 +598,7 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Adding Legend Items
+<h2 class="section-subtitle">Adding Legend Items</h2>
 
 <!-- Container div -->
 <div class="chart-example">
@@ -702,7 +700,7 @@ title: 5.1 Highlighting and Tooltips
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }

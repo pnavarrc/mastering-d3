@@ -18,19 +18,13 @@
     float: left;
 }
 
-#stock-title {
-    float: left;
-}
-
 /* Charts */
-
-.charts {
-
-}
-
 .stock-title {
+    float: left;
     font-size: 18px;
     font-weight: bold;
+    text-transform: uppercase;
+    color: #0E8D94;
 }
 
 .stock-chart {
@@ -54,7 +48,7 @@
 }
 
 .brush rect {
-    fill: #204a87;
+    fill: #0E8D94;
     stroke: #bbb;
     stroke-width: 0.5;
     stroke-opacity: 0.4;

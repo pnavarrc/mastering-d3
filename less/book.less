@@ -1,0 +1,91 @@
+// Mastering D3.js
+// ---------------
+
+@import "variables.less";
+@import "bootstrap-custom.less";
+
+
+// Navigation Bar
+// --------------
+.navbar-default {
+
+    margin-top: 10px;
+
+    a.navbar-brand {
+        color: @color-blue;
+        text-transform: uppercase;
+    }
+
+    a.dropdown-toggle {
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+}
+
+// Footer
+// ------
+.footer {
+    height: 100px;
+}
+
+// Table of Contents
+// -----------------
+.toc-title {
+    margin-bottom: 20px;
+
+    text-transform: uppercase;
+    font-size: 16px;
+    color: @color-navy;
+}
+
+.toc-title + ul {
+
+    list-style: none;
+    padding-left: 10px;
+
+    li {
+        a {
+            text-transform: uppercase;
+        }
+
+        ul {
+
+            list-style: none;
+            padding-left: 10px;
+
+            :last-child {
+                margin-bottom: 15px;
+            }
+
+            li {
+                a {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+
+// Section
+// -------
+
+.section-title {
+    text-transform: uppercase;
+    font-size: 24px;
+    color: @color-navy;
+}
+
+.section-subtitle {
+
+    &:before {
+        content: '\e144  ';
+        font-family: 'Glyphicons Halflings';
+        font-size: 14px;
+        color: @color-aluminium-medium;
+    }
+
+    text-transform: uppercase;
+    font-size: 18px;
+    color: @color-blue;
+}

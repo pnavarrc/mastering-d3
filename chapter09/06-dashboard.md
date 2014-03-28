@@ -1,28 +1,27 @@
 ---
-layout: main
+layout: default
 title: Dashboard
 ---
 
 <link rel="stylesheet" href="{{site.baseurl}}/chapter09/css/dashboard.css">
-<script src="{{site.baseurl}}/assets/js/lib/d3.min.js"></script>
 <script src="{{site.baseurl}}/chapter09/js/dashboard.js"></script>
 <script src="{{site.baseurl}}/chapter09/js/gendata.js"></script>
 
 <div>
     <style>
-        .section {
+        .ds-section {
             border-top: solid 3px #777;
             background-color: #fafafa;
         }
 
-        .section-title {
+        .ds-section-title {
             color: #777;
             font-size: 16px;
             font-weight: bold;
             font-variant: small-caps;
         }
 
-        .dashboard-title {
+        .ds-dashboard-title {
             color: #555;
             font-size: 18px;
             font-weight: bold;
@@ -34,17 +33,17 @@ title: Dashboard
 
 <div class="row">
     <div class="col-md-12">
-        <p class="dashboard-title">class dashboard</p>
+        <p class="ds-dashboard-title">class dashboard</p>
     </div>
-    <div class="col-md-6 section">
-        <p class="section-title">students</p>
+    <div class="col-md-6 ds-section">
+        <p class="ds-section-title">students</p>
         <div id="section-students"></div>
     </div>
     <div class="col-md-6">
         <div class="row">
             <div class="col-md-12">
-                <div id="section-courses" class="section">
-                    <p class="section-title">courses</p>
+                <div id="section-courses" class="ds-section">
+                    <p class="ds-section-title">courses</p>
                     <table class="table table-condensed table-fluid">
                         <thead></thead>
                         <tbody></tbody>
@@ -52,8 +51,8 @@ title: Dashboard
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="section">
-                    <p class="section-title">class</p>
+                <div class="ds-section">
+                    <p class="ds-section-title">class</p>
                     <div id="section-class"></div>
                 </div>
             </div>

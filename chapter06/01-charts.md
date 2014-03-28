@@ -1,5 +1,5 @@
 ---
-layout: section
+layout: default
 title: Stock Charts
 ---
 
@@ -34,7 +34,7 @@ title: Stock Charts
 </div>
 
 
-## Stock Title Chart
+<h2 class="section-subtitle">Stock Title Chart</h2>
 
 <div id="chart01"></div>
 
@@ -49,7 +49,7 @@ title: Stock Charts
         .call(titleChart);
 </script>
 
-## Stock Area Chart: Selecting the Time Interval
+<h2 class="section-subtitle">Stock Area Chart: Selecting the Time Interval</h2>
 
 <div id="chart02"></div>
 
@@ -62,20 +62,18 @@ title: Stock Charts
             console.log(extent);
         });
 
-    d3.json('{{ site.baseurl }}/data/stocks.json', function(error, json) {
+    d3.json('{{ site.baseurl }}/chapter06/stocks/data/aapl.json', function(error, json) {
 
         if (error) { return error; }
 
-        var stock = json.data[0];
-
         d3.select('div#chart02')
-            .data([stock.values])
+            .data([json.values])
             .call(contextAreaChart);
     });
 </script>
 
 
-## Stock Area Chart: Time Extent
+<h2 class="section-subtitle">Stock Area Chart: Time Extent</h2>
 
 <div id="chart03"></div>
 
@@ -84,11 +82,11 @@ title: Stock Charts
         .value(function(d) { return +d.price; })
         .brush(false);
 
-    d3.json('{{ site.baseurl }}/data/stocks.json', function(error, json) {
+    d3.json('{{ site.baseurl }}/chapter06/stocks/data/aapl.json', function(error, json) {
 
         if (error) { return error; }
 
-        var data = json.data[0].values,
+        var data = json.values,
             from = new Date(data[20].date),
             to = new Date(data[100].date);
 

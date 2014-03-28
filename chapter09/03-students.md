@@ -1,17 +1,16 @@
 ---
-layout: main
-title: Students
+layout: default
+title: 9.3 Students
 ---
 
 <link rel="stylesheet" href="{{site.baseurl}}/chapter09/css/dashboard.css">
 
-<script src="{{site.baseurl}}/assets/js/lib/d3.min.js"></script>
 <script src="{{site.baseurl}}/chapter09/js/dashboard.js"></script>
 <script src="{{site.baseurl}}/chapter09/js/gendata.js"></script>
 
-# {{ page.title }}
+<h1 class="section-title">{{page.title}}</h1>
 
-### Students Section
+<h2 class="section-subtitle">Students Section</h2>
 
 <div class="row">
     <div class="col-md-8">
@@ -32,8 +31,6 @@ title: Students
         .call(tableStudents);
 </script>
 
-
-<div style="height:100px;"></div>
 
 
 

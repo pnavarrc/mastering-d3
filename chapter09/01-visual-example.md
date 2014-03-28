@@ -1,15 +1,14 @@
 ---
-layout: main
+layout: default
 title: 9.1 Visual Examples
 ---
 
-<script src="{{ site.baseurl }}/assets/js/lib/d3.min.js"></script>
 <script src="{{ site.baseurl }}/assets/js/lib/moment.js"></script>
 <link rel="stylesheet" href="{{ site.baseurl }}/chapter09/css/sales.css">
 
-# {{ page.title }}
+<h1 class="section-title">{{page.title}}</h1>
 
-## Comparing a Table with a Chart
+<h2 class="section-subtitle">Comparing a Table with a Chart</h2>
 
 <p class="lead">The table provides more precision, but the chart allows to spot patterns and changes in time.</p>
 

@@ -50,6 +50,27 @@ module.exports = function(grunt) {
             topojson: {
                 src: 'bower_components/topojson/topojson.js',
                 dest: 'assets/js/lib/topojson.js'
+            },
+
+            underscore: {
+                src: 'bower_components/underscore/underscore.js',
+                dest: 'assets/js/lib/underscore.js'
+            },
+
+            backbone: {
+                src: 'bower_components/backbone/backbone.js',
+                dest: 'assets/js/lib/backbone.js'
+            }
+        },
+
+        less: {
+            dist: {
+                options: {
+                    paths: ['assets/css']
+                },
+                files: {
+                    'assets/css/book.css': "less/book.less"
+                }
             }
         }
 

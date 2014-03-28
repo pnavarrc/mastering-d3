@@ -1,6 +1,6 @@
 {
   "name": "mastering-d3",
-  "version": "0.1.8",
+  "version": "1.8.1",
   "description": "Companion code for the book Mastering D3.js",
   "main": "Gruntfile.js",
   "scripts": {
@@ -22,7 +22,6 @@
   "devDependencies": {
     "grunt-contrib-copy": "~0.5.0",
     "grunt": "~0.4.2",
-    "grunt-contrib-less": "~0.9.0",
-    "grunt-curl": "~1.4.0"
+    "grunt-contrib-less": "~0.9.0"
   }
 }

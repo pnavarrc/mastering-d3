@@ -1,10 +1,9 @@
 ---
-layout: main
-title: "10.3 Reading the TopoJSON File"
+layout: default
+title: 10.3 Reading the TopoJSON File
 ---
 
-{{page.title}}
-==============
+<h1 class="section-title">{{ page.title }}</h1>
 
 <div>
     <pre id="json"></pre>

@@ -1,16 +1,15 @@
 ---
-layout: main
+layout: default
 title: "10.4 Mapping Topology"
 ---
 
 <!-- Include the map styles and the topojson library -->
-<link href='{{ site.baseurl}}/chapter10/map.css' rel='stylesheet'>
-<script src='{{ site.baseurl}}/assets/js/lib/topojson.js'></script>
+<link href='{{site.baseurl}}/chapter10/map.css' rel='stylesheet'>
+<script src='{{site.baseurl}}/assets/js/lib/topojson.js'></script>
 
-# {{page.title}}
+<h1 class="section-title">{{ page.title }}</h1>
 
-
-## Converting TopoJSON to GeoJSON objects
+<h2 class="section-subtitle">Converting TopoJSON to GeoJSON objects</h2>
 
 <div id='map01'></div>
 
@@ -107,8 +106,7 @@ title: "10.4 Mapping Topology"
 </script>
 
 
-## Centering and Scaling
-
+<h2 class="section-subtitle">Centering and Scaling</h2>
 
 <div id='map02'></div>
 
@@ -187,8 +185,7 @@ title: "10.4 Mapping Topology"
 </script>
 
 
-## Finding Neighbors
-
+<h2 class="section-subtitle">Finding Neighbors</h2>
 
 <div id='map03'></div>
 
@@ -301,8 +298,7 @@ title: "10.4 Mapping Topology"
 </script>
 
 
-## Drawing a Frontier
-
+<h2 class="section-subtitle">Drawing a Frontier</h2>
 
 <div id='map04'></div>
 
@@ -432,10 +428,9 @@ title: "10.4 Mapping Topology"
 </script>
 
 
+<h2 class="section-subtitle">Using the Orthographic Projection</h2>
 
-## Using the Orthographic Projection
-
-<div id='globe04' style="border: solid 1px #eee;"></div>
+<div id='globe04'></div>
 
 <script type="text/javascript">
     var url = '{{site.baseurl}}/chapter10/data/countries.topojson',
