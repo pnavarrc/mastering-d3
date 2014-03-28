@@ -1,13 +1,11 @@
 ---
-layout: section
+layout: default
 title: 5.1 Highlighting and Tooltips
 ---
 
-# {{ page.title }}
+<h1 class="section-title">{{page.title}}</h1>
 
-
-## Fruit Chart
-
+<h2 class="section-subtitle">Fruit Chart</h2>
 
 <!-- Fruits Chart -->
 <script>
@@ -118,9 +116,7 @@ title: 5.1 Highlighting and Tooltips
     });
 </script>
 
-
-## Adding Highlighting
-
+<h2 class="section-subtitle">Adding Highlighting</h2>
 
 <!-- Fruits Chart -->
 <script>
@@ -249,7 +245,7 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Tooltip API
+<h2 class="section-subtitle">Tooltip API</h2>
 
 
 <script>
@@ -321,8 +317,7 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Tooltip Content
-
+<h2 class="section-subtitle">Tooltip Content</h2>
 
 <script>
     function tooltipChart() {
@@ -487,7 +482,7 @@ title: 5.1 Highlighting and Tooltips
 </script>
 
 
-## Using the Tooltip
+<h2 class="section-subtitle">Using the Tooltip</h2>
 
 
 <div id="chart05"></div>

@@ -1,5 +1,5 @@
 ---
-layout: section
+layout: default
 title: Stock Charts
 ---
 
@@ -34,7 +34,7 @@ title: Stock Charts
 </div>
 
 
-## Stock Title Chart
+<h2 class="section-subtitle">Stock Title Chart</h2>
 
 <div id="chart01"></div>
 
@@ -49,7 +49,7 @@ title: Stock Charts
         .call(titleChart);
 </script>
 
-## Stock Area Chart: Selecting the Time Interval
+<h2 class="section-subtitle">Stock Area Chart: Selecting the Time Interval</h2>
 
 <div id="chart02"></div>
 
@@ -75,7 +75,7 @@ title: Stock Charts
 </script>
 
 
-## Stock Area Chart: Time Extent
+<h2 class="section-subtitle">Stock Area Chart: Time Extent</h2>
 
 <div id="chart03"></div>
 

@@ -1,5 +1,5 @@
 ---
-layout: section
+layout: default
 title: 1D Brushing
 ---
 
@@ -24,9 +24,9 @@ title: 1D Brushing
     </style>
 </div>
 
-# {{ page.title }}
+<h1 class="section-title">{{page.title}}</h1>
 
-## Creating the Chart
+<h2 class="section-subtitle">Creating the Chart</h2>
 
 <!-- Chart Container -->
 <div id="chart01" class="chart-example"></div>
@@ -197,7 +197,7 @@ title: 1D Brushing
 </script>
 
 
-## Brushing
+<h2 class="section-subtitle">Brushing</h2>
 
 <div>
     <style>
@@ -408,7 +408,7 @@ title: 1D Brushing
 </script>
 
 
-## Brushing Annotations
+<h2 class="section-subtitle">Brushing Annotations</h2>
 
 <div id="chart04" class="chart-example"></div>
 

@@ -1,5 +1,5 @@
 ---
-layout: section
+layout: default
 title: "2.1 Creating DOM Elements with D3"
 ---
 
@@ -21,9 +21,9 @@ title: "2.1 Creating DOM Elements with D3"
     </style>
 </div>
 
-# {{ page.title }}
+<h1 class="section-title">{{page.title}}</h1>
 
-## Method Chaining
+<h2 class="section-subtitle">Method Chaining</h2>
 
 <div class="chart-example" id="chart-01"></div>
 
@@ -44,7 +44,7 @@ title: "2.1 Creating DOM Elements with D3"
 </script>
 
 
-## Using selection.call
+<h2 class="section-subtitle">Using selection.call</h2>
 
 <div class="chart-example" id="chart-02"></div>
 
@@ -65,7 +65,7 @@ title: "2.1 Creating DOM Elements with D3"
 </script>
 
 
-## Defining the Call Argument Function
+<h2 class="section-subtitle">Defining the Call Argument Function</h2>
 
 <div class="chart-example" id="chart-03"></div>
 
@@ -89,7 +89,7 @@ title: "2.1 Creating DOM Elements with D3"
 </script>
 
 
-## Creating a SVG Element
+<h2 class="section-subtitle">Creating a SVG Element</h2>
 
 <div class="chart-example" id="chart-04"></div>
 

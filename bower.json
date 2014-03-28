@@ -25,6 +25,8 @@
   "devDependencies": {
     "d3": "~3.3.11",
     "bootstrap": "~3.0.2",
-    "topojson": "~1.4.9"
+    "topojson": "~1.4.9",
+    "backbone": "~1.1.2",
+    "jquery": "~2.1.0"
   }
 }

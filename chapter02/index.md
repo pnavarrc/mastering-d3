@@ -1,11 +1,11 @@
 ---
-layout: section
+layout: default
 title: "2. Reusable Charts"
 ---
 
-# {{ page.title }}
+<h1 class="section-title">{{ page.title }}</h1>
 
-## Contents
+<h2 class="toc-title">Table of Contents</h2>
 
 - [2.1 Creating DOM Elements with D3]({{ site.baseurl }}/chapter02/01-creating-dom-elements)
 - [2.2 Creating the Barcode Chart]({{ site.baseurl }}/chapter02/02-barcode-chart)
