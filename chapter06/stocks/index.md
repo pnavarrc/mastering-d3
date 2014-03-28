@@ -1,5 +1,5 @@
 ---
-layout: spa
+layout: basic
 title: Stock Explorer
 ---
 

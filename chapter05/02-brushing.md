@@ -181,7 +181,7 @@ title: 1D Brushing
 
 <script>
     // Load the TSV Stock Data
-    d3.tsv('{{ site.baseurl }}/data/aapl.tsv', function(error, data) {
+    d3.tsv('{{ site.baseurl }}/chapter05/aapl.tsv', function(error, data) {
 
         // Handle errors getting or parsing the data
         if (error) { console.error(error); }
@@ -392,7 +392,7 @@ title: 1D Brushing
 
 <script>
     // Load the TSV Stock Data
-    d3.tsv('{{ site.baseurl }}/data/aapl.tsv', function(error, data) {
+    d3.tsv('{{ site.baseurl }}/chapter05/aapl.tsv', function(error, data) {
 
         // Handle errors getting or parsing the data
         if (error) { console.error(error); }
@@ -664,7 +664,7 @@ title: 1D Brushing
 
 <script>
     // Load the TSV Stock Data
-    d3.tsv('{{ site.baseurl }}/data/aapl.tsv', function(error, data) {
+    d3.tsv('{{ site.baseurl }}/chapter05/aapl.tsv', function(error, data) {
 
         // Handle errors getting or parsing the data
         if (error) { console.error(error); }

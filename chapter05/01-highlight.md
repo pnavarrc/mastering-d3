@@ -99,7 +99,7 @@ title: 5.1 Highlighting and Tooltips
 
 <script>
     // Load and parse the json data
-    d3.json('{{ site.baseurl }}/data/fruits.json', function(error, root) {
+    d3.json('{{ site.baseurl }}/chapter05/fruits.json', function(error, root) {
 
         // Displays an error message
         if (error) {
@@ -227,7 +227,7 @@ title: 5.1 Highlighting and Tooltips
 
 <script>
     // Load and parse the json data
-    d3.json('{{ site.baseurl }}/data/fruits.json', function(error, root) {
+    d3.json('{{ site.baseurl }}/chapter05/fruits.json', function(error, root) {
 
         // Displays the error message
         if (error) {
@@ -600,7 +600,7 @@ title: 5.1 Highlighting and Tooltips
 
 <script>
     // Load and parse the json data
-    d3.json('{{ site.baseurl }}/data/fruits.json', function(error, root) {
+    d3.json('{{ site.baseurl }}/chapter05/fruits.json', function(error, root) {
 
         // Handle errors getting or parsing the json data.
         if (error) {

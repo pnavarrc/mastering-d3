@@ -62,14 +62,12 @@ title: Stock Charts
             console.log(extent);
         });
 
-    d3.json('{{ site.baseurl }}/data/stocks.json', function(error, json) {
+    d3.json('{{ site.baseurl }}/chapter06/stocks/data/aapl.json', function(error, json) {
 
         if (error) { return error; }
 
-        var stock = json.data[0];
-
         d3.select('div#chart02')
-            .data([stock.values])
+            .data([json.values])
             .call(contextAreaChart);
     });
 </script>
@@ -84,11 +82,11 @@ title: Stock Charts
         .value(function(d) { return +d.price; })
         .brush(false);
 
-    d3.json('{{ site.baseurl }}/data/stocks.json', function(error, json) {
+    d3.json('{{ site.baseurl }}/chapter06/stocks/data/aapl.json', function(error, json) {
 
         if (error) { return error; }
 
-        var data = json.data[0].values,
+        var data = json.values,
             from = new Date(data[20].date),
             to = new Date(data[100].date);
 

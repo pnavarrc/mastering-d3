@@ -15,7 +15,7 @@ title: 3.1 Bubble Chart without SVG
 
 <script>
     // Load the data asynchronously.
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) {
@@ -42,7 +42,7 @@ title: 3.1 Bubble Chart without SVG
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -80,7 +80,7 @@ title: 3.1 Bubble Chart without SVG
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -140,7 +140,7 @@ title: 3.1 Bubble Chart without SVG
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -212,7 +212,7 @@ title: 3.1 Bubble Chart without SVG
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -295,7 +295,7 @@ title: 3.1 Bubble Chart without SVG
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -564,7 +564,7 @@ title: 3.1 Bubble Chart without SVG
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
@@ -700,7 +700,7 @@ title: 3.1 Bubble Chart without SVG
 
 <script>
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }
