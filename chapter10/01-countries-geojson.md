@@ -1,10 +1,11 @@
 ---
-layout: main
-title: "10.1 Countries GeoJSON File"
+layout: default
+title: 10.1 Countries GeoJSON File
 ---
 
-{{page.title}}
-==============
+<h1 class="section-title">{{page.title}}</h1>
+
+<h2 class="section-subtitle">GeoJSON file</h2>
 
 <div>
     <pre id="json"></pre>

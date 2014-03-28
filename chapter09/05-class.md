@@ -1,6 +1,6 @@
 ---
-layout: main
-title: Students
+layout: default
+title: 9.5 Classes
 ---
 
 <link rel="stylesheet" href="{{site.baseurl}}/chapter09/css/dashboard.css">
@@ -9,9 +9,11 @@ title: Students
 <script src="{{site.baseurl}}/chapter09/js/dashboard.js"></script>
 <script src="{{site.baseurl}}/chapter09/js/gendata.js"></script>
 
-## Class Section
+<h1 class="section-title">{{page.title}}</h1>
 
-<div class="col-md-6" id='class-section'>
+<h2 class="section-subtitle">Class Section</h2>
+
+<div class="col-md-8" id='class-section'>
     <table class="table">
         <thead>
             <tr>
@@ -26,7 +28,6 @@ title: Students
 </div>
 
 <script>
-
     var bullet = dashboard.chart.bulletChart()
         .height(20)
         .bullet({height: 6})
@@ -52,6 +53,4 @@ title: Students
     tr.append('td')
         .attr('class', 'text-right')
         .html(function(d) { return d.absents; });
-
-
 </script>

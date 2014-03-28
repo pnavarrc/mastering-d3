@@ -1,11 +1,11 @@
 ---
-layout: main
+layout: default
 title: "10.2 Creating a Chloroplet Map"
 ---
 
 <link href='{{ site.baseurl}}/chapter10/map.css' rel='stylesheet'>
 
-# {{ page.title }}
+<h1 class="section-title">{{ page.title }}</h1>
 
 <script>
     // Define the width and height of our maps
@@ -15,8 +15,7 @@ title: "10.2 Creating a Chloroplet Map"
 </script>
 
 
-## Using the Mercator Projection
-
+<h2 class="section-subtitle">Using the Mercator Projection</h2>
 
 <div id="map01"></div>
 
@@ -65,8 +64,7 @@ title: "10.2 Creating a Chloroplet Map"
 </script>
 
 
-## Adding the Oceans and the Graticule
-
+<h2 class="section-subtitle">Adding the Oceans and the Graticule</h2>
 
 <div id="map02"></div>
 
@@ -163,9 +161,7 @@ title: "10.2 Creating a Chloroplet Map"
 </script>
 
 
-
-## Creating the Color Scale
-
+<h2 class="section-subtitle">Creating the Color Scale</h2>
 
 <div id="map03"></div>
 
@@ -264,7 +260,7 @@ title: "10.2 Creating a Chloroplet Map"
 </script>
 
 
-## Using the Orthographic Projection
+<h2 class="section-subtitle">Using the Orthographic Projection</h2>
 
 <div id="map04"></div>
 

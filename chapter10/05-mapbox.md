@@ -1,9 +1,9 @@
 ---
-layout: main
-title: "10.5 Using Mapbox"
+layout: default
+title: 10.5 Using Mapbox
 ---
 
-# {{page.title}}
+<h1 class="section-title">{{page.title}}</h1>
 
 <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
@@ -44,12 +44,11 @@ title: "10.5 Using Mapbox"
 </div>
 
 
-## Simple Map
+<h2 class="section-subtitle">Simple Map</h2>
 
 <div class="map-container">
     <div id="map01"></div>
 </div>
-
 
 <script>
     // Declare the map ID, the center and zoom level of the map view
@@ -63,15 +62,13 @@ title: "10.5 Using Mapbox"
 </script>
 
 
-## Adding a D3 Layer
-
+<h2 class="section-subtitle">Adding a D3 Layer</h2>
 
 <div class="map-container">
     <div id="map02"></div>
 </div>
 
 <script>
-
     //  Create an instance of the map and render it in the #map02 div.
     var map02 = L.mapbox.map('map02', mapID)
         .setView(center, zoomLevel);

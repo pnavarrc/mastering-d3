@@ -1,15 +1,16 @@
 ---
 layout: main
-title: Students
+title: 9.4 Courses
 ---
 
 <link rel="stylesheet" href="{{site.baseurl}}/chapter09/css/dashboard.css">
 
-<script src="{{site.baseurl}}/assets/js/lib/d3.min.js"></script>
 <script src="{{site.baseurl}}/chapter09/js/dashboard.js"></script>
 <script src="{{site.baseurl}}/chapter09/js/gendata.js"></script>
 
-## Courses Section
+<h1 class="section-title">{{page.title}}</h1>
+
+<h2 class="section-subtitle">Courses Section</h2>
 
 <div class="col-md-6" id='courses-section'>
     <table class="table"><thead></thead><tbody></tbody></table>

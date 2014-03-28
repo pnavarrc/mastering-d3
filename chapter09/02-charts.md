@@ -1,17 +1,16 @@
 ---
-layout: main
-title: Charts
+layout: default
+title: 9.2 Charts
 ---
 
 <link rel="stylesheet" href="{{site.baseurl}}/chapter09/css/dashboard.css">
 
-<script src="{{site.baseurl}}/assets/js/lib/d3.min.js"></script>
 <script src="{{site.baseurl}}/chapter09/js/dashboard.js"></script>
 <script src="{{site.baseurl}}/chapter09/js/gendata.js"></script>
 
-# {{ page.title }}
+<h1 class="section-title">{{page.title}}</h1>
 
-### Absences
+<h2 class="section-subtitle">Absences</h2>
 
 <div class="row">
     <div class="col-md-6">
@@ -47,7 +46,7 @@ title: Charts
 </script>
 
 
-### Scores
+<h2 class="section-subtitle">Scores</h2>
 
 <div class="row">
     <div class="col-md-10">
@@ -96,7 +95,7 @@ title: Charts
         .call(score);
 </script>
 
-### Bullet Chart
+<h2 class="section-subtitle">Bullet Chart</h2>
 
 <div id="bullet-example"></div>
 
