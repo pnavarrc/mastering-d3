@@ -1,14 +1,16 @@
 ---
 layout: default
-title: 10. Creating Maps
+title: 11. Advanced Maps
 ---
 
 <h1 class="section-title">{{ page.title }}</h1>
 
 <h2 class="toc-title">Table of Contents</h2>
 
-- [10.1 Countries GeoJSON file]({{site.baseurl}}/chapter10/01-countries-geojson)
-- [10.2 Creating a Choropleth Map]({{site.baseurl}}/chapter10/02-choropleth-map)
-- [10.3 Countries TopoJSON file]({{site.baseurl}}/chapter10/03-countries-topojson)
-- [10.4 Mapping Topology]({{site.baseurl}}/chapter10/04-mapping-topology)
-- [10.5 Integrating D3 and Mapbox]({{site.baseurl}}/chapter10/05-mapbox)
+- [11.1 Standard Projections]({{site.baseurl}}/chapter11/01-projections)
+- [11.2 Rotating the Globe]({{site.baseurl}}/chapter11/02-rotating)
+- [11.3 Celestial Sphere]({{site.baseurl}}/chapter11/03-celestial-sphere)
+- [11.4 Celestial Sphere Fullscreen]({{site.baseurl}}/chapter11/04-fullscreen)
+- [11.5 Raster Reprojection]({{site.baseurl}}/chapter11/05-raster)
+
+
