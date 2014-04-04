@@ -49,4 +49,10 @@ title: Mastering D3.js
     - [10.4 Mapping Topology]({{site.baseurl}}//chapter10/04-mapping-topology)
     - [10.5 Integrating D3 and Mapbox]({{site.baseurl}}//chapter10/05-mapbox)
 
+- [11. Advanced Maps]({{ site.baseurl }}/chapter11)
+    - [11.1 Standard Projections]({{site.baseurl}}/chapter11/01-projections)
+    - [11.2 Rotating the Globe]({{site.baseurl}}/chapter11/02-rotating)
+    - [11.3 Celestial Sphere]({{site.baseurl}}/chapter11/03-celestial-sphere)
+    - [11.4 Celestial Sphere Fullscreen]({{site.baseurl}}/chapter11/04-fullscreen)
+    - [11.5 Raster Reprojection]({{site.baseurl}}/chapter11/05-raster)
 

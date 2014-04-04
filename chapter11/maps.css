@@ -1,0 +1,50 @@
+.globe {
+    fill: #E9E9E9;
+    pointer-events: none;
+}
+
+.land {
+    fill: #BCBCBC;
+    pointer-events: none;
+}
+
+.guide {
+    stroke: #3299BB;
+    pointer-events: none;
+}
+
+.guide-label {
+    fill: #3299BB;
+    pointer-events: none;
+}
+
+.graticule {
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 1px;
+    stroke-opacity: 0.5;
+    pointer-events: none;
+}
+
+.graticule-black {
+    fill: none;
+    stroke: #555;
+    stroke-width: 1px;
+    stroke-opacity: 0.5;
+}
+
+.cellestial-globe {
+    fill: #060061;
+    pointer-events: none;
+}
+
+.star {
+    fill: #fff;
+}
+
+.star-label {
+    text-transform: uppercase;
+    font-size: 10px;
+    fill: #fff;
+    fill-opacity: 0.6;
+}

@@ -1,6 +1,6 @@
 {
   "name": "mastering-d3",
-  "version": "1.8.1",
+  "version": "1.9.0",
   "description": "Companion code for the book Mastering D3.js",
   "main": "Gruntfile.js",
   "scripts": {
