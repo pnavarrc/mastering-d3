@@ -161,7 +161,7 @@ title: "10.2 Creating a Chloroplet Map"
 </script>
 
 
-<h2 class="section-subtitle">Creating the Color Scale</h2>
+<h2 class="section-subtitle">Choropleth Map</h2>
 
 <div id="map03"></div>
 
@@ -259,100 +259,3 @@ title: "10.2 Creating a Chloroplet Map"
     });
 </script>
 
-
-<h2 class="section-subtitle">Using the Orthographic Projection</h2>
-
-<div id="map04"></div>
-
-<script>
-    d3.json(geoJsonUrl, function(error, data) {
-
-        // Handle errors getting or parsing the GeoJSON file
-        if (error) { return error; }
-
-        // Setup
-        // -----
-
-        // Create the SVG Container
-        var div = d3.select('#map04'),
-            svg = div.selectAll('svg').data([data]);
-
-        var svgEnter = svg.enter().append('svg')
-            .attr('width', width)
-            .attr('height', height);
-
-        // Projection
-        // ----------
-
-        // The width will cover the complete circumference
-        var scale = 1.3 * width / Math.PI;
-
-        // Create the projection, setting the coordinates (0, 0) at the
-        // center of the figure
-        var projection = d3.geo.orthographic()
-                .scale(scale)
-                .translate([width / 2, height / 2])
-                .clipAngle(90);
-
-        // Create the path generator
-        var pathGenerator = d3.geo.path()
-            .projection(projection);
-
-        // Globe
-        // -----
-
-        var globeFeature = {
-            type: 'Feature',
-            geometry: {
-                type: 'Polygon',
-                coordinates: [
-                    [
-                        [-179.999,  89.999],
-                        [ 179.999,  89.999],
-                        [ 179.999, -89.999],
-                        [-179.999, -89.999],
-                        [-179.999,  89.999]
-                    ]
-                ]
-            }
-        };
-
-        // Create a selection for the globe
-        var globe = svg.selectAll('path.globe').data([globeFeature]);
-
-        // Append the graticule paths on enter
-        globe.enter().append('path')
-            .attr('class', 'globe');
-
-        // Set the path of the globe using the path generator
-        globe.attr('d', pathGenerator);
-
-        // Features
-        // --------
-
-        // Create a selection for the countries and bind the feature data
-        var features = svg.selectAll('path.feature').data(data.features);
-
-        // Append the paths on enter
-        features.enter().append('path')
-            .attr('class', 'feature');
-
-        // Set the path of the countries
-        features.attr('d', pathGenerator);
-
-        // Graticule
-        // ---------
-
-        // Create the graticule feature generator
-        var graticule = d3.geo.graticule();
-
-        // Create a selection for the graticule path and bint the data
-        var grid = svg.selectAll('path.graticule').data([graticule()])
-
-        // Append the graticule paths on enter
-        grid.enter().append('path').attr('class', 'graticule');
-
-        // Set the path attribute for the graticule
-        grid.attr('d', pathGenerator);
-    });
-</script>
