@@ -7,3 +7,6 @@
 [submodule "chapter08/hdi-explorer"]
 	path = chapter08/hdi-explorer
 	url = https://github.com/pnavarrc/hdi-explorer.git
+[submodule "chapter12/hdi-explorer"]
+	path = chapter12/hdi-explorer
+	url = https://github.com/pnavarrc/hdi-explorer.git

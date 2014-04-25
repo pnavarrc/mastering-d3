@@ -1,10 +1,6 @@
 # Mastering D3.js
 
-
 ## Contents
-
-
-
 
 ## Grunt Tasks
 
