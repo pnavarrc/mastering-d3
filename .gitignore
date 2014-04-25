@@ -1,5 +1,8 @@
 # Git Ignored Files
 
+# OSX
+.DS_Store
+
 # Jekyll
 _site/*
 
