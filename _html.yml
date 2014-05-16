@@ -14,3 +14,4 @@ exclude:
     - chapter12
 
 name: "Mastering D3.js"
+baseurl: ''
