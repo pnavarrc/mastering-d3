@@ -53,7 +53,7 @@ title: "2.4 Creating a Layout Algorithm"
 
 
 <script>
-    var RadialLayout = function() {
+    var radialLayout = function() {
 
         // Layout function.
         function layout(data) {
@@ -83,10 +83,10 @@ title: "2.4 Creating a Layout Algorithm"
     var data = addData([], 300, 20 * 60);
 
     // Create an instance of the layout function.
-    var radialLayout = RadialLayout();
+    var layout = radialLayout();
 
     // Compute the ouput data.
-    var output01 = radialLayout(data);
+    var output01 = layout(data);
 </script>
 
 

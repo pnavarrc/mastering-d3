@@ -40,7 +40,7 @@ title: "2.1 Creating DOM Elements with D3"
         .append('div')
         .attr('class', 'data-item')
         .append('p')
-        .text(function(d) { return d; });
+        .html(function(d) { return d; });
 </script>
 
 
@@ -55,11 +55,11 @@ title: "2.1 Creating DOM Elements with D3"
         .enter()
         .append('div')
         .call(function(selection) {
-            selection.each(function(data) {
+            selection.each(function(d) {
                 d3.select(this)
                     .attr('class', 'data-item')
                     .append('p')
-                    .text(data);
+                    .html(d);
             });
         });
 </script>
@@ -76,7 +76,7 @@ title: "2.1 Creating DOM Elements with D3"
             d3.select(this)
                 .attr('class', 'data-item')
                 .append('p')
-                .text(data);
+                .html(data);
         });
     }
 
