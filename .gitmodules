@@ -10,3 +10,6 @@
 [submodule "chapter12/hdi-explorer"]
 	path = chapter12/hdi-explorer
 	url = https://github.com/pnavarrc/hdi-explorer.git
+[submodule "chapter13/chirp-server"]
+	path = chapter13/chirp-server
+	url = https://github.com/pnavarrc/chirp-server.git
