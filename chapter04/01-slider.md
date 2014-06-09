@@ -84,7 +84,7 @@ title: "4.1 Creating a Slider"
                     .call(chart.initLine);
 
                 // Append a circle as handler.
-                var handler = group.selectAll('circle')
+                var handle = group.selectAll('circle')
                     .data([data])
                     .enter()
                     .append('circle')
@@ -97,15 +97,15 @@ title: "4.1 Creating a Slider"
 
                 // Create and configure the drag behavior.
                 var drag = d3.behavior.drag()
-                    .on('drag', moveHandler);
+                    .on('drag', moveHandle);
 
                 // Set the position of the circle and adds the drag behavior.
-                handler
+                handle
                     .attr('cx', function(d) { return posScale(d); })
                     .call(drag);
 
-                function moveHandler(d) {
-                    // Compute the future position of the handler
+                function moveHandle(d) {
+                    // Compute the future position of the handle
                     var cx = +d3.select(this).attr('cx') + d3.event.dx;
 
                     // Update the position if its within its valid range.

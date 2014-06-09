@@ -112,7 +112,7 @@ title: 3.1 Bubble Chart without SVG
 
         // Create a selection for the bubble divs, bind the data
         // array and set its attributes.
-        var bubbleDiv = containerDiv.selectAll('div.bubble')
+        var bubbleDivs = containerDiv.selectAll('div.bubble')
             .data(items)
             .enter()
             .append('div')
@@ -125,7 +125,7 @@ title: 3.1 Bubble Chart without SVG
         // Register a listener function for the force tick event, and
         // update the position of each div on tick.
         force.on('tick', function() {
-            bubbleDiv
+            bubbleDivs
                 .style('top', function(d) { return (d.y - 5) + 'px'; })
                 .style('left', function(d) { return (d.x - 5) + 'px'; });
         });
@@ -180,7 +180,7 @@ title: 3.1 Bubble Chart without SVG
 
         // Create a selection for the bubble divs, bind the data
         // array and set its attributes.
-        var bubbleDiv = containerDiv.selectAll('div.bubble')
+        var bubbleDivs = containerDiv.selectAll('div.bubble')
             .data(items)
             .enter()
             .append('div')
@@ -197,7 +197,7 @@ title: 3.1 Bubble Chart without SVG
         // Register a listener function for the force tick event, and
         // update the position of each div on tick.
         force.on('tick', function() {
-            bubbleDiv
+            bubbleDivs
                 .style('top', function(d) { return (d.y - 5) + 'px'; })
                 .style('left', function(d) { return (d.x - 5)+ 'px'; });
         });
@@ -265,7 +265,7 @@ title: 3.1 Bubble Chart without SVG
 
         // Create a selection for the bubble divs, bind the data
         // array and set its attributes.
-        var bubbleDiv = containerDiv.selectAll('div.bubble')
+        var bubbleDivs = containerDiv.selectAll('div.bubble')
             .data(items)
             .enter()
             .append('div')
@@ -280,7 +280,7 @@ title: 3.1 Bubble Chart without SVG
         // Register a listener function for the force tick event, and
         // update the position of each div on tick.
         force.on('tick', function() {
-            bubbleDiv
+            bubbleDivs
                 .style('top', function(d) { return (d.y - d.r) + 'px'; })
                 .style('left', function(d) { return (d.x - d.r)+ 'px'; });
         });
@@ -349,7 +349,7 @@ title: 3.1 Bubble Chart without SVG
 
         // Create a selection for the bubble divs, bind the data
         // array and set its attributes.
-        var bubbleDiv = containerDiv.selectAll('div.bubble')
+        var bubbleDivs = containerDiv.selectAll('div.bubble')
             .data(items)
             .enter()
             .append('div')
@@ -364,7 +364,7 @@ title: 3.1 Bubble Chart without SVG
         // Register a listener function for the force tick event, and
         // update the position of each div on tick.
         force.on('tick', function() {
-            bubbleDiv
+            bubbleDivs
                 .style('top', function(d) { return (d.y - d.r) + 'px'; })
                 .style('left', function(d) { return (d.x - d.r)+ 'px'; });
         });
@@ -391,6 +391,8 @@ title: 3.1 Bubble Chart without SVG
         var name = function(d) { return d.name; }
 
         var usage = function(d) { return d.usage; }
+
+        var charge = function(d) { return -0.12 * d.r * d.r; }
 
         function chart(selection) {
             selection.each(function(data) {
@@ -433,7 +435,7 @@ title: 3.1 Bubble Chart without SVG
 
                 // Create a selection for the bubble divs, bind the data
                 // array and set its attributes.
-                var bubbleDiv = containerDiv.selectAll('div.bubble')
+                var bubbleDivs = containerDiv.selectAll('div.bubble')
                     .data(data)
                     .enter()
                     .append('div')
@@ -448,7 +450,7 @@ title: 3.1 Bubble Chart without SVG
                 // Register a listener function for the force tick event, and
                 // update the position of each div on tick.
                 force.on('tick', function() {
-                    bubbleDiv
+                    bubbleDivs
                         .style('top', function(d) { return (d.y - d.r) + 'px'; })
                         .style('left', function(d) { return (d.x - d.r)+ 'px'; });
                 });
@@ -499,12 +501,19 @@ title: 3.1 Bubble Chart without SVG
             return chart;
         };
 
+        // Charge of the layout
+        chart.charge = function(chargeMethod) {
+            if (!arguments.length) { return charge; }
+            charge = chargeMethod;
+            return charge;
+        }
+
         return chart;
     };
 
 
     // Load the data asynchronously
-    d3.json('{{ site.baseurl }}/data/browsers.json', function(error, data) {
+    d3.json('{{ site.baseurl }}/chapter03/browsers.json', function(error, data) {
 
         // Handle errors getting or parsing the JSON data.
         if (error) { return error; }

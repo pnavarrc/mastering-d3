@@ -25,8 +25,8 @@ function sliderControl() {
                 .append('line')
                 .call(chart.initLine);
 
-            // Append a circle as handler.
-            var handler = group.selectAll('circle')
+            // Append a circle as handle
+            var handle = group.selectAll('circle')
                 .data([data])
                 .enter()
                 .append('circle')
@@ -37,8 +37,8 @@ function sliderControl() {
                 .domain(domain)
                 .range([0, width]);
 
-            function moveHandler(d) {
-                // Compute the future position of the handler
+            function moveHandle(d) {
+                // Compute the future position of the handle
                 var cx = +d3.select(this).attr('cx') + d3.event.dx;
 
                 // Update the position if its within its valid range.
@@ -52,10 +52,10 @@ function sliderControl() {
             }
 
             var drag = d3.behavior.drag()
-                .on('drag', moveHandler);
+                .on('drag', moveHandle);
 
-            // Correct the position of the handler to use the data.
-            handler
+            // Correct the position of the handle to use the data.
+            handle
                 .attr('cx', function(d) { return posScale(d); })
                 .call(drag);
         });

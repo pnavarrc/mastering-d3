@@ -79,7 +79,7 @@ title: Stock Charts
 
 <script>
     var detailAreaChart = stockAreaChart()
-        .value(function(d) { return +d.price; })
+        .value(function(d) { return d.price; })
         .brush(false);
 
     d3.json('{{ site.baseurl }}/chapter06/stocks/data/aapl.json', function(error, json) {
@@ -87,8 +87,8 @@ title: Stock Charts
         if (error) { return error; }
 
         var data = json.values,
-            from = new Date(data[20].date),
-            to = new Date(data[100].date);
+            from = new Date(data[0].date),
+            to = new Date(data[data.length - 1].date);
 
         detailAreaChart.timeExtent([from, to]);
 

@@ -72,7 +72,7 @@ function stockAreaChart() {
                 yAxis;
 
             // Create and initialize the svg element on enter
-            svg.enter().append('svg').call(chart.svgInit);
+            svg.enter().append('svg').call(svgInit);
 
             svg
                 .attr('width', width)
@@ -164,7 +164,7 @@ function stockAreaChart() {
         });
     }
 
-    chart.svgInit = function(selection) {
+    var svgInit = function(selection) {
 
 
         // Define the clipping path
