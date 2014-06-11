@@ -47,7 +47,7 @@ title: Mastering D3.js
     - [10.2 Creating a Chloroplet Map]({{site.baseurl}}//chapter10/02-chloropleth-map)
     - [10.3 Countries TopoJSON file]({{site.baseurl}}//chapter10/03-countries-topojson-map)
     - [10.4 Mapping Topology]({{site.baseurl}}//chapter10/04-mapping-topology)
-    - [10.5 Integrating D3 and Mapbox]({{site.baseurl}}//chapter10/05-mapbox)
+    - [10.5 Integrating D3 and Mapbox]({{site.baseurl}}/chapter10/05-mapbox)
 
 - [11. Advanced Maps]({{ site.baseurl }}/chapter11)
     - [11.1 Standard Projections]({{site.baseurl}}/chapter11/01-projections)
