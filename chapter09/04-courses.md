@@ -1,11 +1,12 @@
 ---
-layout: main
+layout: basic
 title: 9.4 Courses
 ---
 
 <link rel="stylesheet" href="{{site.baseurl}}/chapter09/css/dashboard.css">
 
 <script src="{{site.baseurl}}/chapter09/js/dashboard.js"></script>
+<script src="{{site.baseurl}}/chapter09/js/gendata.js"></script>
 <script src="{{site.baseurl}}/chapter09/js/gendata.js"></script>
 
 <h1 class="section-title">{{page.title}}</h1>
