@@ -161,6 +161,65 @@ title: "10.2 Creating a Chloroplet Map"
 </script>
 
 
+<h2 class="section-subtitle">Color Scales</h2>
+
+
+<div id="qualitative"></div>
+<p>Qualitative Scale</p>
+
+<div id="quantitative-sequential"></div>
+<p>Quantitative Sequential</p>
+
+<div id="quantitative-diverging"></div>
+<p>Quantitative Diverging</p>
+
+<script>
+
+    function drawScale(selection) {
+        selection.each(function(data) {
+
+            var div = d3.select(this),
+                svg = div.selectAll('svg').data([data]),
+                width  = 60,
+                height = 30;
+
+            svg.enter().append('svg')
+                .attr('width',  width * data.length)
+                .attr('height', height);
+
+            var rect = svg.selectAll('rect').data(data);
+
+            rect.enter().append('rect');
+
+            rect
+                .attr('width', width)
+                .attr('height', height)
+                .attr('x', function(d, i) { return width * i; })
+                .attr('fill', function(d) { return d; });
+        });
+    }
+
+    var colorScales = {
+        sequential:  ['#ffffb2', '#fecc5c', '#fd8d3c', '#f03b20', '#bd0026'],
+        qualitative: ['#66c2a5', '#fc8d62', '#8da0cb', '#e78ac3', '#a6d854'],
+        diverging:   ['#ca0020', '#f4a582', '#f7f7f7', '#92c5de', '#0571b0']
+    };
+
+    d3.select('#qualitative')
+        .data([colorScales.qualitative])
+        .call(drawScale);
+
+    d3.select('#quantitative-sequential')
+        .data([colorScales.sequential])
+        .call(drawScale);
+
+    d3.select('#quantitative-diverging')
+        .data([colorScales.diverging])
+        .call(drawScale);
+
+</script>
+
+
 <h2 class="section-subtitle">Choropleth Map</h2>
 
 <div id="map03"></div>

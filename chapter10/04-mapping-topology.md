@@ -189,6 +189,15 @@ title: "10.4 Mapping Topology"
 
 <div id='map03'></div>
 
+<div>
+    <style>
+        .bolivia {
+            fill: #666;
+        }
+    </style>
+</div>
+
+
 <script type="text/javascript">
     d3.json(url, function(error, data) {
 
@@ -293,6 +302,21 @@ title: "10.4 Mapping Topology"
             .enter()
             .append('path')
             .attr('class', 'neighbor')
+            .attr('d', pathGenerator);
+
+
+        var boliviaGeom = {
+            type: 'GeometryCollection',
+            geometries: [data.objects.countries.geometries[countryIndex]]
+        };
+
+        var boliviaFeature = topojson.feature(data, boliviaGeom);
+
+        var boliviaPaths = svg.selectAll('path.bolivia')
+            .data([boliviaFeature])
+            .enter()
+            .append('path')
+            .attr('class', 'bolivia')
             .attr('d', pathGenerator);
     });
 </script>
@@ -406,6 +430,20 @@ title: "10.4 Mapping Topology"
             .enter()
             .append('path')
             .attr('class', 'neighbor')
+            .attr('d', pathGenerator);
+
+        var boliviaGeom = {
+            type: 'GeometryCollection',
+            geometries: [data.objects.countries.geometries[countryIndex]]
+        };
+
+        var boliviaFeature = topojson.feature(data, boliviaGeom);
+
+        var boliviaPaths = svg.selectAll('path.bolivia')
+            .data([boliviaFeature])
+            .enter()
+            .append('path')
+            .attr('class', 'bolivia')
             .attr('d', pathGenerator);
 
 

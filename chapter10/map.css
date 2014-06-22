@@ -1,16 +1,16 @@
 .ocean {
-    fill: #E9E9E9;
+    fill: #fafafa;
     pointer-events: none;
 }
 
 .feature {
-    stroke: #777;
+    stroke: #ababab;
     fill: #BCBCBC;
     pointer-events: none;
 }
 
 .neighbor {
-    fill: #555;
+    fill: #777;
     fill-opacity: 0.3;
     stroke: #eee;
     stroke-width: 1;
@@ -24,12 +24,12 @@
 
 .graticule {
     fill: none;
-    stroke: #777;
+    stroke: #aaa;
     stroke-opacity: 0.4;
 }
 
 .globe {
-    fill: #E9E9E9;
+    fill: #fafafa;
 }
 .globe-white {
     fill: #fdfdfd;
