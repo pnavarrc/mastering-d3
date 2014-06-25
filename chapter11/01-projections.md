@@ -19,7 +19,8 @@ title: 11.1 More Projections
     // Load the TopoJSON land data
     d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
 
-        if (error) { return error; }
+        // Notifies about errors getting or parsing the data
+        if (error) { console.error(error); }
 
         // Set the width and height of the SVG container
         var width = 300, height = 300;
@@ -55,6 +56,7 @@ title: 11.1 More Projections
         // Create the graticule lines and append them to the SVG container
         var graticule = d3.geo.graticule();
 
+        // Add the graticule to the figure
         svg.append('path').datum(graticule())
             .attr('class', 'graticule')
             .attr('d', path);
@@ -69,7 +71,7 @@ title: 11.1 More Projections
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         // Construct the GeoJSON object from the TopoJSON data
         var geojson = topojson.feature(data, data.objects.ne_50m_land);
@@ -119,7 +121,7 @@ title: 11.1 More Projections
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         // Width and height of the SVG container
         var width = 600, height = 300;
@@ -169,7 +171,7 @@ title: 11.1 More Projections
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         // Width and height of the SVG container
         var width = 600, height = 300;
@@ -221,7 +223,7 @@ title: 11.1 More Projections
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         // Width and height of the SVG element
         var width = 600, height = 300;
@@ -269,7 +271,7 @@ title: 11.1 More Projections
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         // Width and height of the SVG element
         var width = 600, height = 300;

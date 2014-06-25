@@ -16,7 +16,7 @@ title: 11.2 Rotating Globe
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         // Width and height of the SVG element
         var width = 600, height = 300;
@@ -65,7 +65,7 @@ title: 11.2 Rotating Globe
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         var width = 800,
             height = 400;
@@ -73,11 +73,11 @@ title: 11.2 Rotating Globe
         var geojson = topojson.feature(data, data.objects.ne_50m_land);
 
         // Store the rotation and scale of the projection
-        var state = {x: 0, y: -45, s: height / 2};
+        var state = {x: 0, y: -45, scale: height / 2};
 
         // Configure the Orthographic projection
         var orthographic = d3.geo.orthographic()
-            .scale(state.s)
+            .scale(state.scale)
             .translate([width / 2, height / 2])
             .clipAngle(90)
             .rotate([state.x, state.y]);
@@ -136,7 +136,7 @@ title: 11.2 Rotating Globe
             // Update the projection with the new rotation and scale
             orthographic
                 .rotate([d.x, d.y])
-                .scale(d.s * scale);
+                .scale(d.scale * scale);
 
             // Recompute the paths and the overlay radius
             svg.selectAll('path').attr('d', path);

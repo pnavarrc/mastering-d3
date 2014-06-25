@@ -14,7 +14,7 @@ title: 11.3 Celestial Sphere
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/hyg.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         var width = 600,
             height = 300;
@@ -68,7 +68,7 @@ title: 11.3 Celestial Sphere
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/hyg.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         var width = 600,
             height = 300;
@@ -120,7 +120,7 @@ title: 11.3 Celestial Sphere
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/hyg.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         var width = 600,
             height = 300;
@@ -200,7 +200,7 @@ title: 11.3 Celestial Sphere
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/hyg.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         var width = 600,
             height = 300;

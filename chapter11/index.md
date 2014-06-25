@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 11. Advanced Maps
+title: 11. Creating Advanced Maps
 ---
 
 <h1 class="section-title">{{ page.title }}</h1>
