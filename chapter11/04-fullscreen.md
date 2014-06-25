@@ -4,6 +4,7 @@ title: 11.4 Fullscreen Cellestial Sphere
 ---
 
 <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/chapter11/maps.css">
+<div>
 <style>
     body, html {
         width: 100%;
@@ -17,11 +18,12 @@ title: 11.4 Fullscreen Cellestial Sphere
         height: 100%;
     }
 </style>
+</div>
 
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/hyg.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         // Create the container div
         var div = d3.select('body').append('div').attr('id', 'stereographic');

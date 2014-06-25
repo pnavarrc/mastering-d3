@@ -17,7 +17,7 @@ title: 11.5 Raster Reprojection
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         var width = 600,
             height = 300;
@@ -59,7 +59,7 @@ title: 11.5 Raster Reprojection
 <script>
     d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
 
-        if (error) { return error; }
+        if (error) { console.error(error); }
 
         var width = 600,
             height = 300;
