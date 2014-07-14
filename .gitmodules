@@ -16,3 +16,9 @@
 [submodule "chapter13/chirp-client"]
 	path = chapter13/chirp-client
 	url = https://github.com/pnavarrc/chirp-client.git
+[submodule "chapter12/chirp-client"]
+	path = chapter12/chirp-client
+	url = https://github.com/pnavarrc/chirp-client.git
+[submodule "chapter12/chirp-server"]
+	path = chapter12/chirp-server
+	url = https://github.com/pnavarrc/chirp-server.git
