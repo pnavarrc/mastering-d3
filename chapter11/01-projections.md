@@ -17,7 +17,7 @@ title: 11.1 More Projections
 
 <script>
     // Load the TopoJSON land data
-    d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
+    d3.json('/chapter11/data/land.json', function(error, data) {
 
         // Notifies about errors getting or parsing the data
         if (error) { console.error(error); }
@@ -69,7 +69,7 @@ title: 11.1 More Projections
 <div id="map-equirectangular"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
+    d3.json('/chapter11/data/land.json', function(error, data) {
 
         if (error) { console.error(error); }
 
@@ -119,7 +119,7 @@ title: 11.1 More Projections
 <div id="map-conic"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
+    d3.json('/chapter11/data/land.json', function(error, data) {
 
         if (error) { console.error(error); }
 
@@ -169,7 +169,7 @@ title: 11.1 More Projections
 <div id="map-conic-rotated"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
+    d3.json('/chapter11/data/land.json', function(error, data) {
 
         if (error) { console.error(error); }
 
@@ -221,7 +221,7 @@ title: 11.1 More Projections
 <div id="map-orthographic"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
+    d3.json('/chapter11/data/land.json', function(error, data) {
 
         if (error) { console.error(error); }
 
@@ -269,7 +269,7 @@ title: 11.1 More Projections
 <div id="map-orthographic-clip"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
+    d3.json('/chapter11/data/land.json', function(error, data) {
 
         if (error) { console.error(error); }
 

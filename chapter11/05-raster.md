@@ -15,7 +15,7 @@ title: 11.5 Raster Reprojection
 <div id="map-equirectangular"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
+    d3.json('/chapter11/data/land.json', function(error, data) {
 
         if (error) { console.error(error); }
 
@@ -57,7 +57,7 @@ title: 11.5 Raster Reprojection
 
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
+    d3.json('/chapter11/data/land.json', function(error, data) {
 
         if (error) { console.error(error); }
 
@@ -166,7 +166,7 @@ title: 11.5 Raster Reprojection
         // Create the image element
         var image = new Image;
         image.onload = onLoad;
-        image.src = '{{site.baseurl}}/chapter11/data/world.jpg';
+        image.src = '/chapter11/data/world.jpg';
 
         // Copy the image to the canvas context
         function onLoad() {

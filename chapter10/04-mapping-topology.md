@@ -148,7 +148,7 @@ title: "10.4 Mapping Topology"
             distance = d3.geo.distance(bounds[0], bounds[1]);
 
         // The width will cover the complete circumference
-        var scale = 0.95 * width / distance;
+        var scale = width / distance;
 
         // Create the projection to match the centroid of the feature
         var projection = d3.geo.mercator()
