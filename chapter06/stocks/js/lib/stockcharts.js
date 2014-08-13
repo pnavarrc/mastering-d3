@@ -166,7 +166,6 @@ function stockAreaChart() {
 
     var svgInit = function(selection) {
 
-
         // Define the clipping path
         selection.append('defs')
             .append('clipPath')
@@ -229,9 +228,9 @@ function stockAreaChart() {
         return chart;
     };
 
-    chart.brushListener = function(brushListener) {
+    chart.brushListener = function(value) {
         if (!arguments.length) { return onBrush; }
-        onBrush = brushListener;
+        onBrush = value;
         return chart;
     };
 

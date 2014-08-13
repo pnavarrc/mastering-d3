@@ -65,7 +65,6 @@ app.StockContextView = Backbone.View.extend({
     // Initialize the stock area chart
     chart: stockAreaChart()
         .height(60)
-        .width(600)
         .margin({top: 5, right: 5, bottom: 20, left: 30})
         .date(function(d) { return new Date(d.date); })
         .value(function(d) { return +d.price; })
