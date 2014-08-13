@@ -12,7 +12,7 @@ title: 11.3 Celestial Sphere
 <div id="equirectangular"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/hyg.json', function(error, data) {
+    d3.json('/chapter11/data/hyg.json', function(error, data) {
 
         if (error) { console.error(error); }
 
@@ -66,7 +66,7 @@ title: 11.3 Celestial Sphere
 <div id="equirectangular-style"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/hyg.json', function(error, data) {
+    d3.json('/chapter11/data/hyg.json', function(error, data) {
 
         if (error) { console.error(error); }
 
@@ -118,7 +118,7 @@ title: 11.3 Celestial Sphere
 <div id="orthographic"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/hyg.json', function(error, data) {
+    d3.json('/chapter11/data/hyg.json', function(error, data) {
 
         if (error) { console.error(error); }
 

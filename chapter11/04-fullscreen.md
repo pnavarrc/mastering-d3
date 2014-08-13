@@ -21,7 +21,7 @@ title: 11.4 Fullscreen Cellestial Sphere
 </div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/hyg.json', function(error, data) {
+    d3.json('/chapter11/data/hyg.json', function(error, data) {
 
         if (error) { console.error(error); }
 

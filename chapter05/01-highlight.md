@@ -12,7 +12,7 @@ title: 5.1 Highlighting and Tooltips
     function fruitChart1() {
 
         // Chart Attributes
-        var width = 700,
+        var width = 600,
             height = 120;
 
         // Radius Extent
@@ -39,9 +39,13 @@ title: 5.1 Highlighting and Tooltips
                     .domain(d3.range(data.length))
                     .rangePoints([0, width], 1);
 
+                var maxCal = d3.max(data, function(d) {
+                    return d.calories;
+                });
+
                 // Create the radius scale
                 var rScale = d3.scale.sqrt()
-                    .domain([0, d3.max(data, function(d) { return d.calories; })])
+                    .domain([0, maxCal])
                     .rangeRound(radiusExtent);
 
                 // Create a container group for each circle
@@ -60,13 +64,13 @@ title: 5.1 Highlighting and Tooltips
                     .attr('fill', function(d) { return d.color; });
 
                 // Add the fruit name
-                var label = gItems.append('text')
+                var labelName = gItems.append('text')
                     .attr('text-anchor', 'middle')
                     .attr('font-size', '12px')
                     .text(function(d) { return d.name; });
 
                 // Add the calories label
-                var calories = gItems.append('text')
+                var labelKCal = gItems.append('text')
                     .attr('text-anchor', 'middle')
                     .attr('font-size', '10px')
                     .attr('y', 12)
@@ -99,11 +103,12 @@ title: 5.1 Highlighting and Tooltips
 
 <script>
     // Load and parse the json data
-    d3.json('{{ site.baseurl }}/chapter05/fruits.json', function(error, root) {
+    d3.json('/chapter05/fruits.json', function(error, root) {
 
         // Displays an error message
         if (error) {
             console.error('Error getting or parsing the data.');
+            throw error;
         }
 
         // Create and configure the chart
@@ -190,9 +195,9 @@ title: 5.1 Highlighting and Tooltips
                 circles
                     .on('mouseover', function(d) {
                         d3.select(this)
+                            .attr('stroke-width', 3)
                             .attr('fill', d3.rgb(d.color).brighter())
-                            .attr('stroke', d.color)
-                            .attr('stroke-width', 3);
+                            .attr('stroke', d.color);
                     })
                     .on('mouseout', function(d) {
                         d3.select(this)
@@ -227,7 +232,7 @@ title: 5.1 Highlighting and Tooltips
 
 <script>
     // Load and parse the json data
-    d3.json('{{ site.baseurl }}/chapter05/fruits.json', function(error, root) {
+    d3.json('/chapter05/fruits.json', function(error, root) {
 
         // Displays the error message
         if (error) {
@@ -257,17 +262,17 @@ title: 5.1 Highlighting and Tooltips
             selection.each(function(d) {
                 // Bind the mouse events to the container element
                 d3.select(this)
-                    .on('mouseover.tooltip', chart.create)
-                    .on('mousemove.tooltip', chart.move)
-                    .on('mouseout.tooltip', chart.remove);
+                    .on('mouseover.tooltip', create)
+                    .on('mousemove.tooltip', move)
+                    .on('mouseout.tooltip', remove);
             });
         }
 
         // This functions will create, move and remove the tooltip
-        chart.init = function() { console.log('init'); };
-        chart.create = function(d) { console.log('create '); };
-        chart.move = function(d) { console.log('move'); };
-        chart.remove = function(d) { console.log('remove'); };
+        function init() { console.log('init'); };
+        function create(d) { console.log('create '); };
+        function move(d) { console.log('move'); };
+        function remove(d) { console.log('remove'); };
 
         return chart;
     }
@@ -339,40 +344,40 @@ title: 5.1 Highlighting and Tooltips
             selection.each(function(d) {
                 // Bind the mouse events to the container element
                 d3.select(this)
-                    .on('mouseover.tooltip', chart.create)
-                    .on('mousemove.tooltip', chart.move)
-                    .on('mouseout.tooltip', chart.remove);
+                    .on('mouseover.tooltip', create)
+                    .on('mousemove.tooltip', move)
+                    .on('mouseout.tooltip', remove);
             });
         }
 
         // Initialize the tooltip
-        chart.init = function(selection) {
+        var init = function(selection) {
             selection.each(function(data) {
                 // Create and configure the tooltip container
-                var tooltipContainer = d3.select(this)
+                d3.select(this)
                     .attr('class', 'tooltip-container')
                     .style('width', width + 'px');
 
                 // Tooltip Title
-                tooltipContainer.append('p')
+                d3.select(this).append('p')
                     .attr('class', 'tooltip-title')
                     .text(title(data));
 
                 // Tooltip Content
-                tooltipContainer.append('p')
+                d3.select(this).append('p')
                     .attr('class', 'tooltip-content')
                     .text(content(data));
             });
         };
 
         // Create the tooltip chart
-        chart.create = function(data) {
+        var create = function(data) {
 
             // Create the tooltip container div
             var tooltipContainer = d3.select('body').append('div')
                 .datum(data)
                 .attr('class', 'tooltip-container')
-                .call(chart.init);
+                .call(init);
 
             // Move the tooltip to its initial position
             tooltipContainer
@@ -381,7 +386,7 @@ title: 5.1 Highlighting and Tooltips
         };
 
         // Move the tooltip to follow the pointer
-        chart.move = function() {
+        var move = function() {
             // Select the tooltip and move it following the pointer
             d3.select('body').select('div.tooltip-container')
                 .style('left', (d3.event.pageX + offset.x) + 'px')
@@ -389,7 +394,7 @@ title: 5.1 Highlighting and Tooltips
         };
 
         // Remove the tooltip
-        chart.remove = function() {
+        var remove = function() {
             // Remove the tooltip div.
             d3.select('div.tooltip-container').remove();
         };
@@ -600,7 +605,7 @@ title: 5.1 Highlighting and Tooltips
 
 <script>
     // Load and parse the json data
-    d3.json('{{ site.baseurl }}/chapter05/fruits.json', function(error, root) {
+    d3.json('/chapter05/fruits.json', function(error, root) {
 
         // Handle errors getting or parsing the json data.
         if (error) {
