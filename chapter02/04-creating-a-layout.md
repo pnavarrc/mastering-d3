@@ -60,7 +60,7 @@ title: "2.4 Creating a Layout Algorithm"
             // Create a map to store the data for each hour.
             var hours = d3.range(0, 24),
                 gmap = d3.map(),
-                groups = [];
+                grouped = [];
 
             // Append a data item for each hour, with all the fields set to zero.
             hours.forEach(function(h) {
@@ -68,9 +68,9 @@ title: "2.4 Creating a Layout Algorithm"
             });
 
             // Copy the values of the map and sort the output data array.
-            groups = gmap.values();
-            groups.sort(function(a, b) { return a.hour > b.hour ? 1 : -1; });
-            return groups;
+            grouped = gmap.values();
+            grouped.sort(function(a, b) { return a.hour > b.hour ? 1 : -1; });
+            return grouped;
         }
 
         // Returns the layout function.
@@ -118,14 +118,14 @@ title: "2.4 Creating a Layout Algorithm"
             // Count the items belonging to each hour
             data.forEach(function(d) {
                 // Get the hour from the date attribute of each data item.
-                var _hour = d.date.getHours();
+                var hour = d.date.getHours();
 
                 // Get the output data item corresponding to the item hour.
-                var _value = gmap.get(_hour);
+                var value = gmap.get(hour);
 
                 // We increment the count attribute and set the value in the map.
-                _value.count += 1;
-                gmap.set(_hour, _value);
+                value.count += 1;
+                gmap.set(hour, value);
             });
 
             // Computation of the output data ...
@@ -187,12 +187,12 @@ title: "2.4 Creating a Layout Algorithm"
             // Count the data items belonging to each hour.
             data.forEach(function(d) {
                 // Get the hour of the data item and the corresponding data item.
-                var _hour = value(d).getHours(),
-                    _value = gmap.get(_hour);
+                var hour = value(d).getHours(),
+                    val = gmap.get(hour);
 
                 // Increment the count and set the value in the map.
-                _value.count += 1;
-                gmap.set(_hour, _value);
+                val.count += 1;
+                gmap.set(hour, val);
             });
 
 
@@ -266,12 +266,12 @@ title: "2.4 Creating a Layout Algorithm"
             // Count the data items belonging to each hour.
             data.forEach(function(d) {
                 // Get the hour of the data item and the corresponding data item.
-                var _hour = value(d).getHours(),
-                    _value = gmap.get(_hour);
+                var hour = value(d).getHours(),
+                    val = gmap.get(hour);
 
                 // Increment the count and set the value in the map.
-                _value.count += 1;
-                gmap.set(_hour, _value);
+                val.count += 1;
+                gmap.set(hour, val);
             });
 
             // Copy the values of the map and sort the output data array.

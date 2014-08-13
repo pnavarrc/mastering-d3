@@ -179,12 +179,14 @@ title: "2.2 Barcode Chart"
                     svg = div.selectAll('svg').data([data]);
 
                 // Call the chart.svgInit method on enter.
-                svg.enter().append('svg').call(chart.svgInit);
+                svg.enter()
+                    .append('svg')
+                    .call(svgInit);
             });
         }
 
         // Initialize the SVG Element
-        chart.svgInit = function(svg) {
+        function svgInit(svg) {
             // Set the SVG size
             svg
                 .attr('width', width)
@@ -264,7 +266,7 @@ title: "2.2 Barcode Chart"
                     svg = div.selectAll('svg').data([data]);
 
                 // SVG Initialization.
-                svg.enter().append('svg').call(chart.svgInit);
+                svg.enter().append('svg').call(svgInit);
 
                 // Compute the horizontal scale.
                 var xScale = d3.time.scale()
@@ -290,7 +292,7 @@ title: "2.2 Barcode Chart"
         }
 
         // Initialize the SVG Element
-        chart.svgInit = function(svg) {
+        function svgInit(svg) {
             // Set the SVG size
             svg
                 .attr('width', width)
@@ -354,7 +356,7 @@ title: "2.2 Barcode Chart"
             t = (n > 0) ? data[n - 1].date : new Date();
 
         // Append items with increasing times in the data array.
-        for (var k = 0; k < numItems; k += 1) {
+        for (var k = 0; k < numItems - 1; k += 1) {
             t = new Date(t.getTime() + randomInterval(avgSeconds));
             data.push({date: t});
         }
@@ -403,7 +405,7 @@ title: "2.2 Barcode Chart"
                     svg = div.selectAll('svg').data([data]);
 
                 // SVG Initialization.
-                svg.enter().append('svg').call(chart.svgInit);
+                svg.enter().append('svg').call(svgInit);
 
                 // Compute the horizontal scale.
                 var xScale = d3.time.scale()
@@ -428,7 +430,7 @@ title: "2.2 Barcode Chart"
         }
 
         // Initialize the SVG Element
-        chart.svgInit = function(svg) {
+        function svgInit(svg) {
             // Set the SVG size
             svg
                 .attr('width', width)
@@ -522,7 +524,7 @@ title: "2.2 Barcode Chart"
                     svg = div.selectAll('svg').data([data]);
 
                 // SVG Initialization.
-                svg.enter().append('svg').call(chart.svgInit);
+                svg.enter().append('svg').call(svgInit);
 
                 // Compute the time interval extent.
                 var lastDate = d3.max(data, value),
@@ -551,7 +553,7 @@ title: "2.2 Barcode Chart"
         }
 
         // Initialize the SVG Element
-        chart.svgInit = function(svg) {
+        function svgInit(svg) {
             // Set the SVG size
             svg
                 .attr('width', width)
@@ -651,7 +653,7 @@ title: "2.2 Barcode Chart"
                     svg = div.selectAll('svg').data([data]);
 
                 // SVG Initialization.
-                svg.enter().append('svg').call(chart.svgInit);
+                svg.enter().append('svg').call(svgInit);
 
                 // Compute the time interval extent.
                 var lastDate = d3.max(data, value),
@@ -687,7 +689,7 @@ title: "2.2 Barcode Chart"
         }
 
         // Initialize the SVG Element
-        chart.svgInit = function(svg) {
+        function svgInit(svg) {
             // Set the SVG size
             svg
                 .attr('width', width)
@@ -801,7 +803,7 @@ title: "2.2 Barcode Chart"
                     svg = div.selectAll('svg').data([data]);
 
                 // SVG Initialization.
-                svg.enter().append('svg').call(chart.svgInit);
+                svg.enter().append('svg').call(svgInit);
 
                 // Select the chart group and the lines in that group
                 var g = svg.select('g.chart-content'),
@@ -848,7 +850,7 @@ title: "2.2 Barcode Chart"
         }
 
         // Initialize the SVG Element
-        chart.svgInit = function(svg) {
+        function svgInit(svg) {
             // Set the SVG size
             svg
                 .attr('width', width)
