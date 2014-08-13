@@ -68,9 +68,4 @@ Base stack
 - Make (optional)
 - Blue Marble image
 
-### 12. Social Media and Collaboration
-
-- Twitter account
-- Facebook account
-- Google+ account
-- Firebase account
+### 12. Twitter Explorer Application
