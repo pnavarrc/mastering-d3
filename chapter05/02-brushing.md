@@ -52,7 +52,7 @@ title: 1D Brushing
 
                 // Initialize the svg element
                 svg.enter().append('svg')
-                    .call(chart.svgInit);
+                    .call(svgInit);
 
                 // Initialize the svg element
                 svg
@@ -110,7 +110,7 @@ title: 1D Brushing
         }
 
         // Chart Initialization
-        chart.svgInit = function(selection) {
+        var svgInit = function(selection) {
             selection.each(function(data) {
 
                 // Select the svg element
@@ -181,10 +181,13 @@ title: 1D Brushing
 
 <script>
     // Load the TSV Stock Data
-    d3.tsv('{{ site.baseurl }}/chapter05/aapl.tsv', function(error, data) {
+    d3.tsv('/chapter05/aapl.tsv', function(error, data) {
 
         // Handle errors getting or parsing the data
-        if (error) { console.error(error); }
+        if (error) {
+            console.error(error);
+            throw error;
+        }
 
         // Create and configure the area chart
         var chart = areaChart1();
@@ -235,7 +238,7 @@ title: 1D Brushing
 
                 // Initialize the svg element
                 svg.enter().append('svg')
-                    .call(chart.svgInit);
+                    .call(svgInit);
 
                 // Initialize the svg element
                 svg
@@ -293,13 +296,14 @@ title: 1D Brushing
                 // Brushing
                 // --------
 
+                function brushListener() {
+                    var brushExtent = d3.event.target.extent();
+                    console.log(brushExtent);
+                }
+
                 var brush = d3.svg.brush()
                     .x(xScale)
-                    .on('brush', function() {
-                        var brushExtent = d3.event.target.extent();
-                        console.log(brushExtent);
-                    });
-
+                    .on('brush', brushListener);
 
                 var gBrush = svg.select('g.brush')
                     .call(brush);
@@ -313,7 +317,7 @@ title: 1D Brushing
         }
 
         // Chart Initialization
-        chart.svgInit = function(selection) {
+        var svgInit = function(selection) {
             selection.each(function(data) {
 
                 // Select the svg element
@@ -392,10 +396,13 @@ title: 1D Brushing
 
 <script>
     // Load the TSV Stock Data
-    d3.tsv('{{ site.baseurl }}/chapter05/aapl.tsv', function(error, data) {
+    d3.tsv('/chapter05/aapl.tsv', function(error, data) {
 
         // Handle errors getting or parsing the data
-        if (error) { console.error(error); }
+        if (error) {
+            console.error(error);
+            throw error;
+        }
 
         // Create and configure the area chart
         var chart = areaChart2();
@@ -433,7 +440,7 @@ title: 1D Brushing
 
                 // Initialize the svg element
                 svg.enter().append('svg')
-                    .call(chart.svgInit);
+                    .call(svgInit);
 
                 // Initialize the svg element
                 svg
@@ -490,18 +497,19 @@ title: 1D Brushing
 
                 // Brush Listener function
                 function brushListener() {
-                    var s = d3.event.target.extent(),
-                        dateA = s[0],
-                        dateB = s[1],
-                        priceA = 0,
-                        priceB = 0,
-                        dPrice = 0,
-                        priceData = [];
+                    var s = d3.event.target.extent();
 
                     // Filter the items within the brush extent
                     var items = data.filter(function(d) {
                             return (s[0] <= d.date) && (d.date <= s[1]);
                         });
+
+                    var dateA = s[0],
+                        dateB = s[1],
+                        priceA = 0,
+                        priceB = 0,
+                        dPrice = 0,
+                        priceData = [];
 
                     // Compute the percentual variation of the period
                     if (items.length > 2) {
@@ -567,7 +575,7 @@ title: 1D Brushing
         }
 
         // Chart Initialization
-        chart.svgInit = function(selection) {
+        var svgInit = function(selection) {
             selection.each(function(data) {
 
                 // Select the svg element
@@ -664,7 +672,7 @@ title: 1D Brushing
 
 <script>
     // Load the TSV Stock Data
-    d3.tsv('{{ site.baseurl }}/chapter05/aapl.tsv', function(error, data) {
+    d3.tsv('/chapter05/aapl.tsv', function(error, data) {
 
         // Handle errors getting or parsing the data
         if (error) { console.error(error); }

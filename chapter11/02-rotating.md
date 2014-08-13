@@ -14,7 +14,7 @@ title: 11.2 Rotating Globe
 <div id="map-orthographic-clip"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
+    d3.json('/chapter11/data/land.json', function(error, data) {
 
         if (error) { console.error(error); }
 
@@ -63,7 +63,7 @@ title: 11.2 Rotating Globe
 <div id="map-zoom-orthographic"></div>
 
 <script>
-    d3.json('{{site.baseurl}}/chapter11/data/land.json', function(error, data) {
+    d3.json('/chapter11/data/land.json', function(error, data) {
 
         if (error) { console.error(error); }
 

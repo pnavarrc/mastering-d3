@@ -31,7 +31,7 @@ app.StockAppModel = Backbone.Model.extend({
 
     fetchData: function() {
 
-        var self = this,
+        var that = this,
             stock = this.getStock(),
             url,
             dateExtent;
@@ -44,22 +44,21 @@ app.StockAppModel = Backbone.Model.extend({
 
                 if (error) { return error; }
 
-                //
                 data.values.forEach(function(d) {
                     d.date = new Date(d.date);
                     d.price = +d.price;
                 });
 
                 // Set the stock data
-                self.set('data', data.values);
+                that.set('data', data.values);
 
                 // Set the initial time interval, if not set
-                if ((!self.get('from')) || (!self.get('to'))) {
+                if ((!that.get('from')) || (!that.get('to'))) {
                     dateExtent = d3.extent(data.values, function(d) {
                         return d.date;
                     });
 
-                    self.set({from: dateExtent[0], to: dateExtent[1]});
+                    that.set({from: dateExtent[0], to: dateExtent[1]});
                 }
             });
         }

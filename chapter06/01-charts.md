@@ -3,7 +3,7 @@ layout: default
 title: Stock Charts
 ---
 
-<script src="{{ site.baseurl }}/chapter06/stocks/js/lib/stockcharts.js"></script>
+<script src="/chapter06/stocks/js/lib/stockcharts.js"></script>
 
 <div>
     <style>
@@ -49,30 +49,6 @@ title: Stock Charts
         .call(titleChart);
 </script>
 
-<h2 class="section-subtitle">Stock Area Chart: Selecting the Time Interval</h2>
-
-<div id="chart02"></div>
-
-<script>
-    var contextAreaChart = stockAreaChart()
-        .height(60)
-        .value(function(d) { return +d.price; })
-        .yaxis(false)
-        .brushListener(function(extent) {
-            console.log(extent);
-        });
-
-    d3.json('{{ site.baseurl }}/chapter06/stocks/data/aapl.json', function(error, json) {
-
-        if (error) { return error; }
-
-        d3.select('div#chart02')
-            .data([json.values])
-            .call(contextAreaChart);
-    });
-</script>
-
-
 <h2 class="section-subtitle">Stock Area Chart: Time Extent</h2>
 
 <div id="chart03"></div>
@@ -82,7 +58,7 @@ title: Stock Charts
         .value(function(d) { return d.price; })
         .brush(false);
 
-    d3.json('{{ site.baseurl }}/chapter06/stocks/data/aapl.json', function(error, json) {
+    d3.json('/chapter06/stocks/data/aapl.json', function(error, json) {
 
         if (error) { return error; }
 
@@ -97,4 +73,33 @@ title: Stock Charts
             .call(detailAreaChart);
     });
 </script>
+
+
+<h2 class="section-subtitle">Stock Area Chart: Selecting the Time Interval</h2>
+
+<div id="chart02"></div>
+
+<script>
+    var contextAreaChart = stockAreaChart()
+        .height(60)
+        .value(function(d) { return d.price; })
+        .yaxis(false)
+        .brushListener(function(extent) {
+            console.log(extent);
+        });
+
+    d3.json('/chapter06/stocks/data/aapl.json', function(error, json) {
+
+        if (error) {
+            throw error;
+        }
+
+        d3.select('div#chart02')
+            .data([json.values])
+            .call(contextAreaChart);
+    });
+</script>
+
+
+
 

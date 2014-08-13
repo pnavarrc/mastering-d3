@@ -73,7 +73,8 @@ title: "4.2 Creating a Color Picker"
 <script>
     // Figure attributes
     var width = 600,
-        height = 60;
+        height = 60,
+        offset = 30;
 
     var svg = d3.select('#chart01').append('svg')
         .attr('width', width)
@@ -85,7 +86,7 @@ title: "4.2 Creating a Color Picker"
 
     // Create a group for the color picker and translate it.
     var grp = svg.append('g')
-        .attr('transform', 'translate(30, 30)')
+        .attr('transform', 'translate(' + [offset, offset] + ')')
         .call(picker);
 </script>
 
@@ -121,11 +122,11 @@ title: "4.2 Creating a Color Picker"
                     .attr('fill', function(d) { return d; })
                     .attr('stroke', '#222')
                     .attr('stroke-width', 1)
-                    .on('click', openPicker);
+                    .on('click', onClick);
             });
         }
 
-        var openPicker = function(d) {
+        var onClick = function(d) {
             // Select the color picker div and bind the data.
             var div = d3.select('body')
                 .selectAll('div.color-picker')

@@ -66,13 +66,11 @@ title: "3.3 Canvas and D3"
 
 <script>
     // Number of Nodes
-    var nNodes = 250;
+    var nNodes = 250,
+        createLink = false;
 
     // Dataset Structure
-    var data = {
-        nodes: [],
-        links: []
-    };
+    var data = {nodes: [], links: []};
 
     // Iterate in the nodes
     for (var k = 0; k < nNodes; k += 1) {
@@ -83,7 +81,7 @@ title: "3.3 Canvas and D3"
         for (var j = k + 1; j < nNodes; j += 1) {
 
             // Only create links if the indexes are closer, with probability 0.1
-            var createLink = (Math.random() < 0.1) && (Math.abs(k - j) < 8);
+            createLink = (Math.random() < 0.1) && (Math.abs(k - j) < 8);
 
             if (createLink) {
                 // Append a link with variable distance between the nodes.
@@ -135,7 +133,7 @@ title: "3.3 Canvas and D3"
         data.nodes.forEach(function(d, i) {
             // Draws a complete arc for each node.
             context.beginPath();
-            context.arc(d.x, d.y, d.radius, 0, 2 * Math.PI);
+            context.arc(d.x, d.y, d.radius, 0, 2 * Math.PI, true);
             context.fill();
         });
     });

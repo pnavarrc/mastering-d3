@@ -13,9 +13,9 @@ title: 10.1 Countries GeoJSON File
 
 <script type="text/javascript">
 
-    var url = '{{site.baseurl}}/chapter10/data/countries.geojson';
+    var geoJsonUrl = '{{site.baseurl}}/chapter10/data/countries.geojson';
 
-    d3.json(url, function(error, geodata) {
+    d3.json(geoJsonUrl, function(error, geodata) {
 
         // Handles errors getting and parsing the data
         if (error) { return error; }
