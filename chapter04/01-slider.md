@@ -86,8 +86,7 @@ title: "4.1 Creating a Slider"
                 // Append a circle as handler.
                 var handle = group.selectAll('circle')
                     .data([data])
-                    .enter()
-                    .append('circle')
+                    .enter().append('circle')
                     .call(chart.initHandle);
 
                 // Set the position scale.
@@ -95,14 +94,15 @@ title: "4.1 Creating a Slider"
                     .domain(domain)
                     .range([0, width]);
 
+
+                // Set the position of the circle and adds the drag behavior.
+                handle.attr('cx', function(d) { return posScale(d); });
+
                 // Create and configure the drag behavior.
                 var drag = d3.behavior.drag()
                     .on('drag', moveHandle);
 
-                // Set the position of the circle and adds the drag behavior.
-                handle
-                    .attr('cx', function(d) { return posScale(d); })
-                    .call(drag);
+                handle.call(drag);
 
                 function moveHandle(d) {
                     // Compute the future position of the handle
@@ -124,8 +124,8 @@ title: "4.1 Creating a Slider"
         chart.initLine = function(selection) {
             selection
                 .attr('x1', 2)
-                .attr('x2', width - 2)
-                .attr('stroke', '#555')
+                .attr('x2', width - 4)
+                .attr('stroke', '#777')
                 .attr('stroke-width', 4)
                 .attr('stroke-linecap', 'round');
         };
