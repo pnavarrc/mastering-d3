@@ -4,12 +4,12 @@ title: "3.2 Polyfills"
 ---
 
 <div>
-    <script src="{{site.baseurl}}/assets/js/lib/modernizr-latest.js" charset="utf-8"></script>
+    <script src="/assets/js/lib/modernizr-latest.js" charset="utf-8"></script>
 
     <!-- Canvg Libraries -->
-    <script src="{{site.baseurl}}/assets/js/lib/rgbcolor.js"></script>
-    <script src="{{site.baseurl}}/assets/js/lib/StackBlur.js"></script>
-    <script src="{{site.baseurl}}/assets/js/lib/canvg.js"></script>
+    <script src="/assets/js/lib/rgbcolor.js"></script>
+    <script src="/assets/js/lib/StackBlur.js"></script>
+    <script src="/assets/js/lib/canvg.js"></script>
 </div>
 
 <h1 class="section-title">{{page.title}}</h1>
@@ -78,10 +78,7 @@ title: "3.2 Polyfills"
         .attr('cy', function(d) { return d.y; })
         .attr('r', function(d) { return rScale(d.z); })
         .attr('fill', function(d) { return cScale(d.z); })
-        .attr('fill-opacity', 0.9)
-        .on('click', function(d) {
-            d3.select(this).attr('fill', '#0000aa');
-        });
+        .attr('fill-opacity', 0.9);
 
     // Replace all the SVG elements by canvas drawings.
     canvg();
