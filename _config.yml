@@ -4,7 +4,6 @@ source: .
 destination: html
 lsi: false
 markdown: rdiscount
-pygments: true
 permalink: pretty
 exclude:
     - bower_components
