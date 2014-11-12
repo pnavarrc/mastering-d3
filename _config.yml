@@ -1,7 +1,7 @@
 # Jekyll Configuration
 safe: true
 source: .
-destination: html
+destination: dist/mastering-d3-html
 lsi: false
 markdown: rdiscount
 permalink: pretty

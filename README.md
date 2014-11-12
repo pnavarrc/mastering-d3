@@ -15,30 +15,41 @@ The book is available in paperback and as DRM-free ebook (mobi, epub and PDF ver
 
 ## Downloads
 
-- [HTML Version]()
-- [Jekyll]()
+The files are distributed in two versions, ready to use HTML files and the original source code, written in [Jekyll](http://jekyllrb.com/).  
+
+- [HTML Version](dist/mastering-d3-html.zip)
+- [Jekyll Version](https://github.com/pnavarrc/mastering-d3/archive/1.9.11.zip)
+
+The code can also be downloaded using git:
+
+    $ git clone https://github.com/pnavarrc/mastering-d3.git
 
 ## Instructions
 
 ### HTML Version
 
-To run the examples, static server. With Python:
+Download the [HTML version](dist/mastering-d3-html.zip) of the code bundle and unzip the contents. From the project directory, serve the contents using a static server. Using Python, the files can be served by running:
 
-    $ python -m SimpleHTTPServer
+    $ python -m SimpleHTTPServer 
 
-Node
+And opening the web browser at `http://localhost:8000/`. With node, the project files can be served by running the command:
 
     $ http-server
 
-### Jekyll
+and opening the browser at `http://localhost:8080/`. The port number may be different across systems, but the address is displayed in the console after running the command.
+
+### Jekyll Version
 
 Install [Jekyll](http://jekyllrb.com/) and the rdiscount package:
 
     $ [sudo] gem install jekyll rdiscount
 
-Run the 
+From the project directory, run the following command:
 
     $ jekyll serve --baseurl=
+
+and then open the browser at http://localhost:4000. The port number can be different, but it will be displayed in the console after running the command.
+
 
 
 
