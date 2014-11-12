@@ -18,7 +18,7 @@ The book is available in paperback and as DRM-free ebook (mobi, epub and PDF ver
 The files are distributed in two versions, ready to use HTML files and the original source code, written in [Jekyll](http://jekyllrb.com/).  
 
 - [HTML Version](dist/mastering-d3-html.zip)
-- [Jekyll Version](https://github.com/pnavarrc/mastering-d3/archive/1.9.11.zip)
+- [Jekyll Version](https://github.com/pnavarrc/mastering-d3/archive/2.0.0.zip)
 
 The code can also be downloaded using git:
 
