@@ -46,7 +46,7 @@ title: Mastering D3.js
     - [10.1 Countries GeoJSON file]({{site.baseurl}}/chapter10/01-countries-geojson)
     - [10.2 Creating a Chloroplet Map]({{site.baseurl}}//chapter10/02-chloropleth-map)
     - [10.3 Countries TopoJSON file]({{site.baseurl}}//chapter10/03-countries-topojson-map)
-    - [10.4 Mapping Topology]({{site.baseurl}}//chapter10/04-mapping-topology)
+    - [10.4 Mapping Topology]({{site.baseurl}}/chapter10/04-mapping-topology)
     - [10.5 Integrating D3 and Mapbox]({{site.baseurl}}/chapter10/05-mapbox)
 
 - [11. Creating Advanced Maps]({{ site.baseurl }}/chapter11)

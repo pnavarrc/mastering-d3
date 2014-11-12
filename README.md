@@ -1,71 +1,56 @@
 # Mastering D3.js
 
-Example code for the upcoming book _Mastering D3.js_.
+Code examples for the book _[Mastering D3.js](https://www.packtpub.com/web-development/mastering-d3js)_, published in August 2014 by Packt Publishing.
 
-## Required Software
+<img src="assets/img/mastering-d3-cover-centered.png" alt="book cover">
 
-Base stack
+## About the Book
 
-- Web Browser
-- Text Editor
-- D3
-- Jekyll
-- Terminal
+This is a practical guide with real-world examples that will help you to create custom charts, and integrate them with third-party libraries to create rich, engaging data-driven applications. Starting with the reusable chart pattern, we will take you through designing and creating complex, real-time data visualizations.
 
-### 2. Reusable Charts
+You will learn how to create reusable D3-based charts and integrate them into data visualization projects. You will get to know how to create and distribute a custom charting package. You will get acquainted with how to integrate D3 with mapping libraries to provide reverse geocoding and interactive maps. This book culminates by showing you how to create enterprise-level das
+hboards to display real-time data.
 
-### 3. Beyond SVG
+The book is available in paperback and as DRM-free ebook (mobi, epub and PDF versions) at [Packt Publishing](https://www.packtpub.com/web-development/mastering-d3js), [Amazon](http://www.amazon.com/Mastering-D3-js-Pablo-Navarro/dp/178328627X/), [Barnes and Noble](http://www.barnesandnoble.com/w/mastering-d3js-pablo-navarro/1118701328?ean=9781783286270) and [O'Reilly](http://shop.oreilly.com/product/9781783286270.do).
 
-- Canvg
-- Modernizr
+## Downloads
 
-### 4. Creating UI Elements with D3
+The files are distributed in two versions, ready to use HTML files and the original source code, written in [Jekyll](http://jekyllrb.com/).  
 
-### 5. Creating User Interface Elements
+- [HTML Version](dist/mastering-d3-html.zip)
+- [Jekyll Version](https://github.com/pnavarrc/mastering-d3/archive/1.9.11.zip)
 
-### 6. Interaction Between Charts
+The code can also be downloaded using git:
 
-- Backbone
-- Underscore
-- jQuery
+    $ git clone https://github.com/pnavarrc/mastering-d3.git
 
-### 7. Creating a Charting Package
+## Instructions
 
-- Node
-- Node Packages
-    - Grunt
-    - Vows
-    - JSDOM
-    - Bower
+### HTML Version
 
-### 8. Data Driven Applications
+Download the [HTML version](dist/mastering-d3-html.zip) of the code bundle and unzip the contents. From the project directory, serve the contents using a static server. Using Python, the files can be served by running:
 
-- Backbone
-- World Bank API
-- Typeahead
-- GitHub account
-- Git
-- Amazon S3 (paid)
-- S3 CMD
+    $ python -m SimpleHTTPServer 
 
-### 9. Creating a Dashboard
+And opening the web browser at `http://localhost:8000/`. With node, the project files can be served by running the command:
 
-- Bootstrap
+    $ http-server
 
-### 10. Creating Maps
+and opening the browser at `http://localhost:8080/`. The port number may be different across systems, but the address is displayed in the console after running the command.
 
-- Natural Earth Data
-- GDAL
-- Make (optional)
-- TopoJSON
-- Mapbox Account
-- Mapbox JS
+### Jekyll Version
 
-### 11. Advanced Maps
+Install [Jekyll](http://jekyllrb.com/) and the rdiscount package:
 
-- TopoJSON
-- Star Catalogue
-- Make (optional)
-- Blue Marble image
+    $ [sudo] gem install jekyll rdiscount
 
-### 12. Twitter Explorer Application
+From the project directory, run the following command:
+
+    $ jekyll serve --baseurl=
+
+and then open the browser at http://localhost:4000. The port number can be different, but it will be displayed in the console after running the command.
+
+
+
+
+
