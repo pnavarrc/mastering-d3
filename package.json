@@ -1,6 +1,6 @@
 {
   "name": "mastering-d3",
-  "version": "1.9.11",
+  "version": "2.0.0",
   "description": "Companion code for the book Mastering D3.js",
   "main": "Gruntfile.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "mastering-d3"
   ],
   "author": "Pablo Navarro Castillo <pnavarrc@gmail.com>",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pnavarrc/mastering-d3/issues"
   },
