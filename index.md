@@ -16,9 +16,9 @@ title: Mastering D3.js
     - [3.2 Polyfills]({{ site.baseurl }}/chapter03/02-polyfills)
     - [3.3 Canvas and D3]({{ site.baseurl }}/chapter03/03-canvas)
 
-- [4. Creating UI Elements with D3]({{ site.baseurl }}/chapter04/index.html)
-    - [4.1 Creating a Slider]({{ site.baseurl }}/chapter04/01-slider.html)
-    - [4.2 Creating a Color Picker]({{ site.baseurl }}/chapter04/02-color-picker.html)
+- [4. Creating UI Elements with D3]({{ site.baseurl }}/chapter04/index)
+    - [4.1 Creating a Slider]({{ site.baseurl }}/chapter04/01-slider)
+    - [4.2 Creating a Color Picker]({{ site.baseurl }}/chapter04/02-color-picker)
 
 - [5. Creating User Interface Elements]({{ site.baseurl }}/chapter05)
     - [5.1 Tooltips and Highlighting]({{ site.baseurl }}/chapter05/01-highlight)
